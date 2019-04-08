@@ -1,0 +1,582 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARGSPARSEERROR	head.h	29;"	d
+AllocMem	Mathops.cpp	/^void Matrix::AllocMem ()$/;"	f	class:Matrix
+CHECKNUM	head.h	31;"	d
+CLOCK_REALTIME	DataType.h	72;"	d
+Config	config.cpp	/^Config::Config( string filename, string delimiter,$/;"	f	class:Config
+Config	config.cpp	/^Config::Config()$/;"	f	class:Config
+Config	config.h	/^class Config {$/;"	c
+DROPOUT_V2	DataType.h	12;"	d
+DeleteIndexfile	fileops.cpp	/^void ReadFileBuf::DeleteIndexfile()$/;"	f	class:ReadFileBuf
+DeleteMat	layer.cpp	/^void DeleteMat (matrix *ptr)$/;"	f
+DeleteMatVec	layer.cpp	/^void DeleteMatVec (vector<matrix *> matvec)$/;"	f
+EOL	head.h	30;"	d
+FILEPTR	fileops.h	/^    FILEPTR()$/;"	f	class:FILEPTR
+FILEPTR	fileops.h	/^class FILEPTR$/;"	c
+FILEREADERROR	head.h	28;"	d
+FileExist	config.cpp	/^bool Config::FileExist(std::string filename)$/;"	f	class:Config
+FillBuffer	fileops.cpp	/^void ReadFileBuf::FillBuffer()$/;"	f	class:ReadFileBuf
+GetData	fileops.h	/^    void GetData(int index, int *indata, int *outdata)$/;"	f	class:ReadFileBuf
+Getdatapoint	Mathops.h	/^    int ** Getdatapoint () { return data;}$/;"	f	class:Matrix
+Getncols	Mathops.h	/^	inline ulint32 Getncols () { return n_col; }$/;"	f	class:Matrix
+Getnrows	Mathops.h	/^	inline ulint32 Getnrows () { return n_row; }$/;"	f	class:Matrix
+INPUT_PAD_INT	DataType.h	25;"	d
+INVALID_INT	DataType.h	24;"	d
+Indata	fileops.h	/^    int *Indata, *Outdata, *featureindices;$/;"	m	class:ReadFileBuf
+Indexword	fileops.cpp	/^void ReadFileBuf::Indexword(string word, int &Inindex, int &Outindex)$/;"	f	class:ReadFileBuf
+Init	Mathops.cpp	/^void Matrix::Init ()$/;"	f	class:Matrix
+Init	fileops.cpp	/^void ReadFileBuf::Init()$/;"	f	class:ReadFileBuf
+InitVariables	rnnlm.cpp	/^void RNNLM::InitVariables ()$/;"	f	class:RNNLM
+KeyExists	config.cpp	/^bool Config::KeyExists( const string& key ) const$/;"	f	class:Config
+L2norm	cudamatrix.h	/^    void L2norm (float gradient_cutoff, float *devnorm, int minibatch)$/;"	f	class:matrix
+LoadRNNLM	rnnlm.cpp	/^void RNNLM::LoadRNNLM(string modelname)$/;"	f	class:RNNLM
+LoadTextRNNLM_new	rnnlm.cpp	/^void RNNLM::LoadTextRNNLM_new (string modelname)$/;"	f	class:RNNLM
+MAXRANDINITVALUE	DataType.h	50;"	d
+MAX_STRING	DataType.h	26;"	d
+MAX_WORD_LINE	head.h	32;"	d
+MINRANDINITVALUE	DataType.h	49;"	d
+Matrix	Mathops.cpp	/^Matrix::Matrix ()$/;"	f	class:Matrix
+Matrix	Mathops.cpp	/^Matrix::Matrix (Matrix &mat, bool copy)$/;"	f	class:Matrix
+Matrix	Mathops.cpp	/^Matrix::Matrix (ulint32 nrow, ulint32 ncol)$/;"	f	class:Matrix
+Matrix	Mathops.h	/^class Matrix$/;"	c
+NUM_THREAD	DataType.h	31;"	d
+Outdata	fileops.h	/^    int *Indata, *Outdata, *featureindices;$/;"	m	class:ReadFileBuf
+Pf	layer.h	/^    matrix *Pi, *Pf, *Po;$/;"	m	class:lstmlayer
+Phw	layer.h	/^    matrix *Uhw, *Phw, *Rhw;$/;"	m	class:lstmhighwaylayer
+Pi	layer.h	/^    matrix *Pi, *Pf, *Po;$/;"	m	class:lstmlayer
+Po	layer.h	/^    matrix *Pi, *Pf, *Po;$/;"	m	class:lstmlayer
+RAND48	head.h	26;"	d
+RAND48_ADD	rand48.c	31;"	d	file:
+RAND48_MULT_0	rand48.c	28;"	d	file:
+RAND48_MULT_1	rand48.c	29;"	d	file:
+RAND48_MULT_2	rand48.c	30;"	d	file:
+RAND48_SEED_0	rand48.c	25;"	d	file:
+RAND48_SEED_1	rand48.c	26;"	d	file:
+RAND48_SEED_2	rand48.c	27;"	d	file:
+RELURATIO	DataType.h	46;"	d
+RESETVALUE	DataType.h	36;"	d
+RNNLM	rnnlm.cpp	/^RNNLM::RNNLM(string inmodelfile_1, string inputwlist_1, string outputwlist_1, int fvocsize, bool bformat, int debuglevel, int mbsize\/*=1*\/, int cksize\/*=1*\/, int dev\/*=0*\/):inmodelfile(inmodelfile_1), inputwlist(inputwlist_1), outputwlist(outputwlist_1), binformat(bformat),  debug(debuglevel)$/;"	f	class:RNNLM
+RNNLM	rnnlm.h	/^class RNNLM$/;"	c
+Read	config.h	/^T Config::Read( const std::string& key ) const$/;"	f	class:Config
+Read	config.h	/^T Config::Read( const std::string& key, const T& value ) const$/;"	f	class:Config
+Read	cudamatrix.h	/^    void Read (FILE *fptr)$/;"	f	class:matrix
+Read	layer.cpp	/^void feedforwardlayer::Read (FILE *fptr)$/;"	f	class:feedforwardlayer
+Read	layer.cpp	/^void gruhighwaylayer::Read (FILE *fptr)$/;"	f	class:gruhighwaylayer
+Read	layer.cpp	/^void grulayer::Read (FILE *fptr)$/;"	f	class:grulayer
+Read	layer.cpp	/^void inputlayer::Read (FILE *fptr)$/;"	f	class:inputlayer
+Read	layer.cpp	/^void linearlayer::Read (FILE *fptr)$/;"	f	class:linearlayer
+Read	layer.cpp	/^void lstmhighwaylayer::Read (FILE *fptr)$/;"	f	class:lstmhighwaylayer
+Read	layer.cpp	/^void lstmlayer::Read (FILE *fptr)$/;"	f	class:lstmlayer
+Read	layer.cpp	/^void outputlayer::Read (FILE *fptr)$/;"	f	class:outputlayer
+Read	layer.cpp	/^void recurrentlayer::Read (FILE *fptr)$/;"	f	class:recurrentlayer
+Read	layer.h	/^    virtual void Read (FILE *fptr)$/;"	f	class:layer
+ReadFeaFile	layer.cpp	/^void inputlayer::ReadFeaFile (string filestr)$/;"	f	class:inputlayer
+ReadFeaFile	layer.h	/^    virtual void ReadFeaFile (string str)$/;"	f	class:layer
+ReadFile	config.cpp	/^void Config::ReadFile( string filename, string delimiter,$/;"	f	class:Config
+ReadFileBuf	fileops.cpp	/^ReadFileBuf::ReadFileBuf(string txtfile, WORDMAP &inmap, WORDMAP &outmap, int mbsize, int csize, int num_fea\/*= false*\/, int rint\/* = -1*\/): filename(txtfile), inputmap(inmap), outputmap(outmap), minibatch(mbsize), cachesize(csize), Indata(NULL), Outdata(NULL), inputbufptr(NULL), outputbufptr(NULL), mbcnter(0)$/;"	f	class:ReadFileBuf
+ReadFileBuf	fileops.h	/^class ReadFileBuf$/;"	c
+ReadInto	config.h	/^bool Config::ReadInto( T& var, const std::string& key ) const$/;"	f	class:Config
+ReadInto	config.h	/^bool Config::ReadInto( T& var, const std::string& key, const T& value ) const$/;"	f	class:Config
+ReadWordlist	rnnlm.cpp	/^void RNNLM::ReadWordlist (string inputlist, string outputlist)$/;"	f	class:RNNLM
+Remove	config.cpp	/^void Config::Remove( const string& key )$/;"	f	class:Config
+Rhw	layer.h	/^    matrix *Uhw, *Phw, *Rhw;$/;"	m	class:lstmhighwaylayer
+SIMPLEUPDATEINPUTLYAER	DataType.h	22;"	d
+SUCCESS	head.h	27;"	d
+Sizeof	cudamatrix.h	/^    size_t Sizeof ()$/;"	f	class:matrix
+Trim	config.cpp	/^void Config::Trim( string& inout_s )$/;"	f	class:Config
+U	layer.h	/^    matrix *U;$/;"	m	class:layer
+U_fea	layer.h	/^    matrix *U_fea;$/;"	m	class:inputlayer
+Uf	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Uh	layer.h	/^    matrix *Wr, *Wz, *Wh, *Ur, *Uz, *Uh;$/;"	m	class:grulayer
+Uhw	layer.h	/^    matrix *Uhw, *Phw, *Rhw;$/;"	m	class:lstmhighwaylayer
+Uhw	layer.h	/^    matrix *Uhw, *Whw;$/;"	m	class:gruhighwaylayer
+Ui	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Uo	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Ur	layer.h	/^    matrix *Wr, *Wz, *Wh, *Ur, *Uz, *Uh;$/;"	m	class:grulayer
+Uz	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Uz	layer.h	/^    matrix *Wr, *Wz, *Wh, *Ur, *Uz, *Uh;$/;"	m	class:grulayer
+W	layer.h	/^    matrix *W, *hidden_ac;$/;"	m	class:recurrentlayer
+WORDMAP	head.h	/^typedef     map<string, int>    WORDMAP;$/;"	t
+Wf	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Wh	layer.h	/^    matrix *Wr, *Wz, *Wh, *Ur, *Uz, *Uh;$/;"	m	class:grulayer
+Whw	layer.h	/^    matrix *Uhw, *Whw;$/;"	m	class:gruhighwaylayer
+Wi	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Wo	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Wr	layer.h	/^    matrix *Wr, *Wz, *Wh, *Ur, *Uz, *Uh;$/;"	m	class:grulayer
+Write	cudamatrix.h	/^    void Write (FILE *fptr)$/;"	f	class:matrix
+Wz	layer.h	/^    matrix *Uz, *Ui, *Uf, *Uo, *Wz, *Wi, *Wf, *Wo;$/;"	m	class:lstmlayer
+Wz	layer.h	/^    matrix *Wr, *Wz, *Wh, *Ur, *Uz, *Uh;$/;"	m	class:grulayer
+_CUDAMATRIX_H__	cudamatrix.h	2;"	d
+_DATATYPE_DEF_H__	DataType.h	4;"	d
+_LAYER_H__	layer.h	2;"	d
+_MATHOPS_H__	Mathops.h	2;"	d
+__HEAD_HELPER__	helper.cpp	2;"	d	file:
+__HEAD_HELPER__	helper.h	2;"	d
+__HEAD_H__	head.h	2;"	d
+__MACRO_H__	macro.h	2;"	d
+_dorand48	rand48.c	/^_dorand48(unsigned short xseed[3])$/;"	f
+_rand48_add	rand48.c	/^unsigned short _rand48_add = RAND48_ADD;$/;"	v
+_rand48_mult	rand48.c	/^unsigned short _rand48_mult[3] = {$/;"	v
+_rand48_seed	rand48.c	/^unsigned short _rand48_seed[3] = {$/;"	v
+ac_fea	layer.h	/^    matrix *ac_fea;$/;"	m	class:inputlayer
+ac_fea_vec	layer.h	/^    vector<matrix *> ac_fea_vec;$/;"	m	class:inputlayer
+accprob	fileops.h	/^    double *unigram, *accprob;$/;"	m	class:ReadFileBuf
+acctime	DataType.h	/^    real acctime;$/;"	m	class:auto_timer
+add	DataType.h	/^    void add()$/;"	f	class:auto_timer
+add	cudamatrix.h	/^    void add (matrix *other)$/;"	f	class:matrix
+addOneMinus	cudamatrix.h	/^    void addOneMinus (matrix *other)$/;"	f	class:matrix
+addProduct	cudamatrix.h	/^    void addProduct (matrix *other1, matrix *other2)$/;"	f	class:matrix
+addScalar	cudamatrix.h	/^    void addScalar (float v)$/;"	f	class:matrix
+addadagrad	cudamatrix.h	/^    void addadagrad (matrix *dU, matrix *accsdU, float alpha, float l2reg)$/;"	f	class:matrix
+adddotMultiply	cudamatrix.h	/^    void  adddotMultiply (matrix *peelhole, matrix *c)$/;"	f	class:matrix
+addgrad	cudamatrix.h	/^    void addgrad (matrix *other, float alpha, float l2reg)$/;"	f	class:matrix
+addgrad_NCE	cudamatrix.h	/^    void addgrad_NCE (matrix *gradwgt, int *targetsample, int ntargetsample, int *ncesample, int nncesample, float alpha)$/;"	f	class:matrix
+addgrad_word	cudamatrix.h	/^    void addgrad_word (matrix *gradlayer0_word, int *prevwords, int minibatch)$/;"	f	class:matrix
+addhostvalue	cudamatrix.h	/^    real addhostvalue (size_t i, size_t j, real v)$/;"	f	class:matrix
+addpeepholegrad	cudamatrix.h	/^    void addpeepholegrad (matrix *other, float alpha, float l2reg)$/;"	f	class:matrix
+addsquaregrad	cudamatrix.h	/^    void addsquaregrad (matrix *other, float gamma, float beta)$/;"	f	class:matrix
+addsubmatrix	cudamatrix.h	/^    void addsubmatrix (matrix *other, int i0, int j0, int nr, int nc, real alpha=1.0, real beta = 1.0)$/;"	f	class:matrix
+allocRNNMem	rnnlm.cpp	/^void RNNLM::allocRNNMem (bool flag_alloclayers\/*=true*\/)$/;"	f	class:RNNLM
+allocWordMem	rnnlm.cpp	/^void RNNLM::allocWordMem ()$/;"	f	class:RNNLM
+alpha	rnnlm.h	/^    float logp, llogp, gradient_cutoff, l2reg, alpha, momentum, min_improvement,$/;"	m	class:RNNLM
+alpha_divide	rnnlm.h	/^    bool alpha_divide, binformat, flag_nceunigram;$/;"	m	class:RNNLM
+argc	helper.h	/^    int argc;$/;"	m	class:arguments
+argmap	helper.h	/^    map <string, string> argmap;$/;"	m	class:arguments
+arguments	helper.h	/^    arguments(int n, char **v): argc(n-1), argv(v+1)$/;"	f	class:arguments
+arguments	helper.h	/^class arguments$/;"	c
+argv	helper.h	/^    char **argv;$/;"	m	class:arguments
+assign	cudamatrix.h	/^    void assign ()$/;"	f	class:matrix
+assign	cudamatrix.h	/^    void assign (matrix *other)$/;"	f	class:matrix
+assign	cudamatrix.h	/^    void assign (size_t i0, size_t j0, size_t nr, size_t nc, matrix* &other)$/;"	f	class:matrix
+assigncurword	layer.h	/^    virtual void assigncurword (int n)  {curword = n;}$/;"	f	class:outputlayer
+assigncurword	layer.h	/^    virtual void assigncurword (int n)$/;"	f	class:layer
+assigndevcolumnvalue	cudamatrix.h	/^    void assigndevcolumnvalue (size_t j, real v)$/;"	f	class:matrix
+assigndevvalue	cudamatrix.h	/^    void assigndevvalue (size_t i, size_t j, real v)$/;"	f	class:matrix
+assignhostvalue	cudamatrix.h	/^    void assignhostvalue (size_t i, size_t j, real v)$/;"	f	class:matrix
+assignmatvalue	cudamatrix.h	/^    void assignmatvalue (real v)$/;"	f	class:matrix
+assignneu0ac	cudamatrix.h	/^    void assignneu0ac (int *prevwords, size_t mb, real v)$/;"	f	class:matrix
+assignsubmatrix	cudamatrix.h	/^    void assignsubmatrix (matrix *other, int i0, int j0, int nr, int nc)$/;"	f	class:matrix
+assignvalue	cudamatrix.h	/^    void assignvalue(size_t i,size_t j, real v)$/;"	f	class:matrix
+auto_timer	DataType.h	/^    auto_timer ()$/;"	f	class:auto_timer
+auto_timer	DataType.h	/^class auto_timer$/;"	c
+binformat	rnnlm.h	/^    bool alpha_divide, binformat, flag_nceunigram;$/;"	m	class:RNNLM
+bperWordlayer	cudamatrix.cpp	/^void bperWordlayer (matrix *layers, matrix *srcer, matrix *tgter, int *curclass, int *classinfo, float alpha, float beta)$/;"	f
+bpupdateWordlayer	cudamatrix.cpp	/^void bpupdateWordlayer (matrix *ac, matrix *er, matrix *layers, int *curclass, int *classinfo, float alpha, float beta)$/;"	f
+c	layer.h	/^    matrix *r, *z, *c, *h_;$/;"	m	class:grulayer
+c	layer.h	/^    matrix *z, *i, *f, *c, *zi, *fc, *o;$/;"	m	class:lstmlayer
+c_hw	layer.h	/^    matrix *c_hw;$/;"	m	class:lstmhighwaylayer
+c_hw_vec	layer.h	/^    vector<matrix *> c_hw_vec, s_vec;$/;"	m	class:lstmhighwaylayer
+c_last	layer.h	/^    matrix *hidden_ac, *c_last;$/;"	m	class:lstmlayer
+c_vec	layer.h	/^    vector<matrix *> c_vec;$/;"	m	class:lstmlayer
+cachesize	fileops.h	/^    int linecnt, wordcnt, cachesize, minibatch, lineperstream,$/;"	m	class:ReadFileBuf
+cachesize	rnnlm.h	/^         validwordcnt, independent, inStartindex, inOOSindex, cachesize,$/;"	m	class:RNNLM
+calHiddenacGRU	cudamatrix.h	/^    void calHiddenacGRU (matrix *x, matrix *h, matrix *z)$/;"	f	class:matrix
+calerronOutputLayer	cudamatrix.h	/^    void calerronOutputLayer (matrix *neuN_ac_NCE, float *log_noise, int *curwords, int *targetsample, int *ncesample, int *ncesamplecnt, int *mbid2arrid, int ntargetsample, int nncesample)$/;"	f	class:matrix
+calerronOutputLayer_oldversion	cudamatrix.h	/^    void calerronOutputLayer_oldversion (matrix *neuN_ac_NCE, matrix *neuN_er_NCE_mask, float *log_noise, int *targetsample, int *ncesample, int *ncesamplecnt, int *mbid2arrid, int ntargetsample, int nncesample)$/;"	f	class:matrix
+calerronWordlayer	cudamatrix.h	/^    void calerronWordlayer (matrix *ac, int *curclass, int *curwords, int *classinfo)$/;"	f	class:matrix
+calerronoutputlayer	cudamatrix.h	/^    void calerronoutputlayer(matrix *ac, int *words)$/;"	f	class:matrix
+calerronoutputlayer_vr	cudamatrix.h	/^    void calerronoutputlayer_vr(matrix *ac, int *words, matrix *lognorms, float vrpenalty)$/;"	f	class:matrix
+calnbest	rnnlm.cpp	/^bool RNNLM::calnbest (string testfilename, float intpltwght, string nglmfile)$/;"	f	class:RNNLM
+calnorm2	cudamatrix.h	/^    void calnorm2 (int minibatch, float *norm2)$/;"	f	class:matrix
+calppl	rnnlm.cpp	/^bool RNNLM::calppl (string testfilename, float intpltwght, string nglmfile)$/;"	f	class:RNNLM
+checkCPUandGPUmem	cudamatrix.h	/^    void checkCPUandGPUmem ()$/;"	f	class:matrix
+chunkiter	layer.h	/^    int chunkiter, chunksize;$/;"	m	class:layer
+chunksize	layer.h	/^    int chunkiter, chunksize;$/;"	m	class:layer
+chunksize	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+clear	DataType.h	/^    void clear()$/;"	f	class:auto_timer
+clock_gettime	DataType.h	/^inline int clock_gettime(int, struct timespec *spec)      \/\/C-file part$/;"	f
+close	fileops.h	/^    void close()$/;"	f	class:FILEPTR
+cols	cudamatrix.h	/^    size_t cols ()$/;"	f	class:matrix
+copyOutputWgtsforNCE	cudamatrix.h	/^    void copyOutputWgtsforNCE (matrix *outputlayer, int *dev_targetsample, int ntargetsample, int *dev_ncesample, int nncesample)$/;"	f	class:matrix
+counter	rnnlm.h	/^        outEndindex, outOOSindex, k, counter, mbcntiter,$/;"	m	class:RNNLM
+cumatrixXmatrix	cudamatrix.cpp	/^void cumatrixXmatrix (matrix *A, matrix *B, matrix *C, bool transA, bool transB, real alpha \/* = 1.0 *\/, real beta \/* = 0.0 *\/, int Cbias  \/* =0 *\/)$/;"	f
+cumatrixXmatrix_fw	cudamatrix.cpp	/^void cumatrixXmatrix_fw (matrix *A, matrix *B, matrix *C, bool transA, bool transB, real alpha \/* = 1.0 *\/, real beta \/* = 0.0 *\/, int Bbias  \/* =0 *\/, int Cbias, int chunksize)$/;"	f
+curword	layer.h	/^    int curword;$/;"	m	class:outputlayer
+curword	rnnlm.h	/^        mbcnt, fullvocsize, prevword, curword, num_oosword, nsample, nthread;$/;"	m	class:RNNLM
+data	Mathops.h	/^	int **data;$/;"	m	class:Matrix
+dataptr	Mathops.h	/^    int *dataptr;   \/\/ real date point$/;"	m	class:Matrix
+debug	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+dev_data	cudamatrix.h	/^    real* dev_data;$/;"	m	class:matrix
+deviceid	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+diaginit	rnnlm.h	/^          lognormconst, lambda, version, diaginit, dropoutrate,$/;"	m	class:RNNLM
+dim_fea	layer.h	/^    int dim_fea, num_fea;$/;"	m	class:inputlayer
+dimension	Mathops.cpp	/^void Matrix::dimension (ulint32 nrow, ulint32 ncol)$/;"	f	class:Matrix
+dotMultiply	cudamatrix.h	/^    void dotMultiply (matrix *other)$/;"	f	class:matrix
+drand48	rand48.c	/^drand48(void)$/;"	f
+dropout	cudamatrix.h	/^    void dropout (matrix *dropoutmask, float dropoutrate, bool evalmode)$/;"	f	class:matrix
+dropoutrate	rnnlm.h	/^          lognormconst, lambda, version, diaginit, dropoutrate,$/;"	m	class:RNNLM
+dump	Mathops.cpp	/^void Matrix::dump ()$/;"	f	class:Matrix
+dump	cudamatrix.h	/^    void dump ()$/;"	f	class:matrix
+empty	helper.h	/^    bool empty ()$/;"	f	class:arguments
+end	DataType.h	/^    void end()$/;"	f	class:auto_timer
+eof	fileops.h	/^    bool eof()$/;"	f	class:FILEPTR
+erand48	rand48.c	/^erand48(unsigned short xseed[3])$/;"	f
+exp10	rnnlm.cpp	4;"	d	file:
+f	layer.h	/^    matrix *z, *i, *f, *c, *zi, *fc, *o;$/;"	m	class:lstmlayer
+fc	layer.h	/^    matrix *z, *i, *f, *c, *zi, *fc, *o;$/;"	m	class:lstmlayer
+feafile	layer.h	/^    string feafile;$/;"	m	class:inputlayer
+feafile	rnnlm.h	/^           sampletextfile, feafile, nceunigramfile, uglmfile;$/;"	m	class:RNNLM
+feaindices	layer.h	/^    int *mbfeaindices, *feaindices;$/;"	m	class:inputlayer
+feamatrix	layer.h	/^    matrix *feamatrix;$/;"	m	class:inputlayer
+featureindices	fileops.h	/^    int *Indata, *Outdata, *featureindices;$/;"	m	class:ReadFileBuf
+feedforwardlayer	layer.cpp	/^feedforwardlayer::feedforwardlayer (int nr, int nc, int mbsize, int cksize) : layer (nr, nc, mbsize, cksize) { type = "feedforward";}$/;"	f	class:feedforwardlayer
+feedforwardlayer	layer.h	/^class feedforwardlayer : public layer$/;"	c
+fetch	cudamatrix.h	/^    void fetch ()$/;"	f	class:matrix
+fetchhostvalue	cudamatrix.h	/^    real fetchhostvalue (size_t i, size_t j)$/;"	f	class:matrix
+fetchvalue	cudamatrix.h	/^    real fetchvalue (size_t i, size_t j)$/;"	f	class:matrix
+fetchwordprobs	cudamatrix.h	/^    void fetchwordprobs (int *dev_curwords, size_t mb, real *wordprobs, int fulldict_size)$/;"	f	class:matrix
+file_in	config.h	/^    istream file_in;$/;"	m	class:Config
+filename	fileops.h	/^    string filename, inputfilename, outputfilename, inputindexfilename, outputindexfilename;$/;"	m	class:ReadFileBuf
+filename	fileops.h	/^    string filename;$/;"	m	class:FILEPTR
+fileptr	fileops.h	/^    FILEPTR fileptr;$/;"	m	class:ReadFileBuf
+find	helper.h	/^    string find (string str)$/;"	f	class:arguments
+flag_nceunigram	rnnlm.h	/^    bool alpha_divide, binformat, flag_nceunigram;$/;"	m	class:RNNLM
+foreach_column	DataType.h	54;"	d
+foreach_coord	DataType.h	55;"	d
+foreach_row	DataType.h	53;"	d
+forwardWordlayer	cudamatrix.h	/^    void forwardWordlayer (matrix *srcac, matrix *tgtac, int *curclass, int *classinfo)$/;"	f	class:matrix
+fptr	fileops.h	/^    FILE *fptr;$/;"	m	class:FILEPTR
+fptr_in	fileops.h	/^    FILE *fptr_in, *fptr_out;$/;"	m	class:ReadFileBuf
+fptr_out	fileops.h	/^    FILE *fptr_in, *fptr_out;$/;"	m	class:ReadFileBuf
+freeMem	Mathops.cpp	/^void Matrix::freeMem ()   \/\/ free memory.$/;"	f	class:Matrix
+freemem	cudamatrix.h	/^    void freemem ()$/;"	f	class:matrix
+fullvocsize	rnnlm.h	/^        mbcnt, fullvocsize, prevword, curword, num_oosword, nsample, nthread;$/;"	m	class:RNNLM
+g	layer.h	/^    matrix *g, *v;$/;"	m	class:gruhighwaylayer
+g_vec	layer.h	/^    vector <matrix *> g_vec, v_vec;$/;"	m	class:gruhighwaylayer
+gaussrandv	helper.cpp	/^float gaussrandv(float mean, float var)$/;"	f
+genEmbeddropoutmask	cudamatrix.h	/^    void genEmbeddropoutmask (float dropoutrate)$/;"	f	class:matrix
+gendropoutmask	cudamatrix.h	/^    void gendropoutmask (float dropoutrate)$/;"	f	class:matrix
+genvardropoutmask	cudamatrix.h	/^    void genvardropoutmask (int mbidx, float dropoutrate)$/;"	f	class:matrix
+getAccprob	fileops.h	/^    double* getAccprob ()$/;"	f	class:ReadFileBuf
+getLinecnt	fileops.h	/^    int getLinecnt ()$/;"	f	class:ReadFileBuf
+getLogUnigram	fileops.h	/^    float* getLogUnigram ()$/;"	f	class:ReadFileBuf
+getMBcnt	fileops.h	/^    int getMBcnt ()$/;"	f	class:ReadFileBuf
+getRandint	fileops.h	/^    int getRandint()$/;"	f	class:ReadFileBuf
+getUnigram	fileops.h	/^    double* getUnigram ()$/;"	f	class:ReadFileBuf
+getWordcnt	fileops.h	/^    int getWordcnt ()$/;"	f	class:ReadFileBuf
+getacctime	DataType.h	/^    real getacctime ()$/;"	f	class:auto_timer
+getdevdataptr	cudamatrix.h	/^    real *getdevdataptr (int i, int j)$/;"	f	class:matrix
+getdevdataptr	cudamatrix.h	/^    real* getdevdataptr ()$/;"	f	class:matrix
+getdevsubmatrix	cudamatrix.h	/^    void getdevsubmatrix (matrix *other, size_t i0, size_t j0, size_t nr, size_t nc)$/;"	f	class:matrix
+getdimfea	layer.h	/^    virtual int getdimfea () { return dim_fea; }$/;"	f	class:inputlayer
+getdimfea	layer.h	/^    virtual int getdimfea ()$/;"	f	class:layer
+getfeaptr	fileops.h	/^    int* getfeaptr()$/;"	f	class:ReadFileBuf
+gethostdataptr	cudamatrix.h	/^    real *gethostdataptr(int i, int j)$/;"	f	class:matrix
+gethostdataptr	cudamatrix.h	/^    real* gethostdataptr ()$/;"	f	class:matrix
+getline	helper.cpp	/^int getline (char *line, int &max_words_line, FILE *&fptr)$/;"	f
+getnumfea	layer.h	/^    virtual int getnumfea () { return num_fea; }$/;"	f	class:inputlayer
+getnumfea	layer.h	/^    virtual int getnumfea ()$/;"	f	class:layer
+gradcutoff	cudamatrix.h	/^    void gradcutoff (real gradient_cutoff)$/;"	f	class:matrix
+gradient_cutoff	rnnlm.h	/^    float logp, llogp, gradient_cutoff, l2reg, alpha, momentum, min_improvement,$/;"	m	class:RNNLM
+gruhighwaylayer	layer.cpp	/^gruhighwaylayer::gruhighwaylayer (int nr, int nc, int mbsize, int cksize) : grulayer (nr, nc, mbsize, cksize)$/;"	f	class:gruhighwaylayer
+gruhighwaylayer	layer.h	/^class gruhighwaylayer : public grulayer$/;"	c
+grulayer	layer.cpp	/^grulayer::grulayer (int nr, int nc, int mbsize, int cksize) : layer (nr, nc, mbsize, cksize)$/;"	f	class:grulayer
+grulayer	layer.h	/^class grulayer : public layer$/;"	c
+h_	layer.h	/^    matrix *r, *z, *c, *h_;$/;"	m	class:grulayer
+hidden_ac	layer.h	/^    matrix *W, *hidden_ac;$/;"	m	class:recurrentlayer
+hidden_ac	layer.h	/^    matrix *hidden_ac, *c_last;$/;"	m	class:lstmlayer
+hidden_ac	layer.h	/^    matrix *hidden_ac;$/;"	m	class:grulayer
+host_HandleSentEnd_fw	rnnlm.cpp	/^void RNNLM::host_HandleSentEnd_fw ()$/;"	f	class:RNNLM
+host_assignFeaVec	layer.cpp	/^void inputlayer::host_assignFeaVec (int feaid)$/;"	f	class:inputlayer
+host_assignFeaVec	layer.h	/^    virtual void host_assignFeaVec (int feaid)$/;"	f	class:layer
+host_copyLSTMhighwayc	layer.cpp	/^void lstmhighwaylayer::host_copyLSTMhighwayc (layer *layer0)$/;"	f	class:lstmhighwaylayer
+host_copyLSTMhighwayc	layer.h	/^    virtual void host_copyLSTMhighwayc (layer *layer0)$/;"	f	class:layer
+host_curwords	layer.h	/^    int *host_curwords;$/;"	m	class:outputlayer
+host_curwords	rnnlm.h	/^    int *host_prevwords, *host_curwords,$/;"	m	class:RNNLM
+host_data	cudamatrix.h	/^    real* host_data;$/;"	m	class:matrix
+host_forward	layer.cpp	/^void feedforwardlayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:feedforwardlayer
+host_forward	layer.cpp	/^void gruhighwaylayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:gruhighwaylayer
+host_forward	layer.cpp	/^void grulayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:grulayer
+host_forward	layer.cpp	/^void linearlayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:linearlayer
+host_forward	layer.cpp	/^void lstmhighwaylayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:lstmhighwaylayer
+host_forward	layer.cpp	/^void lstmlayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:lstmlayer
+host_forward	layer.cpp	/^void outputlayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:outputlayer
+host_forward	layer.cpp	/^void recurrentlayer::host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:recurrentlayer
+host_forward	layer.h	/^    virtual void host_forward (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:layer
+host_forward	rnnlm.cpp	/^float RNNLM::host_forward (int prevword, int curword)$/;"	f	class:RNNLM
+host_forward_nosigm	layer.cpp	/^void feedforwardlayer::host_forward_nosigm (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:feedforwardlayer
+host_forward_nosigm	layer.h	/^    virtual void host_forward_nosigm (matrix *neu0_ac, matrix *neu1_ac)$/;"	f	class:layer
+host_getWordEmbedding	layer.cpp	/^void inputlayer::host_getWordEmbedding (int prevword, matrix *neu_ac)$/;"	f	class:inputlayer
+host_getWordEmbedding	layer.h	/^    virtual void host_getWordEmbedding (int prevword, matrix *neu_ac)$/;"	f	class:layer
+host_prevwords	rnnlm.h	/^    int *host_prevwords, *host_curwords,$/;"	m	class:RNNLM
+host_resetHiddenac	layer.cpp	/^void grulayer::host_resetHiddenac ()$/;"	f	class:grulayer
+host_resetHiddenac	layer.cpp	/^void lstmlayer::host_resetHiddenac ()$/;"	f	class:lstmlayer
+host_resetHiddenac	layer.cpp	/^void recurrentlayer::host_resetHiddenac ()$/;"	f	class:recurrentlayer
+host_resetHiddenac	layer.h	/^    virtual void host_resetHiddenac ()$/;"	f	class:layer
+hostadd	cudamatrix.h	/^    void hostadd (matrix *other)$/;"	f	class:matrix
+hostadddotMultiply	cudamatrix.h	/^    void hostadddotMultiply (matrix *c, matrix *p)$/;"	f	class:matrix
+hostassign	cudamatrix.h	/^    void hostassign (matrix *other)$/;"	f	class:matrix
+hostcalHiddenacGRU	cudamatrix.h	/^    void hostcalHiddenacGRU (matrix *h, matrix *z)$/;"	f	class:matrix
+hostcalentropy	cudamatrix.h	/^    float hostcalentropy ()$/;"	f	class:matrix
+hostdotMultiply	cudamatrix.h	/^    void hostdotMultiply (matrix *other)$/;"	f	class:matrix
+hostpartsoftmax	cudamatrix.h	/^    void hostpartsoftmax(int swordid, int ewordid)$/;"	f	class:matrix
+hostrelu	cudamatrix.h	/^    void hostrelu (float ratio)$/;"	f	class:matrix
+hostsigmoid	cudamatrix.h	/^    void hostsigmoid()$/;"	f	class:matrix
+hostsoftmax	cudamatrix.h	/^    void hostsoftmax()$/;"	f	class:matrix
+hosttanh	cudamatrix.h	/^    void hosttanh ()$/;"	f	class:matrix
+i	fileops.h	/^    int i;$/;"	m	class:FILEPTR
+i	layer.h	/^    matrix *z, *i, *f, *c, *zi, *fc, *o;$/;"	m	class:lstmlayer
+inOOSindex	rnnlm.h	/^         validwordcnt, independent, inStartindex, inOOSindex, cachesize,$/;"	m	class:RNNLM
+inStartindex	rnnlm.h	/^         validwordcnt, independent, inStartindex, inOOSindex, cachesize,$/;"	m	class:RNNLM
+independent	rnnlm.h	/^         validwordcnt, independent, inStartindex, inOOSindex, cachesize,$/;"	m	class:RNNLM
+init	rnnlm.cpp	/^void RNNLM::init()$/;"	f	class:RNNLM
+initHiddenAc	layer.cpp	/^void grulayer::initHiddenAc ()$/;"	f	class:grulayer
+initHiddenAc	layer.cpp	/^void lstmlayer::initHiddenAc ()$/;"	f	class:lstmlayer
+initHiddenAc	layer.cpp	/^void recurrentlayer::initHiddenAc ()$/;"	f	class:recurrentlayer
+initHiddenAc	layer.h	/^    virtual void initHiddenAc ()$/;"	f	class:layer
+initHiddenAc	rnnlm.cpp	/^void RNNLM::initHiddenAc ()$/;"	f	class:RNNLM
+initmatrix	cudamatrix.h	/^    void initmatrix (int v = 0)$/;"	f	class:matrix
+inmodelfile	rnnlm.h	/^    string inmodelfile, outmodelfile, trainfile, validfile,$/;"	m	class:RNNLM
+inputbufptr	fileops.h	/^    Matrix *inputbufptr, *outputbufptr;$/;"	m	class:ReadFileBuf
+inputfilename	fileops.h	/^    string filename, inputfilename, outputfilename, inputindexfilename, outputindexfilename;$/;"	m	class:ReadFileBuf
+inputindexfilename	fileops.h	/^    string filename, inputfilename, outputfilename, inputindexfilename, outputindexfilename;$/;"	m	class:ReadFileBuf
+inputlayer	layer.cpp	/^inputlayer::inputlayer (int nr, int nc, int mbsize, int cksize, int dim): layer(nr, nc, mbsize, cksize)$/;"	f	class:inputlayer
+inputlayer	layer.h	/^class inputlayer : public layer$/;"	c
+inputlayersize	rnnlm.h	/^        inputlayersize, outputlayersize, num_layer, wordcn, trainwordcnt,$/;"	m	class:RNNLM
+inputmap	fileops.h	/^    WORDMAP &inputmap, &outputmap;$/;"	m	class:ReadFileBuf
+inputmap	rnnlm.h	/^    map<string, int> inputmap, outputmap;$/;"	m	class:RNNLM
+inputvec	rnnlm.h	/^    vector<string>  inputvec, outputvec, ooswordsvec, layertypes;$/;"	m	class:RNNLM
+inputwlist	rnnlm.h	/^           testfile, inputwlist, outputwlist, nglmstfile,$/;"	m	class:RNNLM
+int16	DataType.h	/^typedef  short int          int16;$/;"	t
+int32	DataType.h	/^typedef long int            int32;$/;"	t
+ip	rnnlm.h	/^          lmscale, ip;$/;"	m	class:RNNLM
+isEmpty	helper.cpp	/^bool isEmpty(string str)$/;"	f
+isGRU	rnnlm.cpp	/^bool isGRU (string type)$/;"	f
+isLSTM	rnnlm.cpp	/^bool isLSTM (string type)$/;"	f
+isLSTMhighway	rnnlm.cpp	/^bool isLSTMhighway (string type)$/;"	f
+isRNN	rnnlm.cpp	/^bool isRNN (string type)$/;"	f
+isdouble	DataType.h	40;"	d
+iter	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+jrand48	rand48.c	/^jrand48(unsigned short xseed[3])$/;"	f
+k	rnnlm.h	/^        outEndindex, outOOSindex, k, counter, mbcntiter,$/;"	m	class:RNNLM
+l2reg	rnnlm.h	/^    float logp, llogp, gradient_cutoff, l2reg, alpha, momentum, min_improvement,$/;"	m	class:RNNLM
+lambda	rnnlm.h	/^          lognormconst, lambda, version, diaginit, dropoutrate,$/;"	m	class:RNNLM
+layer	layer.cpp	/^layer::layer (int nr, int nc, int mbsize, int cksize)$/;"	f	class:layer
+layer	layer.h	/^class layer$/;"	c
+layer1_succ	rnnlm.h	/^    vector<layer *> layer1_succ, layers_succ;$/;"	m	class:RNNLM
+layers	rnnlm.h	/^    vector<layer *> layers;$/;"	m	class:RNNLM
+layers_succ	rnnlm.h	/^    vector<layer *> layer1_succ, layers_succ;$/;"	m	class:RNNLM
+layersizes	rnnlm.h	/^    vector<int> layersizes;$/;"	m	class:RNNLM
+layertypes	rnnlm.h	/^    vector<string>  inputvec, outputvec, ooswordsvec, layertypes;$/;"	m	class:RNNLM
+lcong48	rand48.c	/^lcong48(unsigned short p[7])$/;"	f
+line	fileops.h	/^    char line[1024][100];$/;"	m	class:ReadFileBuf
+linearlayer	layer.cpp	/^linearlayer::linearlayer (int nr, int nc, int mbsize, int cksize) : layer (nr, nc, mbsize, cksize) {type = "linear";}$/;"	f	class:linearlayer
+linearlayer	layer.h	/^class linearlayer : public layer$/;"	c
+linecnt	fileops.h	/^    int linecnt, wordcnt, cachesize, minibatch, lineperstream,$/;"	m	class:ReadFileBuf
+lineperstream	fileops.h	/^    int linecnt, wordcnt, cachesize, minibatch, lineperstream,$/;"	m	class:ReadFileBuf
+llogp	rnnlm.h	/^    float logp, llogp, gradient_cutoff, l2reg, alpha, momentum, min_improvement,$/;"	m	class:RNNLM
+lmscale	rnnlm.h	/^          lmscale, ip;$/;"	m	class:RNNLM
+log_num_noise	rnnlm.h	/^          nwordspersec, lognorm, vrpenalty, lognorm_output, log_num_noise,$/;"	m	class:RNNLM
+logadd	helper.cpp	/^float logadd (float x, float y)$/;"	f
+lognorm	layer.h	/^    float lognorm;$/;"	m	class:outputlayer
+lognorm	rnnlm.h	/^          nwordspersec, lognorm, vrpenalty, lognorm_output, log_num_noise,$/;"	m	class:RNNLM
+lognorm_mean	rnnlm.h	/^    double trnlognorm_mean, lognorm_mean, lognorm_var;$/;"	m	class:RNNLM
+lognorm_output	rnnlm.h	/^          nwordspersec, lognorm, vrpenalty, lognorm_output, log_num_noise,$/;"	m	class:RNNLM
+lognorm_var	rnnlm.h	/^    double trnlognorm_mean, lognorm_mean, lognorm_var;$/;"	m	class:RNNLM
+lognormconst	rnnlm.h	/^          lognormconst, lambda, version, diaginit, dropoutrate,$/;"	m	class:RNNLM
+lognormvec	layer.h	/^    vector<matrix *> lognormvec;$/;"	m	class:outputlayer
+logp	rnnlm.h	/^    float logp, llogp, gradient_cutoff, l2reg, alpha, momentum, min_improvement,$/;"	m	class:RNNLM
+logunigram	fileops.h	/^    float *logunigram;$/;"	m	class:ReadFileBuf
+lrand48	rand48.c	/^lrand48(void)$/;"	f
+lrtunemode	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+lstmhighwaylayer	layer.cpp	/^lstmhighwaylayer::lstmhighwaylayer (int nr, int nc, int mbsize, int cksize) : lstmlayer (nr, nc, mbsize, cksize)$/;"	f	class:lstmhighwaylayer
+lstmhighwaylayer	layer.h	/^class lstmhighwaylayer : public lstmlayer$/;"	c
+lstmlayer	layer.cpp	/^lstmlayer::lstmlayer (int nr, int nc, int mbsize, int cksize) : layer (nr, nc, mbsize, cksize)$/;"	f	class:lstmlayer
+lstmlayer	layer.h	/^class lstmlayer : public layer$/;"	c
+m_Comment	config.h	/^	string m_Comment;    \/\/!< separator between value and comments$/;"	m	class:Config
+m_Contents	config.h	/^	map<string,std::string> m_Contents;  \/\/!< extracted keys and values$/;"	m	class:Config
+m_Delimiter	config.h	/^	string m_Delimiter;  \/\/!< separator between key and value$/;"	m	class:Config
+main	main.cpp	/^int main (int argc, char **argv)$/;"	f
+mapci	config.h	/^	typedef map<string,string>::const_iterator mapci;$/;"	t	class:Config
+mapi	config.h	/^	typedef map<string,string>::iterator mapi;$/;"	t	class:Config
+matrix	cudamatrix.h	/^    matrix ():host_data(NULL), dev_data(NULL), nrows(0), ncols(0)$/;"	f	class:matrix
+matrix	cudamatrix.h	/^    matrix (size_t nr, size_t nc)$/;"	f	class:matrix
+matrix	cudamatrix.h	/^class matrix$/;"	c
+matrixXvector	layer.cpp	/^void matrixXvector (float *src, float *wgt, float *dst, int nr, int nc)$/;"	f
+mbcnt	fileops.h	/^        mbcnt, mbcnter, randint;$/;"	m	class:ReadFileBuf
+mbcnt	rnnlm.h	/^        mbcnt, fullvocsize, prevword, curword, num_oosword, nsample, nthread;$/;"	m	class:RNNLM
+mbcnter	fileops.h	/^        mbcnt, mbcnter, randint;$/;"	m	class:ReadFileBuf
+mbcntiter	rnnlm.h	/^        outEndindex, outOOSindex, k, counter, mbcntiter,$/;"	m	class:RNNLM
+mbfeaindices	layer.h	/^    int *mbfeaindices, *feaindices;$/;"	m	class:inputlayer
+mbfeaindices	rnnlm.h	/^        *mbfeaindices;$/;"	m	class:RNNLM
+min_improvement	rnnlm.h	/^    float logp, llogp, gradient_cutoff, l2reg, alpha, momentum, min_improvement,$/;"	m	class:RNNLM
+minibatch	fileops.h	/^    int linecnt, wordcnt, cachesize, minibatch, lineperstream,$/;"	m	class:ReadFileBuf
+minibatch	layer.h	/^    int minibatch;      \/\/ used for L2norm$/;"	m	class:layer
+minibatch	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+momentum	rnnlm.h	/^    float logp, llogp, gradient_cutoff, l2reg, alpha, momentum, min_improvement,$/;"	m	class:RNNLM
+mrand48	rand48.c	/^mrand48(void)$/;"	f
+mulScalar	cudamatrix.h	/^    void mulScalar (float gradient_cutoff)$/;"	f	class:matrix
+multiplyScalar	cudamatrix.h	/^    void multiplyScalar (float v)$/;"	f	class:matrix
+multiplyrelue	cudamatrix.h	/^    void multiplyrelue (matrix *ac, float ratio)$/;"	f	class:matrix
+multiplysigmoid	cudamatrix.h	/^    void multiplysigmoid (matrix *ac)$/;"	f	class:matrix
+multiplytanh	cudamatrix.h	/^    void multiplytanh (matrix *ac)$/;"	f	class:matrix
+n_col	Mathops.h	/^	ulint32 n_row, n_col;$/;"	m	class:Matrix
+n_row	Mathops.h	/^	ulint32 n_row, n_col;$/;"	m	class:Matrix
+nceunigramfile	rnnlm.h	/^           sampletextfile, feafile, nceunigramfile, uglmfile;$/;"	m	class:RNNLM
+ncols	cudamatrix.h	/^    size_t ncols;$/;"	m	class:matrix
+ncols	layer.h	/^    size_t ncols;$/;"	m	class:layer
+nelem	cudamatrix.h	/^    size_t nelem ()$/;"	f	class:matrix
+neu_ac	rnnlm.h	/^    vector<matrix *> neu_ac, neu_er;$/;"	m	class:RNNLM
+neu_ac1_succ	rnnlm.h	/^    vector<matrix *> neu_ac_succ, neu_ac1_succ;$/;"	m	class:RNNLM
+neu_ac_chunk	rnnlm.h	/^    vector<vector<matrix *> > neu_ac_chunk;$/;"	m	class:RNNLM
+neu_ac_succ	rnnlm.h	/^    vector<matrix *> neu_ac_succ, neu_ac1_succ;$/;"	m	class:RNNLM
+neu_er	rnnlm.h	/^    vector<matrix *> neu_ac, neu_er;$/;"	m	class:RNNLM
+newc	layer.h	/^    matrix *newc;$/;"	m	class:lstmlayer
+nglmstfile	rnnlm.h	/^           testfile, inputwlist, outputwlist, nglmstfile,$/;"	m	class:RNNLM
+nodetype	layer.h	/^    int  nodetype;          \/\/ sigmoid or relu$/;"	m	class:feedforwardlayer
+nodetype	layer.h	/^    int  nodetype;          \/\/ sigmoid or relu$/;"	m	class:recurrentlayer
+nrand48	rand48.c	/^nrand48(unsigned short xseed[3])$/;"	f
+nrows	cudamatrix.h	/^    size_t nrows;$/;"	m	class:matrix
+nrows	layer.h	/^    size_t nrows;$/;"	m	class:layer
+nsample	rnnlm.h	/^        mbcnt, fullvocsize, prevword, curword, num_oosword, nsample, nthread;$/;"	m	class:RNNLM
+nsec	DataType.h	/^    real nsec;$/;"	m	class:auto_timer
+nthread	rnnlm.h	/^        mbcnt, fullvocsize, prevword, curword, num_oosword, nsample, nthread;$/;"	m	class:RNNLM
+num_fea	layer.h	/^    int dim_fea, num_fea;$/;"	m	class:inputlayer
+num_layer	rnnlm.h	/^        inputlayersize, outputlayersize, num_layer, wordcn, trainwordcnt,$/;"	m	class:RNNLM
+num_oosword	rnnlm.h	/^        mbcnt, fullvocsize, prevword, curword, num_oosword, nsample, nthread;$/;"	m	class:RNNLM
+num_sulayer	rnnlm.h	/^    int succwindowlength, num_sulayer, succmergelayer;$/;"	m	class:RNNLM
+nwordspersec	rnnlm.h	/^          nwordspersec, lognorm, vrpenalty, lognorm_output, log_num_noise,$/;"	m	class:RNNLM
+o	layer.h	/^    matrix *z, *i, *f, *c, *zi, *fc, *o;$/;"	m	class:lstmlayer
+ooswordsprob	rnnlm.h	/^    vector<float>   ooswordsprob;$/;"	m	class:RNNLM
+ooswordsvec	rnnlm.h	/^    vector<string>  inputvec, outputvec, ooswordsvec, layertypes;$/;"	m	class:RNNLM
+open	fileops.h	/^    void open (string fn)$/;"	f	class:FILEPTR
+operator ()	cudamatrix.h	/^    const real& operator() (int i, int j)$/;"	f	class:matrix
+operator ()	cudamatrix.h	/^    real& operator() (int i, int j) const$/;"	f	class:matrix
+operator <<	config.cpp	/^std::ostream& operator<<( std::ostream& os, const Config& cf )$/;"	f
+operator >>	config.cpp	/^std::istream& operator>>( std::istream& is, Config& cf )$/;"	f
+operator []	Mathops.h	/^	const int* operator [] (ulint32 icol) const { return data[icol]; }$/;"	f	class:Matrix
+operator []	Mathops.h	/^	int *operator [] (ulint32 icol) { return data[icol]; }$/;"	f	class:Matrix
+outEndindex	rnnlm.h	/^        outEndindex, outOOSindex, k, counter, mbcntiter,$/;"	m	class:RNNLM
+outOOSindex	layer.h	/^    int outOOSindex;$/;"	m	class:outputlayer
+outOOSindex	rnnlm.h	/^        outEndindex, outOOSindex, k, counter, mbcntiter,$/;"	m	class:RNNLM
+outmodelfile	rnnlm.h	/^    string inmodelfile, outmodelfile, trainfile, validfile,$/;"	m	class:RNNLM
+outputbufptr	fileops.h	/^    Matrix *inputbufptr, *outputbufptr;$/;"	m	class:ReadFileBuf
+outputfilename	fileops.h	/^    string filename, inputfilename, outputfilename, inputindexfilename, outputindexfilename;$/;"	m	class:ReadFileBuf
+outputindexfilename	fileops.h	/^    string filename, inputfilename, outputfilename, inputindexfilename, outputindexfilename;$/;"	m	class:ReadFileBuf
+outputlayer	layer.cpp	/^outputlayer::outputlayer (int nr, int nc, int mbsize, int cksize): layer (nr, nc, mbsize, cksize)$/;"	f	class:outputlayer
+outputlayer	layer.h	/^class outputlayer : public layer$/;"	c
+outputlayersize	rnnlm.h	/^        inputlayersize, outputlayersize, num_layer, wordcn, trainwordcnt,$/;"	m	class:RNNLM
+outputmap	fileops.h	/^    WORDMAP &inputmap, &outputmap;$/;"	m	class:ReadFileBuf
+outputmap	rnnlm.h	/^    map<string, int> inputmap, outputmap;$/;"	m	class:RNNLM
+outputvec	rnnlm.h	/^    vector<string>  inputvec, outputvec, ooswordsvec, layertypes;$/;"	m	class:RNNLM
+outputwlist	rnnlm.h	/^           testfile, inputwlist, outputwlist, nglmstfile,$/;"	m	class:RNNLM
+parseArray	helper.cpp	/^void parseArray (string str, vector<string> &layersizes)$/;"	f
+prevword	rnnlm.h	/^        mbcnt, fullvocsize, prevword, curword, num_oosword, nsample, nthread;$/;"	m	class:RNNLM
+printPPLInfo	rnnlm.cpp	/^void RNNLM::printPPLInfo ()$/;"	f	class:RNNLM
+printevalusage	helper.cpp	/^void printevalusage(char *str)$/;"	f
+printusage	helper.cpp	/^void printusage(char *str)$/;"	f
+r	layer.h	/^    matrix *r, *z, *c, *h_;$/;"	m	class:grulayer
+rand_seed	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+randint	fileops.h	/^        mbcnt, mbcnter, randint;$/;"	m	class:ReadFileBuf
+random	cudamatrix.h	/^    void random(float min, float max)$/;"	f	class:matrix
+random	fileops.cpp	/^float random(float min, float max)$/;"	f
+randomidentity	cudamatrix.h	/^    void randomidentity (float scale)$/;"	f	class:matrix
+randomv	helper.cpp	/^float randomv(float min, float max)$/;"	f
+readint	fileops.h	/^    int readint ()$/;"	f	class:FILEPTR
+readline	fileops.h	/^    void readline (vector<string> &linevec, int &cnt)$/;"	f	class:FILEPTR
+real	DataType.h	/^typedef float real;$/;"	t
+real	head.h	/^typedef     float               real;$/;"	t
+recurrentlayer	layer.cpp	/^recurrentlayer::recurrentlayer (int nr, int nc, int mbsize, int cksize) : layer (nr, nc, mbsize, cksize)$/;"	f	class:recurrentlayer
+recurrentlayer	layer.h	/^class recurrentlayer : public layer$/;"	c
+relu	cudamatrix.h	/^    void relu (float ratio)$/;"	f	class:matrix
+relu_forchunk	cudamatrix.h	/^    void relu_forchunk (float ratio, int chunkiter, int chunksize)$/;"	f	class:matrix
+reluratio	layer.h	/^    float reluratio;$/;"	m	class:feedforwardlayer
+reluratio	layer.h	/^    float reluratio;$/;"	m	class:recurrentlayer
+rng_type	layer.h	/^typedef mt19937_64 rng_type;$/;"	t
+rng_type	rnnlm.h	/^typedef mt19937_64 rng_type;$/;"	t
+rows	cudamatrix.h	/^    size_t rows ()$/;"	f	class:matrix
+s	layer.h	/^    matrix *s, *sc;$/;"	m	class:lstmhighwaylayer
+s_vec	layer.h	/^    vector<matrix *> c_hw_vec, s_vec;$/;"	m	class:lstmhighwaylayer
+sample	cudamatrix.h	/^    void sample (int *dev_samples, float *dev_randv, int minibatch)$/;"	f	class:matrix
+sampletextfile	rnnlm.h	/^           sampletextfile, feafile, nceunigramfile, uglmfile;$/;"	m	class:RNNLM
+sc	layer.h	/^    matrix *s, *sc;$/;"	m	class:lstmhighwaylayer
+sec	DataType.h	/^    real sec;$/;"	m	class:auto_timer
+seed48	rand48.c	/^seed48(unsigned short xseed[3])$/;"	f
+setChunkIter	layer.h	/^    void setChunkIter (int iter)  { chunkiter = iter;}$/;"	f	class:layer
+setFullVocsize	rnnlm.cpp	/^void RNNLM::setFullVocsize (int n)$/;"	f	class:RNNLM
+setIndependentmode	rnnlm.cpp	/^void RNNLM::setIndependentmode (int v)$/;"	f	class:RNNLM
+setIp	rnnlm.h	/^    void setIp (float v)            {ip = v;}$/;"	f	class:RNNLM
+setLmscale	rnnlm.h	/^    void setLmscale (float v)       {lmscale = v;}$/;"	f	class:RNNLM
+setLognormConst	layer.h	/^    virtual void setLognormConst (float v) {lognorm = v;}$/;"	f	class:outputlayer
+setLognormConst	layer.h	/^    virtual void setLognormConst (float v)$/;"	f	class:layer
+setMBcnter	fileops.h	/^    void setMBcnter (int n)$/;"	f	class:ReadFileBuf
+setNthread	rnnlm.h	/^    void setNthread (int n)         {nthread = n;}$/;"	f	class:RNNLM
+setTrainCrit	layer.h	/^    virtual void setTrainCrit (int n)   { traincrit = n; }$/;"	f	class:outputlayer
+setTrainCrit	layer.h	/^    virtual void setTrainCrit (int n)$/;"	f	class:layer
+setncols	cudamatrix.h	/^    void setncols (size_t nc)$/;"	f	class:matrix
+setnodetype	layer.h	/^    virtual void setnodetype (int n) { nodetype = n; }$/;"	f	class:feedforwardlayer
+setnodetype	layer.h	/^    virtual void setnodetype (int n) { nodetype = n; }$/;"	f	class:recurrentlayer
+setnodetype	layer.h	/^    virtual void setnodetype (int n)$/;"	f	class:layer
+setnrows	cudamatrix.h	/^    void setnrows (size_t nr)$/;"	f	class:matrix
+setreluratio	layer.h	/^    virtual void setreluratio (float v)  { reluratio = v; }$/;"	f	class:feedforwardlayer
+setreluratio	layer.h	/^    virtual void setreluratio (float v) { reluratio = v; }$/;"	f	class:recurrentlayer
+setreluratio	layer.h	/^    virtual void setreluratio (float v)$/;"	f	class:layer
+sigmoid	cudamatrix.h	/^    void sigmoid ()$/;"	f	class:matrix
+sigmoid_forchunk	cudamatrix.h	/^    void sigmoid_forchunk (int chunkiter, int chunksize)$/;"	f	class:matrix
+size	cudamatrix.h	/^    size_t size;$/;"	m	class:matrix
+size	layer.h	/^    size_t size;$/;"	m	class:layer
+softmax	cudamatrix.h	/^    void softmax (matrix *lognorms)$/;"	f	class:matrix
+softmaxWordlayer	cudamatrix.h	/^    void softmaxWordlayer (int *curclass, int *classinfo)$/;"	f	class:matrix
+srand48	rand48.c	/^srand48(long seed)$/;"	f
+start	DataType.h	/^    void start ()$/;"	f	class:auto_timer
+stop	DataType.h	/^    real stop()$/;"	f	class:auto_timer
+string2float	helper.cpp	/^float string2float (string str)$/;"	f
+string2int	helper.cpp	/^int string2int (string str)$/;"	f
+subtract	cudamatrix.h	/^    void subtract (matrix *other)$/;"	f	class:matrix
+succlayersizes	rnnlm.h	/^    vector<int> succlayersizes;$/;"	m	class:RNNLM
+succmergelayer	rnnlm.h	/^    int succwindowlength, num_sulayer, succmergelayer;$/;"	m	class:RNNLM
+succwindowlength	rnnlm.h	/^    int succwindowlength, num_sulayer, succmergelayer;$/;"	m	class:RNNLM
+succwords	rnnlm.h	/^    int *succwords;$/;"	m	class:RNNLM
+tanh	cudamatrix.h	/^    void tanh ()$/;"	f	class:matrix
+testfile	rnnlm.h	/^           testfile, inputwlist, outputwlist, nglmstfile,$/;"	m	class:RNNLM
+time_end	DataType.h	/^    timespec time_start, time_end;$/;"	m	class:auto_timer
+time_start	DataType.h	/^    timespec time_start, time_end;$/;"	m	class:auto_timer
+timer	rnnlm.h	/^    auto_timer timer;$/;"	m	class:RNNLM
+timer_backprop	rnnlm.h	/^    auto_timer timer_sampler, timer_forward, timer_output, timer_backprop, timer_hidden;$/;"	m	class:RNNLM
+timer_forward	rnnlm.h	/^    auto_timer timer_sampler, timer_forward, timer_output, timer_backprop, timer_hidden;$/;"	m	class:RNNLM
+timer_hidden	rnnlm.h	/^    auto_timer timer_sampler, timer_forward, timer_output, timer_backprop, timer_hidden;$/;"	m	class:RNNLM
+timer_output	rnnlm.h	/^    auto_timer timer_sampler, timer_forward, timer_output, timer_backprop, timer_hidden;$/;"	m	class:RNNLM
+timer_sampler	rnnlm.h	/^    auto_timer timer_sampler, timer_forward, timer_output, timer_backprop, timer_hidden;$/;"	m	class:RNNLM
+timespec	DataType.h	/^struct timespec$/;"	s
+traincrit	layer.h	/^    int  traincrit;         \/\/ CE, VR or NCE$/;"	m	class:outputlayer
+traincritmode	rnnlm.h	/^    int rand_seed, deviceid, minibatch, chunksize, debug, iter, lrtunemode, traincritmode,$/;"	m	class:RNNLM
+trainfile	rnnlm.h	/^    string inmodelfile, outmodelfile, trainfile, validfile,$/;"	m	class:RNNLM
+trainwordcnt	rnnlm.h	/^        inputlayersize, outputlayersize, num_layer, wordcn, trainwordcnt,$/;"	m	class:RNNLM
+trnlognorm_mean	rnnlm.h	/^    double trnlognorm_mean, lognorm_mean, lognorm_var;$/;"	m	class:RNNLM
+tv_nsec	DataType.h	/^    long tv_nsec;$/;"	m	struct:timespec
+tv_sec	DataType.h	/^    long tv_sec;$/;"	m	struct:timespec
+type	layer.h	/^    string type;$/;"	m	class:layer
+uglmfile	rnnlm.h	/^           sampletextfile, feafile, nceunigramfile, uglmfile;$/;"	m	class:RNNLM
+uint16	DataType.h	/^typedef unsigned short int  uint16;$/;"	t
+ulint32	DataType.h	/^typedef unsigned long int   ulint32;$/;"	t
+unigram	fileops.h	/^    double *unigram, *accprob;$/;"	m	class:ReadFileBuf
+updatelayer0_word	cudamatrix.h	/^    void updatelayer0_word (matrix *neu1_er, int *words, real alpha, real beta = 0.0)$/;"	f	class:matrix
+v	layer.h	/^    matrix *g, *v;$/;"	m	class:gruhighwaylayer
+v_vec	layer.h	/^    vector <matrix *> g_vec, v_vec;$/;"	m	class:gruhighwaylayer
+validfile	rnnlm.h	/^    string inmodelfile, outmodelfile, trainfile, validfile,$/;"	m	class:RNNLM
+validwordcnt	rnnlm.h	/^         validwordcnt, independent, inStartindex, inOOSindex, cachesize,$/;"	m	class:RNNLM
+version	rnnlm.h	/^          lognormconst, lambda, version, diaginit, dropoutrate,$/;"	m	class:RNNLM
+vrpenalty	rnnlm.h	/^          nwordspersec, lognorm, vrpenalty, lognorm_output, log_num_noise,$/;"	m	class:RNNLM
+wordcn	rnnlm.h	/^        inputlayersize, outputlayersize, num_layer, wordcn, trainwordcnt,$/;"	m	class:RNNLM
+wordcnt	fileops.h	/^    int linecnt, wordcnt, cachesize, minibatch, lineperstream,$/;"	m	class:ReadFileBuf
+z	layer.h	/^    matrix *r, *z, *c, *h_;$/;"	m	class:grulayer
+z	layer.h	/^    matrix *z, *i, *f, *c, *zi, *fc, *o;$/;"	m	class:lstmlayer
+zi	layer.h	/^    matrix *z, *i, *f, *c, *zi, *fc, *o;$/;"	m	class:lstmlayer
+~FILEPTR	fileops.h	/^    ~FILEPTR()$/;"	f	class:FILEPTR
+~Matrix	Mathops.cpp	/^Matrix::~Matrix ()$/;"	f	class:Matrix
+~RNNLM	rnnlm.cpp	/^RNNLM::~RNNLM()$/;"	f	class:RNNLM
+~ReadFileBuf	fileops.h	/^    ~ReadFileBuf()$/;"	f	class:ReadFileBuf
+~gruhighwaylayer	layer.cpp	/^gruhighwaylayer::~gruhighwaylayer()$/;"	f	class:gruhighwaylayer
+~grulayer	layer.cpp	/^grulayer::~grulayer ()$/;"	f	class:grulayer
+~inputlayer	layer.cpp	/^inputlayer::~inputlayer()$/;"	f	class:inputlayer
+~layer	layer.cpp	/^layer::~layer()$/;"	f	class:layer
+~lstmhighwaylayer	layer.cpp	/^lstmhighwaylayer::~lstmhighwaylayer()$/;"	f	class:lstmhighwaylayer
+~lstmlayer	layer.cpp	/^lstmlayer::~lstmlayer ()$/;"	f	class:lstmlayer
+~matrix	cudamatrix.h	/^    ~matrix ()$/;"	f	class:matrix
+~outputlayer	layer.cpp	/^outputlayer::~outputlayer ()$/;"	f	class:outputlayer
+~recurrentlayer	layer.cpp	/^recurrentlayer::~recurrentlayer ()$/;"	f	class:recurrentlayer

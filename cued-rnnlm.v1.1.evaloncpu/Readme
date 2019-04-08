@@ -1,0 +1,7 @@
+In this version, several new features will be added. 
+First of all, several bugs are fixed in this version.
+1. NCE training with shared noise sample
+2. allow using external unigram distribution for NCE training
+3. Introducing chunk for BPTT (prepare for LSTM based RNNLM)
+4. MS version supported.
+
