@@ -459,7 +459,7 @@ public:
     grulayer (int nr, int nc, int minibatch, int chunksize);
     virtual void printHiddenAcValue (int i, int j)
     {
-        printf ("Uz[0,0]=%f\n", i, j, dUz->fetchvalue(i,j));
+        printf ("Uz[%d,%d]=%f\n", i, j, dUz->fetchvalue(i,j));
     }
     virtual void setLRtunemode (int lr);
 };
@@ -526,7 +526,7 @@ public:
     ~lstmlayer ();
     virtual void printHiddenAcValue (int i, int j)
     {
-        printf ("Uz[0,0]=%f\n", i, j, dUz->fetchvalue(i,j));
+        printf ("Uz[%d,%d]=%f\n", i, j, dUz->fetchvalue(i,j));
     }
     virtual void copyLSTMhighwayc_er (layer *layer1, int chunkiter);
     virtual void setLRtunemode (int lr);

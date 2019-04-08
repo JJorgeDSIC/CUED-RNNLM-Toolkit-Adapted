@@ -1405,7 +1405,7 @@ __global__ void cusoftmaxWordlayer_v1 (float *ac, int *curclass, int *classinfo,
     size_t clsid = curclass[mbid];
     size_t swordid = classinfo[clsid*3];
     size_t ewordid = classinfo[clsid*3+1];
-    size_t nword = classinfo[clsid*3+2];
+    //size_t nword = classinfo[clsid*3+2];
     float maxv = -1, v;
     float sum = 0.0;
     for (int i=swordid; i<=ewordid; i++)
@@ -1577,7 +1577,7 @@ __global__ void cubperWordlayer_v2 (float *weights, float *srcer, float *tgter, 
     if (mbid >= mbsize) return;
     size_t clsid = curclass[mbid];
     size_t swordid = classinfo[clsid*3];
-    size_t ewordid = classinfo[clsid*3+1];
+    //size_t ewordid = classinfo[clsid*3+1];
     size_t nword = classinfo[clsid*3+2];
     if (i >= nword) return;
     size_t colwidth = blockDim.x*blockDim.y;
