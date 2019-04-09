@@ -138,6 +138,7 @@ RNNLM::RNNLM(string inmodelfile_1, string inputwlist_1, string outputwlist_1, in
     succwindowlength = succwindowlength_1;
     deviceid = dev;
     flag_usegpu = true;
+    printf("Hello\n");
     SelectDevice ();
     LoadRNNLM (inmodelfile);
     // this will be useful for sampling

@@ -788,15 +788,16 @@ public:
     void Read (FILE *fptr)
     {
         int i, j;
+	int err;
         float v;
         for (i=0; i<nrows; i++)
         {
             for (j=0; j<ncols; j++)
             {
-                fscanf (fptr, "%f ", &v);
+                err = fscanf (fptr, "%f ", &v);
                 assignhostvalue(i, j, v);
             }
-            fscanf (fptr, "\n");
+            err = fscanf (fptr, "\n");
         }
         assign();
     }

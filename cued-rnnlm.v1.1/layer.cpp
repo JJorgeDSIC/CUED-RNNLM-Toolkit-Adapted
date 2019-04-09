@@ -247,8 +247,9 @@ void lstmhighwaylayer::Write (FILE *fptr)
 
 void recurrentlayer::Read (FILE *fptr)
 {
-    fscanf (fptr, "nodetype: %d\n", &nodetype);
-    fscanf (fptr, "reluratio: %f\n", &reluratio);
+    int err;
+    err = fscanf (fptr, "nodetype: %d\n", &nodetype);
+    err = fscanf (fptr, "reluratio: %f\n", &reluratio);
     U->Read (fptr);
     W->Read (fptr);
     U->assign ();
@@ -356,8 +357,9 @@ void feedforwardlayer::Write (FILE *fptr)
 }
 void feedforwardlayer::Read (FILE *fptr)
 {
-    fscanf (fptr, "nodetype: %d\n", &nodetype);
-    fscanf (fptr, "reluratio: %f\n", &reluratio);
+    int err;
+    err = fscanf (fptr, "nodetype: %d\n", &nodetype);
+    err = fscanf (fptr, "reluratio: %f\n", &reluratio);
     U->Read (fptr);
     U->assign ();
 }
@@ -2625,6 +2627,7 @@ void inputlayer::ReadFeaFile (string filestr)
 {
     feafile = filestr;
     int i, j, t;
+    int err;
     float value;
     FILE *fptr = fopen (feafile.c_str(), "r");
     if (fptr == NULL)
@@ -2632,7 +2635,7 @@ void inputlayer::ReadFeaFile (string filestr)
         printf ("Error: Failed to open feature file: %s\n", feafile.c_str());
         exit(0);
     }
-    fscanf (fptr, "%d %d", &num_fea, &dim_fea);
+    err = fscanf (fptr, "%d %d", &num_fea, &dim_fea);
     // if the fea file is two large, just allocate cpu memory
     feamatrix = new matrix (dim_fea, num_fea);
     feamatrix->initmatrix();
@@ -2641,11 +2644,11 @@ void inputlayer::ReadFeaFile (string filestr)
     while (i < num_fea)
     {
         if (feof(fptr))         break;
-        fscanf (fptr, "%d", &j);
+        err = fscanf (fptr, "%d", &j);
         assert (j == i);
         for (t=0; t<dim_fea; t++)
         {
-            fscanf (fptr, "%f", &value);
+            err = fscanf (fptr, "%f", &value);
             feamatrix->assignhostvalue(t, i, value);
         }
         i ++;
