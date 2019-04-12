@@ -53,7 +53,7 @@ char *hlrescore_vc_id = "$Id: HLRescore.c,v 1.1.1.1 2006/10/11 09:55:01 jal58 Ex
 #include "HRNLM.h"
 #include "HLM.h"
 #include "HLat.h"
-
+#include <sys/time.h>
 /* -------------------------- Trace Flags & Vars ------------------------ */
 
 #define T_TOP  00001      /* Basic progress reporting */
@@ -144,7 +144,7 @@ static MemHeap transHeap;
 
 void SetConfParms (void);
 void ReportUsage (void);
-void ProcessLattice (char *latfn_in, char *latfn_ou);
+void ProcessLattice (char *latfn_in, char *latfn_ou,int use_su);
 void ProcessLabels (char *labfn_in, char *labfn_ou);
 
 
@@ -228,6 +228,8 @@ int main(int argc, char *argv[])
    /*#### new error code range */
    if(InitShell (argc, argv, hlrescore_version, hlrescore_vc_id) < SUCCESS)
       HError (4000, "HLRescore: InitShell failed");
+
+   
 
    InitMem();
    InitMath();
@@ -453,18 +455,19 @@ int main(int argc, char *argv[])
    /* Read dictionary */
    if (trace & T_TOP)
       printf ("Reading dictionary from %s\n", dictfn);
+    
+   printf ("Reading dictionary COMPLETED\n");
    InitVocab (&vocab);
+
    if (ReadDict (dictfn, &vocab)<SUCCESS)
       HError(4013, "HLRescore: ReadDict failed");
 
    if (lmFile && wpNetFile) {
       HError (4019, "HLRescore: Cant load both N-gram and word pair network, what are you doing?!");
    }
-
    if (!lab2Lat && wpNetFile) {
       HError (4019, "HLRescore: Word network LMs not applicable to lattices");
    }
-
    /* language model */
    if (lmFile) {
       if (trace & T_TOP)
@@ -495,6 +498,10 @@ int main(int argc, char *argv[])
          HError(4019,"HLRescore: Read lattice failed");
       FClose(nf, isPipe);
    }
+
+   
+
+   
 
    /* merge lattice nodes and arcs */
    if (mergeLat) {
@@ -584,6 +591,10 @@ int main(int argc, char *argv[])
        }
    }
 
+   struct timeval tv;
+   gettimeofday(&tv, NULL);
+   printf("Start time: %ld\n", tv.tv_sec);
+
    while (NumArgs() > 0) {
       if (NextArg() != STRINGARG)
          HError (4019, "HLRescore: Transcription file name expected");
@@ -609,6 +620,7 @@ int main(int argc, char *argv[])
          if (trace & T_TOP)
             printf ("File: %s\n", latfn);  fflush(stdout);
 
+	 int use_su= 0;
          if (tmFile)
          {
              for (i = 0; i < feadim; i ++)
@@ -623,6 +635,7 @@ int main(int argc, char *argv[])
                  if (((LModel *)ilang->lms[i])->type == rnnLM)
                  {
                      rnnlm = (RNNLM *)(((LModel *)ilang->lms[i])->data.rnlm->rnnlm);
+		     use_su= rnnlm!=NULL && rnnlm->usecuedsurnnlm;
                  }
              }
              for (i=0; i<feadim; i++)
@@ -637,7 +650,9 @@ int main(int argc, char *argv[])
                  }
              }
          }
-         ProcessLattice (latfn_in, latfn_ou);
+         
+         ProcessLattice (latfn_in, latfn_ou, use_su );
+
       } else {
          char labfn_in[MAXFNAMELEN];
          char labfn_ou[MAXFNAMELEN];
@@ -664,6 +679,10 @@ int main(int argc, char *argv[])
          ProcessLabels (labfn_in, labfn_ou);
       }
    }
+
+   struct timeval tv2;
+   gettimeofday(&tv2, NULL);
+   printf("End time: %ld\n", tv2.tv_sec);
 
    if (lmFile && lab2Lat) {
       if (evalPPlex) {
@@ -693,7 +712,7 @@ int main(int argc, char *argv[])
 
      apply all the requested operations on lattice
 */
-void ProcessLattice (char *latfn_in, char *latfn_ou)
+void ProcessLattice (char *latfn_in, char *latfn_ou,int use_su)
 {
    Lattice *lat;
    char lfn[MAXSTRLEN];
@@ -732,24 +751,45 @@ void ProcessLattice (char *latfn_in, char *latfn_ou)
 
    /* expand lattice with new LM */
    if (expandLat) {
+         
+
 #ifndef NO_LAT_LM
-      lat = LatExpand (&latHeap, lat, lm, ngramaprox);
+       if ( use_su )
+	   lat = LatExpand (&latHeap, lat, lm, ngramaprox);
+       else
+	   lat = LatExpandSimple (&latHeap, lat, lm, ngramaprox);
       ResetMLPLMCache(lm);
 #else
       HError (4090, "LatExpand not supported. Recompile without NO_LAT_LM");
 #endif
+
+      
+
+      
+      
+
    }
+   
 
    /* merge lattice nodes and arcs */
    if (mergeLat) {
+      
       if (*mergeDir == 'f')
          lat = MergeLatNodesArcs(lat, &latHeap, TRUE);
       else
          lat = MergeLatNodesArcs(lat, &latHeap, FALSE);
+      
+
+      
+      
+
    }
 
    /* find 1-best Transcription */
    if (findBest) {
+      
+      
+
       Transcription *trans;
 
       trans = LatFindBest (&transHeap, lat, 1);
@@ -769,21 +809,47 @@ void ProcessLattice (char *latfn_in, char *latfn_ou)
       if (LSave (lfn, trans, ofmt) < SUCCESS)
          HError (4014, "ProcessLattice: Cannot save file %s", lfn);
       ResetHeap (&transHeap);
+      
+      
+
+      
+
    }
 
    /* prune generated lattice */
    if (pruneOutLat) {
+
+      
+
       lat = LatPrune (&latHeap, lat, pruneOutThresh, pruneOutArcsPerSec);
+
+      
+
+      
+      
+
    }
 
 
    /* calc lattice stats */
    if (calcStats) {
+
+      
+
       CalcStats (lat);
+
+      
+
+      
+      
+
    }
 
    /* write lattice */
    if (writeLat) {
+
+      
+
       LatFormat form;
       int i;
       LNode *ln;
@@ -821,6 +887,12 @@ void ProcessLattice (char *latfn_in, char *latfn_ou)
          HError(4014, "ProcessLattice: WriteLattice failed");
 
       FClose (lf, isPipe);
+
+      
+
+      
+      
+
    }
 
    if (trace & T_MEM) {

@@ -42,7 +42,7 @@ hlib = .
 HLIBS = ${exec_prefix}/lib/HTKLib.a
 
 CC     = gcc
-CFLAGS := $(CFLAGS) -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG
+CFLAGS := $(CFLAGS) -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O2 -I. -DPHNALG
 # CFLAGS := $(CFLAGS) -m32 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -I. -DPHNALG
 # CFLAGS := $(CFLAGS) -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -O3 -I. -DPHNALG
 RANLIB = ranlib

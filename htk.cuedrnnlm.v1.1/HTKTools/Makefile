@@ -42,7 +42,7 @@ includedir = ${prefix}/include
 oldincludedir = /usr/include
 
 CC      = 	gcc
-CFLAGS  = 	-m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch  -O3 -I$(inc) -DPHNALG
+CFLAGS  = 	-m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I$(inc) -DPHNALG
 # CFLAGS  = 	-m32 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I$(inc) -DPHNALG
 # CFLAGS  = 	-m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -O3 -I$(inc) -DPHNALG
 LDFLAGS = 	-L/usr/X11R6/lib  -lm

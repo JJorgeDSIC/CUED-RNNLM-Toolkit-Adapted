@@ -148,12 +148,12 @@ static void ReadRNLM(LModel* lm, char* fn, Boolean usefrnnlm, Boolean usecuedrnn
       fflush(stdout);
    }
 
-
+   GetInLineSource(&src,buf); /* <- Discard \n */
    /*-----------------------------------------------------------------------------
     *  read in ninvoc and noutvoc
     *-----------------------------------------------------------------------------*/
    k = 0;
-   GetInLine(buf);
+   GetInLineSource(&src,buf);
    if ((sscanf(buf, "%d", &k) != 1) || k==0) {
       HError(8150, "ReadRNLM : RNLM input vocab size missing (%s)", buf);
    }
@@ -164,7 +164,7 @@ static void ReadRNLM(LModel* lm, char* fn, Boolean usefrnnlm, Boolean usecuedrnn
    }
 
    k = 0;
-   GetInLine(buf);
+   GetInLineSource(&src,buf);
    if ((sscanf(buf, "%d", &k) != 1) || k==0) {
       HError(8150, "ReadRNLM : RNLM output vocab size missing (%s)", buf);
    }
@@ -308,6 +308,7 @@ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *wo
               else
               {
                   prob = CUEDRNNLMAcceptWord_v1_1 (rnnlm, prID, wdID);
+		  printf("IEEP1: %g\n",prob);
               }
           }
           if (rnnlm->cuedversion == 1.0)
@@ -326,7 +327,6 @@ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *wo
          prob = RNNLMAcceptWord(rnnlm, prID, wdID);
       }
       /* prob is LOG10 based !!! */
-      prob = LOG10_TO_FLT(prob);
 #ifdef MLPLMPROBNORM_OOS
       tmp_norm = LZERO;
       if (wdID == rnnlm->out_oos_nodeid) {
@@ -414,12 +414,15 @@ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *wo
    if (ne && ne->nse == rnnlm->out_num_word) {
 #if 0
       fprintf(stdout, "Found ngrams in cache : P(");
+      int j;
       for (j=1; j<hSize2; j++) {
          fprintf(stdout, "%s ", hist[j]);
       }
       fprintf(stdout, "-> *)\n");
 #endif
       se = ne->se + wdID;
+      if ( se->prob < 0.0 ) /* Still not calculated */
+	se->prob= calc_vr_prob ( rnnlm, wdID, ne->input_olayer );
       prob = se->prob;
       /* current word becomes part of future history */
       rnnlm->history[0] = RNNLMInVocabMap(rnnlm, wdid->name);
@@ -553,7 +556,7 @@ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *wo
       }
       fprintf(stdout, "-> *)\n");
 #endif
-
+      
 #ifndef MLPLMPROBNORM_OOS
       /* only do this when not in recursion on preceding ngrams */
 #if 1
@@ -568,18 +571,24 @@ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *wo
          nglm = CreateBoNGram((LModel *)lm->data.rnlm->cache, rnnlm->in_num_word, counts);
       }
 #endif
-
       ne = GetNEntry2_RNNLM(nglm, ndx+1, fndx+1, TRUE, TRUE, ACTUAL_MLP_NSIZE, v, fv);
       ne->se = (SEntry *) New(nglm->heap, rnnlm->out_num_word * sizeof(SEntry));
       ne->nse = rnnlm->out_num_word;
       cse = ne->se;
-
       for (i=0; i<rnnlm->out_num_word; i++) {
          /* prob table contain probs */
          cse->prob = rnnlm->outP_arr[i];
          cse->word = (lmId) i;
          cse++;
       }
+      if ( rnnlm->lognormconst > 0.0 )
+	{
+	  ne->input_olayer=
+	    (float *) New ( nglm->heap,
+			    sizeof(float)*rnnlm->layersizes[rnnlm->num_layer-1]);
+	  memcpy ( ne->input_olayer, rnnlm->in_llayer_arr,
+		   sizeof(float)*rnnlm->layersizes[rnnlm->num_layer-1]);
+	}
 
       /* RNNLM current history vector */
       ne->rnnlm_hist = CreateVector(nglm->heap, VectorSize(v));
@@ -598,8 +607,9 @@ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *wo
       ShowVector("ne->rnnlm_fhist: ", ne->rnnlm_fhist, 50);
       fflush(stdout);
 #endif
-      Dispose(&gstack, v);
 
+      Dispose(&gstack, v);
+      
 #ifdef MLPLMPROBNORM
 /*       LabId prid[MLP_NSIZE] = {0}; */
       ne->bowt = LZERO;
@@ -647,12 +657,14 @@ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *wo
 /*    if (wdID == rnnlm->out_oos_nodeid && rnnlm->usefrnnlm) { */
    if (wdID == rnnlm->out_oos_nodeid && wdID >= rnnlm->out_num_word - 1)
    {
-      return LZERO;
+     /* BEGIN MODIFICATION */
+     return 0; /*return LZERO;*/
    }
    if (wdID == rnnlm->out_oos_nodeid && strcmp(wdid->name, "</s>") != 0 && strcmp(wdid->name, "!SENT_END") != 0)
    {
       assert(wdID == 0);
-      return LZERO;
+      return 0; /*return LZERO;*/
+      /* END MODIFICATION */
    }
 #endif
 
@@ -704,7 +716,7 @@ float GetRNNLMProb(LModel* lm , LabId prid[NSIZE], LabId wdid, LabId *succwordId
       else
          hist[i] = NULL;
    }
-
+   
    wdID = RNNLMOutVocabMap(rnnlm, wdid->name);
    int succword[NSIZE];
    char succwordname[NSIZE][100];
@@ -717,8 +729,11 @@ float GetRNNLMProb(LModel* lm , LabId prid[NSIZE], LabId wdid, LabId *succwordId
    /* query and update cache if necessary */
    prob = UpdateRNNLMCache(lm, hist, rnnlm, wdID, wdid->name, hSize+1, 0, TRUE, succwordname, succword);
    Dispose(lm->heap, hist);
-
-   return LOG_NATURAL(prob);
+   
+   /* BEGIN modification */
+   return log(prob);
+   /*return LOG_NATURAL(prob);*/
+   /* END modification */
 }
 
 
@@ -739,7 +754,7 @@ LogFloat LMTrans_RNNLM (LModel *lm, LMState src, LabId wdid, LMState *dest, LabI
    NGramLM *nglm = NULL;
    RNNLM* rnnlm = NULL;
    float prob = 0;
-
+   
    hSize = ACTUAL_MLP_NSIZE - 1;
 /*    hSize2 = ACTUAL_MLP_NSIZE; */
    hSize2 = MLP_NSIZE;
@@ -821,7 +836,7 @@ LogFloat LMTrans_RNNLM (LModel *lm, LMState src, LabId wdid, LMState *dest, LabI
    *dest = (LMState) ne;
 
    Dispose(&gstack, v);
-
+   
    return prob;
 }
 

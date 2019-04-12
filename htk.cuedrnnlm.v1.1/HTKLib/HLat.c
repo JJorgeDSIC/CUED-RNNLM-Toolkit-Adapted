@@ -1049,7 +1049,9 @@ static LogFloat  LatLMTrans (LModel *lm, LMState src, LabId wordId, LMState *des
    LogFloat prob;
 
    if (wordId == nullWord) {
-      dest = NULL;
+     /* BEGIN modification */
+      *dest = NULL;
+     /* END modification */
       return 0.0;
    }
    else if (wordId == startWord && src == NULL) {
@@ -1091,9 +1093,9 @@ static SubLNode *FindAddSubLNode (MemHeap *heap, LNode *ln, LMState lmstate, LMS
       {
           for (i=0; i<ngramaprox; i++)
           {
-              if (ne->word[i] != origne->word[i])
+	    if (ne->word[i] != origne->word[i])
               {
-                  break;
+		break;
               }
           }
           if (i == ngramaprox
@@ -1129,8 +1131,13 @@ static SubLNode *FindAddSubLNode (MemHeap *heap, LNode *ln, LMState lmstate, LMS
        memcpy(subln->lmstate_mix, lmstate_mix, MAX_LMODEL);
        subln->foll = NULL;
        subln->next = (SubLNode *) ln->hook;
+       /* BEGIN modification */
+       subln->fwordname[0]= NULL;
+       subln->fwordname[1]= NULL;
+       subln->fwordname[2]= NULL;
+       /* END modification */
        ln->hook = (Ptr) subln;
-
+       
        subln->score = score;
    }
    return subln;
@@ -1185,189 +1192,191 @@ Lattice *LatExpand (MemHeap *heap, Lattice *lat, LModel *lm, int ngramaprox)
    LabId *swordNames;
    swordNames = (LabId *)New (&gcheap, NSIZE*sizeof(LabId));
    LabId swordNameset[1000][3];
-
+   
    for (i = 0; i < lat->nn; ++i)
-   {
-      ln = topOrder[i];
-      for (startSLN = (SubLNode *) ln->hook; startSLN; startSLN = startSLN->next)
-      {
-          for (la=ln->foll; la; la=la->farc)
-          {
-              int nfoll = 0, k = 0;
-              if (strcmp(la->end->word->wordName->name, "<s>") == 0 || strcmp(startSLN->fwordname[0]->name, la->end->word->wordName->name) == 0)
-              {
-                  fln = la->end;
-                  if (fln->foll == NULL)
-                  {
-                      swordNames[0] = GetLabId ("<s>", FALSE);
-                      swordNames[1] = GetLabId ("<s>", FALSE);
-                      swordNames[2] = GetLabId ("<s>", FALSE);
-
-                      for (k=0; k<nfoll; k++)
-                      {
-                          if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
-                          {
-                              break;
-                          }
-                      }
-                      if (k == nfoll)
-                      {
-                          swordNameset[k][0] = swordNames[0];
-                          swordNameset[k][1] = swordNames[1];
-                          swordNameset[k][2] = swordNames[2];
-                          nfoll ++;
-
-                          lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
-                          LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
-                          endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
-                          memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
-
-                          /* add new subLArc */
-                          ++nsla;
-                          sla = New (&slaHeap, sizeof (SubLArc));
-                          sla->lmprob = lmprob;
-
-                          sla->end = endSLN;
-                          sla->la = la;
-                          /* add to list of arcs leaving startSLN */
-                          sla->next = startSLN->foll;
-                          startSLN->foll = sla;
-                      }
-                  }
-                  else
-                  {
-                      for (fla=fln->foll; fla; fla=fla->farc)
-                      {
-                          if (strcmp(la->end->word->wordName->name, "<s>") == 0 || strcmp(startSLN->fwordname[1]->name, fla->end->word->wordName->name) == 0)
-                          {
-                              swordNames[0] = fla->end->word->wordName;
-                              ssln = fla->end;
-                              if (ssln->foll == NULL)
-                              {
-                                  swordNames[1] = GetLabId ("<s>", FALSE);
-                                  swordNames[2] = GetLabId ("<s>", FALSE);
-
-
-                                  for (k=0; k<nfoll; k++)
-                                  {
-                                      if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
-                                      {
-                                          break;
-                                      }
-                                  }
-                                  if (k == nfoll)
-                                  {
-                                      swordNameset[k][0] = swordNames[0];
-                                      swordNameset[k][1] = swordNames[1];
-                                      swordNameset[k][2] = swordNames[2];
-                                      nfoll ++;
-
-                                      lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
-                                      LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
-                                      endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
-                                      memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
-
-                                      /* add new subLArc */
-                                      ++nsla;
-                                      sla = New (&slaHeap, sizeof (SubLArc));
-                                      sla->lmprob = lmprob;
-
-                                      sla->end = endSLN;
-                                      sla->la = la;
-                                      /* add to list of arcs leaving startSLN */
-                                      sla->next = startSLN->foll;
-                                      startSLN->foll = sla;
-                                  }
-                                  continue;
-
-                              }
-                              for (ffla=ssln->foll; ffla; ffla=ffla->farc)
-                              {
-                                  if (strcmp(la->end->word->wordName->name, "<s>") == 0 || strcmp (startSLN->fwordname[2]->name, ffla->end->word->wordName->name) == 0)
-                                  {
-                                      swordNames[1] = ffla->end->word->wordName;
-                                      LNode *snode = ffla->end;
-                                      if (snode->foll == NULL)
-                                      {
-                                          swordNames[2] = GetLabId ("<s>", FALSE);
-                                          for (k=0; k<nfoll; k++)
-                                          {
-                                              if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
-                                              {
-                                                  break;
-                                              }
-                                          }
-                                          if (k == nfoll)
-                                          {
-                                              swordNameset[k][0] = swordNames[0];
-                                              swordNameset[k][1] = swordNames[1];
-                                              swordNameset[k][2] = swordNames[2];
-                                              nfoll ++;
-
-                                              lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
-                                              LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
-                                              endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
-                                              memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
-
-                                              /* add new subLArc */
-                                              ++nsla;
-                                              sla = New (&slaHeap, sizeof (SubLArc));
-                                              sla->lmprob = lmprob;
-
-                                              sla->end = endSLN;
-                                              sla->la = la;
-                                              /* add to list of arcs leaving startSLN */
-                                              sla->next = startSLN->foll;
-                                              startSLN->foll = sla;
-                                          }
-                                          continue;
-                                      }
-                                      LArc  *succla;
-                                      for (succla=snode->foll; succla; succla=succla->farc)
-                                      {
-                                          swordNames[2] = succla->end->word->wordName;
-                                          for (k=0; k<nfoll; k++)
-                                          {
-                                              if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
-                                              {
-                                                  break;
-                                              }
-                                          }
-                                          if (k == nfoll)
-                                          {
-                                              swordNameset[k][0] = swordNames[0];
-                                              swordNameset[k][1] = swordNames[1];
-                                              swordNameset[k][2] = swordNames[2];
-                                              nfoll ++;
-
-                                              lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
-                                              LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
-                                              endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
-                                              memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
-
-                                              /* add new subLArc */
-                                              ++nsla;
-                                              sla = New (&slaHeap, sizeof (SubLArc));
-                                              sla->lmprob = lmprob;
-
-                                              sla->end = endSLN;
-                                              sla->la = la;
-                                              /* add to list of arcs leaving startSLN */
-                                              sla->next = startSLN->foll;
-                                              startSLN->foll = sla;
-                                          }
-                                      }
-                                  }
-                              }
-                          }
-                      }
-                  }
-
-              }
-          }
-      }
-   }
-
+     {
+       ln = topOrder[i];
+       for (startSLN = (SubLNode *) ln->hook; startSLN; startSLN = startSLN->next)
+	 {
+	   for (la=ln->foll; la; la=la->farc)
+	     {
+	       int nfoll = 0, k = 0;
+	       if (strcmp(la->end->word->wordName->name, "<s>") == 0 ||
+		   (startSLN->fwordname[0]!=NULL && strcmp(startSLN->fwordname[0]->name, la->end->word->wordName->name) == 0))
+		 {
+		   fln = la->end;
+		   if (fln->foll == NULL)
+		     {
+		       swordNames[0] = GetLabId ("<s>", FALSE);
+		       swordNames[1] = GetLabId ("<s>", FALSE);
+		       swordNames[2] = GetLabId ("<s>", FALSE);
+		       
+		       for (k=0; k<nfoll; k++)
+			 {
+			   if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
+			     {
+			       break;
+			     }
+			 }
+		       if (k == nfoll)
+			 {
+			   swordNameset[k][0] = swordNames[0];
+			   swordNameset[k][1] = swordNames[1];
+			   swordNameset[k][2] = swordNames[2];
+			   nfoll ++;
+			   
+			   lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
+			   LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
+			   endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
+			   memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
+			   
+			   /* add new subLArc */
+			   ++nsla;
+			   sla = New (&slaHeap, sizeof (SubLArc));
+			   sla->lmprob = lmprob;
+			   
+			   sla->end = endSLN;
+			   sla->la = la;
+			   /* add to list of arcs leaving startSLN */
+			   sla->next = startSLN->foll;
+			   startSLN->foll = sla;
+			 }
+		     }
+		   else
+		     {
+		       for (fla=fln->foll; fla; fla=fla->farc)
+			 {
+			   if (strcmp(la->end->word->wordName->name, "<s>") == 0 ||
+			       (startSLN->fwordname[1]!=NULL && strcmp(startSLN->fwordname[1]->name, fla->end->word->wordName->name) == 0))
+			     {
+			       swordNames[0] = fla->end->word->wordName;
+			       ssln = fla->end;
+			       if (ssln->foll == NULL)
+				 {
+				   swordNames[1] = GetLabId ("<s>", FALSE);
+				   swordNames[2] = GetLabId ("<s>", FALSE);
+				   
+				   
+				   for (k=0; k<nfoll; k++)
+				     {
+				       if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
+					 {
+					   break;
+					 }
+				     }
+				   if (k == nfoll)
+				     {
+				       swordNameset[k][0] = swordNames[0];
+				       swordNameset[k][1] = swordNames[1];
+				       swordNameset[k][2] = swordNames[2];
+				       nfoll ++;
+				       lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
+				       LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
+				       endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
+				       memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
+				       
+				       /* add new subLArc */
+				       ++nsla;
+				       sla = New (&slaHeap, sizeof (SubLArc));
+				       sla->lmprob = lmprob;
+				       
+				       sla->end = endSLN;
+				       sla->la = la;
+				       /* add to list of arcs leaving startSLN */
+				       sla->next = startSLN->foll;
+				       startSLN->foll = sla;
+				     }
+				   continue;
+				   
+				 }
+			       for (ffla=ssln->foll; ffla; ffla=ffla->farc)
+				 {
+				   if (strcmp(la->end->word->wordName->name, "<s>") == 0 ||
+				       (startSLN->fwordname[2]!=NULL && strcmp (startSLN->fwordname[2]->name, ffla->end->word->wordName->name) == 0))
+				     {
+				       swordNames[1] = ffla->end->word->wordName;
+				       LNode *snode = ffla->end;
+				       if (snode->foll == NULL)
+					 {
+					   swordNames[2] = GetLabId ("<s>", FALSE);
+					   for (k=0; k<nfoll; k++)
+					     {
+					       if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
+						 {
+						   break;
+						 }
+					     }
+					   if (k == nfoll)
+					     {
+					       swordNameset[k][0] = swordNames[0];
+					       swordNameset[k][1] = swordNames[1];
+					       swordNameset[k][2] = swordNames[2];
+					       nfoll ++;
+					       
+					       lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
+					       LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
+					       endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
+					       memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
+					       
+					       /* add new subLArc */
+					       ++nsla;
+					       sla = New (&slaHeap, sizeof (SubLArc));
+					       sla->lmprob = lmprob;
+					       
+					       sla->end = endSLN;
+					       sla->la = la;
+					       /* add to list of arcs leaving startSLN */
+					       sla->next = startSLN->foll;
+					       startSLN->foll = sla;
+					     }
+					   continue;
+					 }
+				       LArc  *succla;
+				       for (succla=snode->foll; succla; succla=succla->farc)
+					 {
+					   swordNames[2] = succla->end->word->wordName;
+					   for (k=0; k<nfoll; k++)
+					     {
+					       if (swordNames[0]==swordNameset[k][0] && swordNames[1]==swordNameset[k][1] && swordNames[2]==swordNameset[k][2])
+						 {
+						   break;
+						 }
+					     }
+					   if (k == nfoll)
+					     {
+					       swordNameset[k][0] = swordNames[0];
+					       swordNameset[k][1] = swordNames[1];
+					       swordNameset[k][2] = swordNames[2];
+					       nfoll ++;
+					       
+					       lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest, startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
+					       LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
+					       endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
+					       memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
+					       
+					       /* add new subLArc */
+					       ++nsla;
+					       sla = New (&slaHeap, sizeof (SubLArc));
+					       sla->lmprob = lmprob;
+					       
+					       sla->end = endSLN;
+					       sla->la = la;
+					       /* add to list of arcs leaving startSLN */
+					       sla->next = startSLN->foll;
+					       startSLN->foll = sla;
+					     }
+					 }
+				     }
+				 }
+			     }
+			 }
+		     }
+		   
+		 }
+	     }
+	 }
+     }
+   
    if (trace & T_EXP)
       printf ("expanded lattice from %d/%d  to %d/%d\n", lat->nn, lat->na, nsln, nsla);
 
@@ -1448,8 +1457,147 @@ Lattice *LatExpand (MemHeap *heap, Lattice *lat, LModel *lm, int ngramaprox)
    return newlat;
 }
 
-#endif
 
+/* EXPORT->LatExpandSimple
+   
+   expand lattice using new (typically higher-order) language Model
+*/
+Lattice *LatExpandSimple (MemHeap *heap, Lattice *lat, LModel *lm, int ngramaprox)
+{
+  int i, nsln, nsla;
+  LNode *ln, *newln;
+  LNode **topOrder;
+  LArc *la, *newla;
+  SubLNode *startSLN, *endSLN, *sln;
+  SubLArc *sla;
+  LogFloat lmprob;
+  LMState dest;     LMState src_mix[MAX_LMODEL] = {0};    LMState dest_mix[MAX_LMODEL] = {0};
+  Lattice *newlat;
+  
+  nsln = nsla = 0;
+  
+  /* The idea of this algorithm is that we will split each node and arc
+     in the lattice into multiple sub-nodes and sub-arcs as required
+     by the new LM.
+     N.B.We never join existing nodes, i.e. Calling LatExpand() with a
+     bigram on a fourgram lattice will not reduce the size of the lattice.
+  */
+
+  
+  /* for each node in the lattice we keep a linked list (hung of
+     ln->hook) of sub-nodes (corresponding to LMStates in the new
+     LM). */
+  
+  /* init sub-node linked lists */
+  for (i = 0, ln = lat->lnodes; i < lat->nn; ++i, ++ln) {
+    ln->hook = NULL;
+  }
+  /* create one sub-node for lattice start node with LMState = NULL */
+  FindAddSubLNode (&slnHeap, LatStartNode (lat), NULL, src_mix, &nsln, 0, ngramaprox);
+
+  /* find topological order of nodes */
+  topOrder = (LNode **) New (&gcheap, lat->nn * sizeof(LNode *));
+  LatTopSort (lat, topOrder);
+
+
+  /* create lists of sub-nodes and sub-arcs and count them as we go along */
+  LabId *swordNames;
+  swordNames = (LabId *)New (&gcheap, NSIZE*sizeof(LabId));
+  swordNames[0]= GetLabId("<s>",FALSE);
+  swordNames[1]= GetLabId("<s>",FALSE);
+  swordNames[2]= GetLabId("<s>",FALSE);
+  
+  for (i = 0; i < lat->nn; ++i)
+    {
+      ln = topOrder[i];
+      for (startSLN = (SubLNode *) ln->hook; startSLN; startSLN = startSLN->next)
+	{
+	  for (la=ln->foll; la; la=la->farc)
+	    {
+	      assert (la->start == ln);
+	      
+	      lmprob = LatLMTrans (lm, startSLN->data.lmstate, la->end->word->wordName, &dest,
+				   startSLN->lmstate_mix, dest_mix, swordNames, la->lmlike);
+	      LogFloat score = startSLN->score + lmprob*lat->lmscale + la->aclike;
+	      endSLN = FindAddSubLNode (&slnHeap, la->end, dest, dest_mix, &nsln, score, ngramaprox);
+	      memcpy (endSLN->fwordname, swordNames, sizeof(LabId)*NSIZE);
+                           
+	      /* add new subLArc */
+	      ++nsla;
+	      sla = New (&slaHeap, sizeof (SubLArc));
+	      sla->lmprob = lmprob;
+                           
+	      sla->end = endSLN;
+	      sla->la = la;
+	      /* add to list of arcs leaving startSLN */
+	      sla->next = startSLN->foll;
+	      startSLN->foll = sla;
+	    }
+	}
+    }
+  
+  if (trace & T_EXP)
+    printf ("expanded lattice from %d/%d  to %d/%d\n", lat->nn, lat->na, nsln, nsla);
+
+  /* build new lattice from sub-node/-arc lists */
+  newlat = NewILattice (heap, nsln, nsla, lat);
+  newlat->net = CopyString (heap, lm->name);
+
+  /* create one node in new lattice for each sub node in old lattice */
+  newln = newlat->lnodes;
+  for (i = 0; i < lat->nn; ++i) {
+    ln = topOrder[i];
+    for (sln = (SubLNode *) ln->hook; sln; sln = sln->next) {
+      *newln = *ln;
+      newln->foll = newln->pred = NULL;
+      newln->n = 0;
+      newln->hook = NULL;
+
+      sln->data.newln = newln;
+      ++newln;
+    }
+  }
+  assert (newln == newlat->lnodes + newlat->nn);
+
+  /* create arcs in new lattice */
+  newla = newlat->larcs;
+  for (i = 0; i < lat->nn; ++i) {
+    ln = topOrder[i];
+    for (sln = (SubLNode *) ln->hook; sln; sln = sln->next) {
+      newln = sln->data.newln;
+      for (sla = sln->foll; sla; sla = sla->next) {
+	*newla = *sla->la;
+	newla->start = newln;
+	newla->end = sla->end->data.newln;
+	newla->lmlike = sla->lmprob;
+
+	/* add to start node foll list */
+	newla->farc = newla->start->foll;
+	newla->start->foll = newla;
+	/* add to end node pred list */
+	newla->parc = newla->end->pred;
+	newla->end->pred = newla;
+
+	++newla;
+      }
+    }
+  }
+  assert (newla == newlat->larcs + newlat->na);
+
+  if (trace & T_MEM) {
+    printf("Memory State after expanding\n");
+    PrintAllHeapStats();
+  }
+
+  Dispose (&gcheap, topOrder);
+  ResetHeap (&slaHeap);
+  ResetHeap (&slnHeap);
+  
+  return newlat;
+
+}
+
+#endif
 
 /*
    MergeArcs : merge two active acrs by deactivating

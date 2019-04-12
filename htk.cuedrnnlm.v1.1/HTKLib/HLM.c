@@ -108,6 +108,22 @@ void InitLM(void)
 
 static Source source;           /* input file */
 
+static char *GetInLineSource(Source *src,char *buf)
+{
+  int  i, c;
+
+  c = GetCh(src);
+  if (c==EOF)
+    return NULL;
+  i = 0;
+  while (c!='\n' && i<MAXSTRLEN) {
+    buf[i++] = c;
+    c = GetCh(src);
+  }
+  buf[i] = '\0';
+  return buf;
+}
+
 /* GetInLine: read a complete line from source */
 static char *GetInLine(char *buf)
 {
@@ -237,6 +253,12 @@ NEntry *GetNEntry(NGramLM *nglm,lmId ndx[NSIZE],Boolean create)
 
       for (i=0;i<NSIZE-1;i++)
          ne->word[i]=ndx[i];
+      /* BEGIN: Modification */
+      for (i=0; i<10; i++)
+	{
+          ne->fword[i] = 0; /* 0??? */
+	}
+      /* END: Modification */
       ne->user=0;
       ne->nse=0;
       ne->se=NULL;;
@@ -421,7 +443,7 @@ NEntry *GetNEntry2_RNNLM(NGramLM *nglm,lmId ndx[NSIZE], lmId fndx[NSIZE], Boolea
 
    hash=0;
    for (i=0;i<ngsize-1;i++)
-      hash=hash+(ndx[i]*hvs[i]);
+      hash=hash+(ndx[i]*hvs[i%8]);
    hash=(hash>>7)&(nglm->hashsize-1);
 
    for (ne=nglm->hashtab[hash]; ne!=NULL; ne=ne->link) {
@@ -676,8 +698,8 @@ NGramLM *CreateBoNGram(LModel *lm,int vocSize, int counts[NSIZE])
    lm->data.ngram = nglm;
    nglm->heap = lm->heap;
 
-   for (i=0;i<=NSIZE;i++) nglm->counts[i]=0;
-   for (i=1;i<=NSIZE;i++)
+   for (i=0;i<NSIZE;i++) nglm->counts[i]=0;
+   for (i=1;i<NSIZE;i++)
       if (counts[i]==0) break;
       else nglm->counts[i]=counts[i];
    nglm->nsize=i-1;
@@ -2190,11 +2212,14 @@ LogFloat LMTrans_IntpltLM (LModel *lm, LMState src, LabId wdid, LMState *dest, L
    {
        tmp_prob += ilang->weight[i];
    }
+   /* BEGIN modification */
+   wnorm= 1.0-tmp_prob;
+   /* END modification */
    lmprob = (1 - tmp_prob)*exp(lmlike);
    tmp_prob = 0;
 
-
    Boolean usesurnnlm = FALSE;
+
 
    /* sum over all component models and retain all destinations */
    for (i=1; i<=ilang->nModels; i++) {
@@ -2207,7 +2232,6 @@ LogFloat LMTrans_IntpltLM (LModel *lm, LMState src, LabId wdid, LMState *dest, L
          }
          if ( ((LModel *)ilang->lms[i])->type == rnnLM ) {
             tmp_prob = exp( LMTrans_RNNLM ((LModel *)ilang->lms[i], src_mix[i], wdid, (LMState *) &dest_mix[i], succwordId));
-
             RNNLM *rnnlm = (RNNLM *)(((LModel *)ilang->lms[i])->data.rnlm->rnnlm);
             if (rnnlm->usecuedsurnnlm)
             {
@@ -2218,10 +2242,10 @@ LogFloat LMTrans_IntpltLM (LModel *lm, LMState src, LabId wdid, LMState *dest, L
          if (tmp_prob <= exp(LZERO)) {
             defunc[i] = 1; renorm = TRUE;
          }
+         
+        
       }
-
       /* lmprob += ilang->weight[i] * tmp_prob; */
-
       prob_mix[i] = tmp_prob;
 
       if (defunc[i] == 0) {
@@ -2255,12 +2279,18 @@ LogFloat LMTrans_IntpltLM (LModel *lm, LMState src, LabId wdid, LMState *dest, L
            tmp_prob += prob_mix[i] * ilang->weight[i];
        }
        lmprob = tmp_prob;
+
    }
 
 
    /* re-normalize interpolated prob for cases when MLP components are defunct */
    if (renorm) lmprob /= wnorm;
-
+   /* BEGIN modification */
+   if( lmprob <= 0.0 ) lmprob= 1.0; /* I think this only happens in
+				       very special cases like
+				       transitions to <s>. */
+   /* END modification */
+   
    /* find longest destination for linear model interpolation (union) */
    for (i=1, l=1, max=0; i<=ilang->nModels; i++)
    {

@@ -1014,6 +1014,7 @@ void LoadBinaryRNNLM (char *modelfn, RNNLM* rnnlmodel)
 
 void LoadTextRNNLM_v1_1 (char *modelfn, RNNLM* rnnlmodel)
 {
+  
     int i, a, b, nlayer;
     float v;
     char word[1024];
@@ -1047,13 +1048,19 @@ void LoadTextRNNLM_v1_1 (char *modelfn, RNNLM* rnnlmodel)
         rnnlmodel->layersizes[i] = a;
         strcpy(rnnlmodel->layertypes[i], word);
     }
+    /* BEGIN: modification */
+    rnnlmodel->outputlayersize= rnnlmodel->layersizes[nlayer];
+    /* END: modification */
 
     fscanf (fptr, "fullvoc size: %d\n", &rnnlmodel->fulldict_size);
+    
     /* allocRNNMem (false);*/
 
     fscanf (fptr, "independent mode: %d\n", &rnnlmodel->independent);
     fscanf (fptr, "train crit mode: %d\n",  &rnnlmodel->traincritmode);
-    fscanf (fptr, "log norm: %f\n", &rnnlmodel->lognormconst);
+    float value;
+    fscanf (fptr, "log norm: %f\n", &value);
+    rnnlmodel->lognormconst= /*-1.0;*/ value;
     fscanf (fptr, "dim feature: %d\n", &rnnlmodel->dim_fea);
     rnnlmodel->_layers[0].dim_fea = rnnlmodel->dim_fea;
     if (rnnlmodel->dim_fea > 0)
@@ -1166,12 +1173,19 @@ void LoadTextRNNLM_v1_1 (char *modelfn, RNNLM* rnnlmodel)
         rnnlmodel->neu_ac[i] = (float *)New(rnnlmodel->x, rnnlmodel->layersizes[i]*sizeof(float));
     }
     if ( calcProbCache == TRUE ) {
-        rnnlmodel->outP_arr = New(rnnlmodel->x, sizeof(float)*rnnlmodel->out_num_word );
+      rnnlmodel->outP_arr = New(rnnlmodel->x, sizeof(float)*rnnlmodel->out_num_word );
+      /* BEGIN modification */
+      if ( rnnlmodel->lognormconst > 0 )
+	rnnlmodel->in_llayer_arr= New(rnnlmodel->x, sizeof(float)*rnnlmodel->layersizes[nlayer-1]);
+      else
+	rnnlmodel->in_llayer_arr= NULL;
+      /* END modification */
     }
 }
 
 void LoadTextRNNLM_v1_0 (char *modelfn, RNNLM* rnnlmodel)
 {
+  
     int i, a, b, nlayer;
     float v;
     char word[1024];
@@ -1263,6 +1277,7 @@ void LoadTextRNNLM_v1_0 (char *modelfn, RNNLM* rnnlmodel)
 
 void LoadTextRNNLM (char *modelfn, RNNLM* rnnlmodel)
 {
+  
     int i, a, b, n, nrow, nlayer;
     float v;
     char word[1024];
@@ -2700,7 +2715,6 @@ float CUEDRNNLMAcceptWord_v1_1_SU (RNNLM* rnnlm, int lastword, int curword, int 
         }
     }
 
-
     float *neu1_ac = rnnlm->neu_ac[nlayer];
     neu1_ac[rnnlm->outputlayersize-1] = neu1_ac[rnnlm->outputlayersize-1] / (rnnlm->fulldict_size - rnnlm->layersizes[nlayer]+1);
     for (a=0; a<rnnlm->layersizes[nlayer]; a++)
@@ -2711,6 +2725,42 @@ float CUEDRNNLMAcceptWord_v1_1_SU (RNNLM* rnnlm, int lastword, int curword, int 
 
     return log10p;
 }
+
+/* BEGIN modification */
+float
+calc_vr_prob (
+	      RNNLM       *rnnlm,
+	      int          curword,
+	      const float *input
+	      )
+{
+  
+  float ret;
+  const float *wgt_i;
+  int nrows,j;
+  const Layer *layer;
+  
+  
+  assert ( rnnlm->lognormconst > 0.0 );
+  
+  layer= &(rnnlm->_layers[rnnlm->num_layer-1]);
+  nrows= layer->nrows;
+  wgt_i= &(layer->U[curword*nrows]);
+  
+  ret= 0.0;
+  for ( j= 0; j < nrows; ++j )
+    ret+= input[j]*wgt_i[j];
+  ret= exp(ret-rnnlm->lognormconst);
+  
+  /* Indeed, this prob is later set to 0. */
+  if ( curword == rnnlm->outputlayersize-1 )
+    /*ret= 99.0;*/
+    ret/= (rnnlm->fulldict_size - rnnlm->layersizes[rnnlm->num_layer]+1);
+  
+  return ret;
+  
+}
+/* END modification */
 
 float CUEDRNNLMAcceptWord_v1_1 (RNNLM* rnnlm, int lastword, int curword)
     /*
@@ -2723,21 +2773,42 @@ float CUEDRNNLMAcceptWord_v1_1 (RNNLM* rnnlm, int lastword, int curword)
      */
 {
     int a, b, l, nlayer;
-    float log10p;
+    float log10p,prob;
     nlayer = rnnlm->num_layer;
-    for (l=0; l<nlayer; l++)
-    {
-        float *neu0_ac = rnnlm->neu_ac[l];
-        float *neu1_ac = rnnlm->neu_ac[l+1];
-        forward (&(rnnlm->_layers[l]), lastword, curword, neu0_ac, neu1_ac);
-    }
-    float *neu1_ac = rnnlm->neu_ac[nlayer];
-    neu1_ac[rnnlm->outputlayersize-1] = neu1_ac[rnnlm->outputlayersize-1] / (rnnlm->fulldict_size - rnnlm->layersizes[nlayer]+1);
-    for (a=0; a<rnnlm->layersizes[nlayer]; a++)
-    {
-        rnnlm->outP_arr[a] = neu1_ac[a];
-    }
-    log10p = log10(neu1_ac[curword]);
+    /* BEGIN modification */
+    if ( rnnlm->lognormconst <= 0 ) /* No vr */
+      {
+	for (l=0; l<nlayer; l++)
+	  {
+	    float *neu0_ac = rnnlm->neu_ac[l];
+	    float *neu1_ac = rnnlm->neu_ac[l+1];
+	    forward (&(rnnlm->_layers[l]), lastword, curword, neu0_ac, neu1_ac);
+	  }
+	float *neu1_ac = rnnlm->neu_ac[nlayer];
+	neu1_ac[rnnlm->outputlayersize-1] = neu1_ac[rnnlm->outputlayersize-1] / (rnnlm->fulldict_size - rnnlm->layersizes[nlayer]+1);
+	for (a=0; a<rnnlm->layersizes[nlayer]; a++)
+	  {
+	    rnnlm->outP_arr[a] = neu1_ac[a];
+	  }
+	log10p = log10(neu1_ac[curword]);
+      }
+    else /* Vr */
+      {
+	for (l=0; l<(nlayer-1); l++)
+          {
+            float *neu0_ac = rnnlm->neu_ac[l];
+            float *neu1_ac = rnnlm->neu_ac[l+1];
+            forward (&(rnnlm->_layers[l]), lastword, curword, neu0_ac, neu1_ac);
+          }
+	for (a=0; a<rnnlm->layersizes[nlayer]; a++)
+	  rnnlm->outP_arr[a] = -99.0; /* Must be calculated. */
+	rnnlm->outP_arr[curword]= prob=
+	  calc_vr_prob ( rnnlm, curword, rnnlm->neu_ac[nlayer-1] );
+	memcpy ( rnnlm->in_llayer_arr, rnnlm->neu_ac[nlayer-1],
+		 sizeof(float)*rnnlm->layersizes[nlayer-1]);
+	log10p= log10 ( prob );
+      }
+    /* END modification */
     return log10p;
 }
 
@@ -2836,11 +2907,11 @@ float CUEDRNNLMAcceptWord(RNNLM* rnnlm, int lastword, int curword)
             memset (dstac, 0, sizeof(real)*ncol);
         }
         if (l+1 == nlayer)
-        {
+	  {
             if (rnnlm->lognormconst < 0)
             {
                 if (rnnlm->nclass > 0)
-                {
+		  {
                     float *clsdstac = rnnlm->neuN_ac_class;
                     float *clswgt   = rnnlm->layerN_class;
                     int ncol_cls = rnnlm->nclass;
@@ -4390,6 +4461,7 @@ void softmaxij_sm (float *ac, int num, float smfactor)
         v = ac[a] / norm;
         ac[a] = v;
     }
+    printf("SOFTMAX norm: %f\n",norm*exp(-maxv));
 }
 
 void softmaxij (float *ac, int num)
@@ -4500,7 +4572,7 @@ void forward (Layer *self, int prevword, int curword, float *neu0_ac, float *neu
         matrixXvector_v2 (self->h_ac, self->Wr, self->r, ncols, ncols);
         sigmoidij (self->r, ncols);
         dotmultiply (self->r, self->h_ac, ncols);
-
+	
         memset (self->h_, 0, ncols*sizeof(float));
         matrixXvector_v2 (neu0_ac, self->Uh, self->h_, nrows, ncols);
         matrixXvector_v2 (self->r, self->Wh, self->h_, ncols, ncols);
@@ -4520,7 +4592,7 @@ void forward (Layer *self, int prevword, int curword, float *neu0_ac, float *neu
 
         memset (self->f, 0, ncols*sizeof(float));
         matrixXvector_v2 (neu0_ac, self->Uf, self->f, nrows, ncols);
-        matrixXvector_v2 (self->h_ac, self->Wf, self->f, nrows, ncols);
+        matrixXvector_v2 (self->h_ac, self->Wf, self->f, ncols, ncols);
         adddotmultiply (self->f, self->c, self->Pf, ncols);
         sigmoidij (self->f, ncols);
         dotmultiply (self->f, self->c, ncols);
@@ -4629,13 +4701,14 @@ void Read (Layer *self, FILE *fptr)
 }
 
 
+/* BEGIN modification */
 void GetRNNLMHiddenVector_v1_0 (RNNLM *lm, Vector v)
 {
-    int i;
+    int i,l;
     int pos = 1;
-    for (i=0; i<lm->num_layer; i++)
+    for (l=0; l<lm->num_layer; l++)
     {
-        Layer *self = &(lm->_layers[i]);
+        Layer *self = &(lm->_layers[l]);
         if (strcmp(self->type, "recurrent") == 0)
         {
             for (i=0; i< self->ncols; i++)
@@ -4668,11 +4741,11 @@ void GetRNNLMHiddenVector_v1_0 (RNNLM *lm, Vector v)
 
 void AssignRNNLMHistVector_v1_0 (RNNLM *lm, Vector v)
 {
-    int i;
+    int i,l;
     int pos = 1;
-    for (i=0; i<lm->num_layer; i++)
+    for (l=0; l<lm->num_layer; l++)
     {
-        Layer *self = &(lm->_layers[i]);
+        Layer *self = &(lm->_layers[l]);
         if (strcmp(self->type, "recurrent") == 0)
         {
             for (i=0; i<self->ncols; i++)
@@ -4700,7 +4773,7 @@ void AssignRNNLMHistVector_v1_0 (RNNLM *lm, Vector v)
         }
     }
 }
-
+/* END modification */
 
 void AssignHiddenAc (Layer *self, Vector v)
 {

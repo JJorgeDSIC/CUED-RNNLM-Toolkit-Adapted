@@ -218,6 +218,7 @@ typedef struct _RNNLM{
 
     /*  Prob Table */
     float *outP_arr;
+    float *in_llayer_arr;
     /*  input/output vocabulary  */
     int     in_num_word;            /*  input vocab size */
     int     out_num_word;           /*  output vocab size */
@@ -401,6 +402,7 @@ float CUEDRNNLMAcceptWord(RNNLM* rnnlm, int lastword, int curword);
 float CUEDRNNLMAcceptWord_v1_0(RNNLM* rnnlm, int lastword, int curword);
 float CUEDRNNLMAcceptWord_v1_1(RNNLM* rnnlm, int lastword, int curword);
 float CUEDRNNLMAcceptWord_v1_1_SU (RNNLM* rnnlm, int lastword, int curword, int *succword);
+float calc_vr_prob (RNNLM *rnnlm, int curword, const float *input);
 
 
 /*-----------------------------------------------------------------------------

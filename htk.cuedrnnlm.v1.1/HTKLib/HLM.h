@@ -107,6 +107,7 @@ typedef struct nentry {         /* HLM NGram history */
    lmCnt nse;                   /* Number of ngrams for this entry */
    float bowt;                  /* Back-off weight */
    SEntry *se;                  /* Array[0..nse-1] of ngram probabilities */
+   float  *input_olayer;        /* NEW!!! used with VR. Contains the input to the output layer*/
    struct nentry *link;         /* Next entry in hash table */
    void *user;                  /* Accumulator or cache storage */
    Vector rnnlm_hist;           /* Vector representation v_{i-2, ..., 1} for partial CURRENT

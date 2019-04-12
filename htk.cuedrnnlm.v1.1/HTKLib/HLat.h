@@ -91,6 +91,7 @@ LogDouble LatForwBackw (Lattice *lat, LatFBType type);
 
 #ifndef NO_LAT_LM
 Lattice *LatExpand (MemHeap *heap, Lattice *lat, LModel *lm, int ngramaprox);
+Lattice *LatExpandSimple (MemHeap *heap, Lattice *lat, LModel *lm, int ngramaprox);
 
 void ApplyNGram2LabLat(Lattice *lat, LModel *lm);
 #endif
