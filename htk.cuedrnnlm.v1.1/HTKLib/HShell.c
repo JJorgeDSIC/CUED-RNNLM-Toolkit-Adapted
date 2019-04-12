@@ -651,7 +651,7 @@ static char *defargs[2]={ "<Uninitialised>", "" };
 static char **arglist=defargs;/* actual arg list */
 static FILE *script = NULL;   /* script file if any */
 static int scriptcount = 0;   /* num words in script */
-static char scriptBuf[256];   /* buffer for current script arg */
+static char scriptBuf[10000];   /* buffer for current script arg */
 static Boolean scriptBufLoaded = FALSE;
 static Boolean wasQuoted;     /* true if next arg was quoted */
 static ConfParam *cParm[MAXGLOBS];      /* config parameters */
