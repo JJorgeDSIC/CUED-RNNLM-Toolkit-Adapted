@@ -1,0 +1,5 @@
+fly xl207: ls -clt /home/mifs/xl207/RNNLM/htk_dev/htk_3.5/HTKLib/*working | awk -F/ '{print $NF}' > changed_files.list
+
+fly xl207: mkdir -p bak; for i in `cat changed_files.list | sort -u`; do echo ${i}; cp ${i} bak/; rm -fr ${i}; ln -s /home/mifs/xl207/RNNLM/htk_dev/htk_3.5/HTKLib/${i} ./; done
+
+

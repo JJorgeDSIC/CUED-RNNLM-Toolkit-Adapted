@@ -1,0 +1,1891 @@
+rm -f HGraf.o esig_asc.o esig_edr.o esignal.o esig_nat.o HAdapt.o HArc.o HAudio.o HDict.o HExactMPE.o HFB.o HFBLat.o HLabel.o HLat.o HLM.o HNLM.o HRNLM.o HMap.o HMath.o HMem.o HModel.o HNet.o HParm.o HRec.o HShell.o HSigP.o HTrain.o HUtil.o HVQ.o HWave.o strarr.o  HGraf.lv.o esig_asc.lv.o esig_edr.lv.o esignal.lv.o esig_nat.lv.o HAdapt.lv.o HArc.lv.o HAudio.lv.o HDict.lv.o HExactMPE.lv.o HFB.lv.o HFBLat.lv.o HLabel.lv.o HLat.lv.o HLM.lv.o HNLM.o HRNLM.o HMap.lv.o HMath.lv.o HMem.lv.o HModel.lv.o HNet.lv.o HParm.lv.o HRec.lv.o HShell.lv.o HSigP.lv.o HTrain.lv.o HUtil.lv.o HVQ.lv.o HWave.lv.o strarr.lv.o  HTKLib.a HTKLiblv.a
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HGraf.o HGraf.c
+HGraf.c: In function ‘DecodeKeyPress’:
+HGraf.c:179:8: warning: variable ‘n’ set but not used [-Wunused-but-set-variable]
+    int n;
+        ^
+HGraf.c: In function ‘HGetEvent’:
+HGraf.c:221:18: warning: variable ‘dummy’ set but not used [-Wunused-but-set-variable]
+    Boolean found,dummy;
+                  ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o esig_asc.o esig_asc.c
+esig_asc.c: In function ‘ReadAsciiEscape’:
+esig_asc.c:2025:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+          fscanf(file, "%3lo", val);
+                ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o esig_edr.o esig_edr.c
+esig_edr.c: In function ‘EdrReadLong’:
+esig_edr.c:1192:60: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+                            if (hi > lmaxhi || hi == lmaxhi && lo > lmaxlo)
+                                                            ^
+esig_edr.c:1204:60: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+                            if (hi < lminhi || hi == lminhi && lo < lminlo)
+                                                            ^
+esig_edr.c: In function ‘EdrReadUlong’:
+esig_edr.c:1341:56: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+                      if (hi > ulmaxhi || hi == ulmaxhi && lo > ulmaxlo)
+                                                        ^
+esig_edr.c: In function ‘ReadEdrRecord’:
+esig_edr.c:338:25: warning: ‘flags’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+                   flags <<= 1;
+                         ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o esignal.o esignal.c
+esignal.c: In function ‘GetLine’:
+esignal.c:1760:9: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+    fgets(buf, len+1, file);
+         ^
+esignal.c: In function ‘GetLong’:
+esignal.c:1808:9: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+    fgets(buf, len+1, file);
+         ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o esig_nat.o esig_nat.c
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HAdapt.o HAdapt.c
+HAdapt.c: In function ‘UpdateAccCache’:
+HAdapt.c:1041:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  nblock = (int)(paac->bTriMat[0]);
+           ^
+HAdapt.c: In function ‘UpdateBaseAccs’:
+HAdapt.c:1079:19: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+          nblock = (int)(ra->bDiagMat[0]);
+                   ^
+HAdapt.c: In function ‘UpdateBaseAccsWithPaac’:
+HAdapt.c:1136:22: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             nblock = (int)(ra->bDiagMat[0]);
+                      ^
+HAdapt.c: In function ‘SetSemiTiedAvCov’:
+HAdapt.c:1381:15: warning: variable ‘si’ set but not used [-Wunused-but-set-variable]
+    StateInfo *si   ;
+               ^
+HAdapt.c: In function ‘ParseNode’:
+HAdapt.c:1550:12: warning: variable ‘size’ set but not used [-Wunused-but-set-variable]
+    int b,c,size;
+            ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HArc.o HArc.c
+HArc.c: In function ‘PrintArc’:
+HArc.c:214:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+            a->id, a->pos, (int)a->parentLarc, (float)a->t_start, (float)a->t_end);
+                           ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HAudio.o HAudio.c
+HAudio.c: In function ‘StartAudioInput’:
+HAudio.c:2174:11: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+       read(0, &c, 1);
+           ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HDict.o HDict.c
+HDict.c: In function ‘VocabHash’:
+HDict.c:61:19: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    return (int) (((unsigned) name)%VHASHSIZE);
+                   ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HExactMPE.o HExactMPE.c
+HExactMPE.c: In function ‘DoCorrectness’:
+HExactMPE.c:271:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  int iword = (int)/*from LabId*/ la->end->word->wordName;
+              ^
+HExactMPE.c:288:58: warning: value computed is not used [-Wunused-value]
+    for(b=a->follTrans->end;b->parentLarc==la;b->follTrans&&(b=b->follTrans->end)){
+                                                          ^
+HExactMPE.c:332:12: warning: variable ‘cb’ set but not used [-Wunused-but-set-variable]
+      HArc *cb;
+            ^
+HExactMPE.c: In function ‘DoExactCorrectness’:
+HExactMPE.c:664:19: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  iwords[w++][0] = (int)node->foll->end->word->wordName; /* word is at the node at the end of the arc. */
+                   ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HFB.o HFB.c
+HFB.c: In function ‘Setotprob’:
+HFB.c:999:15: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+    PruneInfo *p;
+               ^
+HFB.c: In function ‘SetBeta’:
+HFB.c:1161:12: warning: variable ‘hset’ set but not used [-Wunused-but-set-variable]
+    HMMSet *hset;
+            ^
+HFB.c: In function ‘StepForward’:
+HFB.c:1770:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       negs = (int)up_hmm->hook+1;
+              ^
+HFB.c:1771:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       up_hmm->hook = (void *)negs;
+                      ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HFBLat.o HFBLat.c
+HFBLat.c: In function ‘GetNoContextPhone’:
+HFBLat.c:174:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       return (int) phone;
+              ^
+HFBLat.c:213:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    if(len > sizeof(int)) return (int) GetLabId(tmp, TRUE);
+                                 ^
+HFBLat.c: In function ‘SetCorrectness’:
+HFBLat.c:255:34: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                   else i_label = (int)label; /* Use address of LabId. */
+                                  ^
+HFBLat.c:304:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             ca->i_label = (int)numLat->larcs[larcid].end->word->wordName;
+                           ^
+HFBLat.c:334:30: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                else iphone = (int)phone;
+                              ^
+HFBLat.c:403:41: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                         if(otherWord == (int)word)
+                                         ^
+HFBLat.c: In function ‘SetCorrectnessAsError’:
+HFBLat.c:546:34: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                   else i_label = (int)label; /* Use address of LabId. */
+                                  ^
+HFBLat.c:597:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             ca->i_label = (int)numLat->larcs[larcid].end->word->wordName;
+                           ^
+HFBLat.c:626:30: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                else iphone = (int)phone;
+                              ^
+HFBLat.c: In function ‘StepAlpha’:
+HFBLat.c:737:20: warning: variable ‘transP’ set but not used [-Wunused-but-set-variable]
+             double transP;
+                    ^
+HFBLat.c: In function ‘DoAllMixUpdates’:
+HFBLat.c:1070:33: warning: variable ‘al_otvs’ set but not used [-Wunused-but-set-variable]
+    Vector mean,variance,up_otvs,al_otvs,mu_jm;
+                                 ^
+HFBLat.c: In function ‘UpMixParms’:
+HFBLat.c:1198:25: warning: variable ‘vSize’ set but not used [-Wunused-but-set-variable]
+    int mx,s,j,m=0,M=0,N,vSize;
+                         ^
+HFBLat.c: In function ‘StepForward’:
+HFBLat.c:1402:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       negs = (int)up_hmm->hook+1;
+              ^
+HFBLat.c:1403:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       up_hmm->hook = (void *)negs;
+                      ^
+HFBLat.c:1389:25: warning: variable ‘bqt1’ set but not used [-Wunused-but-set-variable]
+    DVector aqt,aqt1,bqt,bqt1,tmp;
+                         ^
+HFBLat.c: In function ‘DoAllMixUpdates’:
+HFBLat.c:1175:30: warning: ‘mammi’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+                   mammi->occ += unscaledLr;
+                              ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HLabel.o HLabel.c
+HLabel.c: In function ‘LoadMasterFile’:
+HLabel.c:1196:51: warning: ‘den’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+             e->def.subdir = NewString(&mlfHeap,den-dst-1);
+                                                   ^
+HLabel.c:1168:10: warning: ‘dst’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    char *dst,*den;   /* start/end of subdirectory (inc quotes) */
+          ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HLat.o HLat.c
+In file included from HLat.c:52:0:
+HLM.h:178:1: warning: no semicolon at end of struct or union [enabled by default]
+ } IntpltLM;
+ ^
+HLat.c: In function ‘LatSetScores’:
+HLat.c:710:14: warning: variable ‘best’ set but not used [-Wunused-but-set-variable]
+    LogDouble best;
+              ^
+HLat.c: In function ‘CalcStats’:
+HLat.c:929:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       ln->word->aux = (Ptr) (((int)ln->word->aux) + 1);
+                               ^
+HLat.c:929:23: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       ln->word->aux = (Ptr) (((int)ln->word->aux) + 1);
+                       ^
+HLat.c: In function ‘LatExpand’:
+HLat.c:1184:8: warning: unused variable ‘fngsize’ [-Wunused-variable]
+    int fngsize = 3;
+        ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HLM.o HLM.c
+In file included from HLM.c:43:0:
+HLM.h:178:1: warning: no semicolon at end of struct or union [enabled by default]
+ } IntpltLM;
+ ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c: In function ‘UpdateRNNLMCache’:
+HLM-RNNLM.c:406:4: warning: passing argument 3 of ‘GetNEntry2_RNNLM’ makes pointer from integer without a cast [enabled by default]
+    ne_prev = GetNEntry2_RNNLM(nglm, ndx+2, -1, FALSE, FALSE, ACTUAL_MLP_NSIZE, v, fv);
+    ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c:48:9: note: expected ‘lmId *’ but argument is of type ‘int’
+ NEntry *GetNEntry2_RNNLM(NGramLM *nglm,lmId ndx[NSIZE], lmId fndx[NSIZE], Boolean use_prob_table, Boolean create, int ngsize, Vector v, Vector fv);
+         ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c:488:17: warning: pointer targets in passing argument 10 of ‘UpdateRNNLMCache’ differ in signedness [-Wpointer-sign]
+                 prob_prev = UpdateRNNLMCache(lm, hist, rnnlm, wdID_prev, hist[hSize2 - 1], N, shift+1, useCache, succword_new, fndx);
+                 ^
+HLM-RNNLM.c:262:7: note: expected ‘int *’ but argument is of type ‘lmId *’
+ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *word, int N, int shift, Boolean useCache, char succword[NSIZE][100], int succwdID[NSIZE])
+       ^
+HLM-RNNLM.c:266:20: warning: variable ‘prob_prev’ set but not used [-Wunused-but-set-variable]
+    float prob = 0, prob_prev = 0;
+                    ^
+HLM-RNNLM.c:265:15: warning: variable ‘hSize’ set but not used [-Wunused-but-set-variable]
+    int i = 0, hSize = 0, hSize2 = 0, prID = 0, wdID_prev = 0;
+               ^
+HLM-RNNLM.c: In function ‘LMTrans_RNNLM’:
+HLM-RNNLM.c:756:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    ndx[0] = (int) wdid->aux;
+             ^
+HLM-RNNLM.c:762:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+        fndx[i] = (int) succwordId[i]->aux;
+                  ^
+HLM-RNNLM.c:733:15: warning: variable ‘hSize’ set but not used [-Wunused-but-set-variable]
+    int i = 0, hSize = 0, hSize2 = 0;
+               ^
+HLM.c: In function ‘WriteNGrams’:
+HLM.c:574:16: warning: variable ‘N’ set but not used [-Wunused-but-set-variable]
+    int c,i,j,k,N,g=1,hash,neCnt,total;
+                ^
+HLM.c: In function ‘ReadNGrams’:
+HLM.c:764:45: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+          if (wdid->aux == NULL) wdid->aux = (Ptr)g;
+                                             ^
+HLM.c:787:36: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                idx = (wdid==NULL?0:(int)wdid->aux);
+                                    ^
+HLM.c:735:18: warning: variable ‘size’ set but not used [-Wunused-but-set-variable]
+    unsigned char size, flags=0;
+                  ^
+HLM.c: In function ‘ReadMatBigram’:
+HLM.c:1033:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       if ((int)id->aux != 0)
+           ^
+HLM.c:1035:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       id->aux = (Ptr) p;
+                 ^
+HLM.c: In function ‘GetLMProb’:
+HLM.c:1807:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       word = (int)wdid->aux;
+              ^
+HLM.c:1812:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             ndx[i]=(int)prid[i]->aux, cpid[i]=prid[i], s=i;
+                    ^
+HLM.c:1843:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       p=(int) prid[0]->aux;
+         ^
+HLM.c:1844:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       q=(int) wdid->aux;
+         ^
+HLM.c:1849:7: warning: passing argument 4 of ‘GetRNNLMProb’ from incompatible pointer type [enabled by default]
+       return GetRNNLMProb(lm, prid, wdid, succwdid);
+       ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c:664:7: note: expected ‘struct NameCell **’ but argument is of type ‘LabId’
+ float GetRNNLMProb(LModel* lm , LabId prid[NSIZE], LabId wdid, LabId *succwordId)
+       ^
+HLM.c: In function ‘LMTrans_NGram’:
+HLM.c:2015:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    word = (int) wdid->aux;
+           ^
+HLM.c: In function ‘LMTrans_MLPLM’:
+HLM.c:2134:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    ndx[0] = (int) wdid->aux;
+             ^
+HLM.c: In function ‘GetNEntry.constprop.6’:
+HLM.c:204:28: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+       hash=hash+(ndx[i]*hvs[i]);
+                            ^
+HLM.c:203:4: note: containing loop
+    for (i=0;i<NSIZE-1;i++)
+    ^
+HLM.c: In function ‘GetNEntry’:
+HLM.c:204:28: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+       hash=hash+(ndx[i]*hvs[i]);
+                            ^
+HLM.c:203:4: note: containing loop
+    for (i=0;i<NSIZE-1;i++)
+    ^
+HLM.c: In function ‘GetNEntry2_RNNLM_Lmstate’:
+HLM.c:316:30: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+         hash=hash+(ndx[i]*hvs[i]);
+                              ^
+HLM.c:315:5: note: containing loop
+     for (i=0;i<ngsize-1;i++)
+     ^
+HLM.c: In function ‘GetNEntry2_RNNLM_ProbCache’:
+HLM.c:369:30: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+         hash=hash+(ndx[i]*hvs[i]);
+                              ^
+HLM.c:368:5: note: containing loop
+     for (i=0;i<ngsize-1;i++)
+     ^
+HLM.c: In function ‘GetNEntry2_RNNLM’:
+HLM.c:424:28: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+       hash=hash+(ndx[i]*hvs[i]);
+                            ^
+HLM.c:423:4: note: containing loop
+    for (i=0;i<ngsize-1;i++)
+    ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HNLM.o HNLM.c
+HNLM.c: In function ‘read_all_hdrs’:
+HNLM.c:256:9: warning: variable ‘elesize’ set but not used [-Wunused-but-set-variable]
+     int elesize = 0;         /* The size of a single element.*/
+         ^
+HNLM.c: In function ‘GenMap’:
+HNLM.c:564:8: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+  fscanf(fp_map, "%d", &map->index[i]);
+        ^
+HNLM.c:565:8: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+  fscanf(fp_map, "%s", map->string[i]);
+        ^
+HNLM.c: In function ‘softmax_vf_vf’:
+HNLM.c:805:19: warning: ‘max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+         e = exp(f - max);
+                   ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HRNLM.o HRNLM.c
+HRNLM.c: In function ‘LoadTextRNNLM_v1_1’:
+HRNLM.c:1056:5: warning: format ‘%f’ expects argument of type ‘float *’, but argument 3 has type ‘real *’ [-Wformat=]
+     fscanf (fptr, "log norm: %f\n", &rnnlmodel->lognormconst);
+     ^
+HRNLM.c:1061:38: warning: assignment from incompatible pointer type [enabled by default]
+         rnnlmodel->_layers[0].ac_fea = rnnlmodel->neu0_ac_fea;
+                                      ^
+HRNLM.c:1102:33: warning: assignment from incompatible pointer type [enabled by default]
+         rnnlmodel->neu1_ac_succ = (float **) malloc(rnnlmodel->succeedwords*sizeof(float *));
+                                 ^
+HRNLM.c:1103:32: warning: assignment from incompatible pointer type [enabled by default]
+         rnnlmodel->neu_ac_succ = (float **) malloc((rnnlmodel->nsucclayer+1)*sizeof(float *));
+                                ^
+HRNLM.c:1114:17: warning: unused variable ‘n’ [-Wunused-variable]
+             int n = fscanf (fptr, "sulayer %d -> %d type: %s\n", &a, &b, type);
+                 ^
+HRNLM.c:1129:40: warning: assignment from incompatible pointer type [enabled by default]
+             rnnlmodel->neu1_ac_succ[i] = (float *)malloc(rnnlmodel->layersizes[1]*sizeof(float));
+                                        ^
+HRNLM.c:1133:39: warning: assignment from incompatible pointer type [enabled by default]
+             rnnlmodel->neu_ac_succ[i] = (float *)malloc(rnnlmodel->succlayersizes[i]*sizeof(float));
+                                       ^
+HRNLM.c:1163:23: warning: assignment from incompatible pointer type [enabled by default]
+     rnnlmodel->neu_ac = (float **)New(rnnlmodel->x, (nlayer+1)*sizeof(float *));
+                       ^
+HRNLM.c:1166:30: warning: assignment from incompatible pointer type [enabled by default]
+         rnnlmodel->neu_ac[i] = (float *)New(rnnlmodel->x, rnnlmodel->layersizes[i]*sizeof(float));
+                              ^
+HRNLM.c: In function ‘LoadTextRNNLM_v1_0’:
+HRNLM.c:1214:5: warning: format ‘%f’ expects argument of type ‘float *’, but argument 3 has type ‘real *’ [-Wformat=]
+     fscanf (fptr, "log norm: %f\n", &rnnlmodel->lognormconst);
+     ^
+HRNLM.c:1248:23: warning: assignment from incompatible pointer type [enabled by default]
+     rnnlmodel->neu_ac = (float **)New(rnnlmodel->x, (nlayer+1)*sizeof(float *));
+                       ^
+HRNLM.c:1251:30: warning: assignment from incompatible pointer type [enabled by default]
+         rnnlmodel->neu_ac[i] = (float *)New(rnnlmodel->x, rnnlmodel->layersizes[i]*sizeof(float));
+                              ^
+HRNLM.c: In function ‘LoadTextRNNLM’:
+HRNLM.c:1262:10: warning: unused variable ‘word’ [-Wunused-variable]
+     char word[1024];
+          ^
+HRNLM.c: In function ‘LoadCUEDRNLMwgt_v1_1’:
+HRNLM.c:2309:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+      if (rnnlm->fulldict_size = 0)
+      ^
+HRNLM.c: In function ‘LoadCUEDRNLMwgt_v1_0’:
+HRNLM.c:2361:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+      if (rnnlm->fulldict_size = 0)
+      ^
+HRNLM.c: In function ‘LoadCUEDRNLMwgt’:
+HRNLM.c:2413:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+      if (rnnlm->fulldict_size = 0)
+      ^
+HRNLM.c: In function ‘CUEDRNNLMAcceptWord_v1_1_SU’:
+HRNLM.c:2664:13: warning: passing argument 4 of ‘forward’ from incompatible pointer type [enabled by default]
+             forward (&(rnnlm->_layers[0]), succword[i], curword, rnnlm->neu_ac[0], rnnlm->neu1_ac_succ[i]);
+             ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:201:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void forward (struct _Layer *self, int prevword, int curword, float *neu0_ac, float *neu1_ac);
+      ^
+HRNLM.c:2664:13: warning: passing argument 5 of ‘forward’ from incompatible pointer type [enabled by default]
+             forward (&(rnnlm->_layers[0]), succword[i], curword, rnnlm->neu_ac[0], rnnlm->neu1_ac_succ[i]);
+             ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:201:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void forward (struct _Layer *self, int prevword, int curword, float *neu0_ac, float *neu1_ac);
+      ^
+HRNLM.c:2670:9: warning: passing argument 2 of ‘forward_nosigm’ makes integer from pointer without a cast [enabled by default]
+         forward_nosigm (&(rnnlm->layer1_succ[i]), succword, curword, rnnlm->neu1_ac_succ[i], rnnlm->neu_ac_succ[2]);
+         ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:202:6: note: expected ‘int’ but argument is of type ‘int *’
+ void forward_nosigm (struct _Layer *self, int prevword, int curword, float *neu0_ac, float *neu1_ac);
+      ^
+HRNLM.c:2670:9: warning: passing argument 4 of ‘forward_nosigm’ from incompatible pointer type [enabled by default]
+         forward_nosigm (&(rnnlm->layer1_succ[i]), succword, curword, rnnlm->neu1_ac_succ[i], rnnlm->neu_ac_succ[2]);
+         ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:202:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void forward_nosigm (struct _Layer *self, int prevword, int curword, float *neu0_ac, float *neu1_ac);
+      ^
+HRNLM.c:2670:9: warning: passing argument 5 of ‘forward_nosigm’ from incompatible pointer type [enabled by default]
+         forward_nosigm (&(rnnlm->layer1_succ[i]), succword, curword, rnnlm->neu1_ac_succ[i], rnnlm->neu_ac_succ[2]);
+         ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:202:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void forward_nosigm (struct _Layer *self, int prevword, int curword, float *neu0_ac, float *neu1_ac);
+      ^
+HRNLM.c:2674:5: warning: passing argument 1 of ‘sigmoidij’ from incompatible pointer type [enabled by default]
+     sigmoidij (rnnlm->neu_ac_succ[2], rnnlm->layersizes[2]);
+     ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:133:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void sigmoidij (float *ac, int num);
+      ^
+HRNLM.c:2678:9: warning: passing argument 4 of ‘forward’ from incompatible pointer type [enabled by default]
+         forward (&(rnnlm->succlayers[l]), lastword, curword, rnnlm->neu_ac_succ[l], rnnlm->neu_ac_succ[l+1]);
+         ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:201:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void forward (struct _Layer *self, int prevword, int curword, float *neu0_ac, float *neu1_ac);
+      ^
+HRNLM.c:2678:9: warning: passing argument 5 of ‘forward’ from incompatible pointer type [enabled by default]
+         forward (&(rnnlm->succlayers[l]), lastword, curword, rnnlm->neu_ac_succ[l], rnnlm->neu_ac_succ[l+1]);
+         ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:201:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void forward (struct _Layer *self, int prevword, int curword, float *neu0_ac, float *neu1_ac);
+      ^
+HRNLM.c:2683:26: warning: initialization from incompatible pointer type [enabled by default]
+         float *neu0_ac = rnnlm->neu_ac[l];
+                          ^
+HRNLM.c:2684:26: warning: initialization from incompatible pointer type [enabled by default]
+         float *neu1_ac = rnnlm->neu_ac[l+1];
+                          ^
+HRNLM.c:2688:13: warning: passing argument 2 of ‘add’ from incompatible pointer type [enabled by default]
+             add (neu1_ac, rnnlm->neu_ac_succ[rnnlm->nsucclayer], rnnlm->layersizes[rnnlm->nsucclayer]);
+             ^
+In file included from HRNLM.c:43:0:
+HRNLM.h:138:6: note: expected ‘float *’ but argument is of type ‘real *’
+ void add (float *arr1, float *arr2, int num);
+      ^
+HRNLM.c:2698:22: warning: initialization from incompatible pointer type [enabled by default]
+     float *neu1_ac = rnnlm->neu_ac[nlayer];
+                      ^
+HRNLM.c:2653:12: warning: unused variable ‘b’ [-Wunused-variable]
+     int a, b, l, nlayer, i;
+            ^
+HRNLM.c: In function ‘CUEDRNNLMAcceptWord_v1_1’:
+HRNLM.c:2724:26: warning: initialization from incompatible pointer type [enabled by default]
+         float *neu0_ac = rnnlm->neu_ac[l];
+                          ^
+HRNLM.c:2725:26: warning: initialization from incompatible pointer type [enabled by default]
+         float *neu1_ac = rnnlm->neu_ac[l+1];
+                          ^
+HRNLM.c:2728:22: warning: initialization from incompatible pointer type [enabled by default]
+     float *neu1_ac = rnnlm->neu_ac[nlayer];
+                      ^
+HRNLM.c:2719:12: warning: unused variable ‘b’ [-Wunused-variable]
+     int a, b, l, nlayer;
+            ^
+HRNLM.c: In function ‘CUEDRNNLMAcceptWord_v1_0’:
+HRNLM.c:2753:26: warning: initialization from incompatible pointer type [enabled by default]
+         float *neu0_ac = rnnlm->neu_ac[l];
+                          ^
+HRNLM.c:2754:26: warning: initialization from incompatible pointer type [enabled by default]
+         float *neu1_ac = rnnlm->neu_ac[l+1];
+                          ^
+HRNLM.c:2757:22: warning: initialization from incompatible pointer type [enabled by default]
+     float *neu1_ac = rnnlm->neu_ac[nlayer];
+                      ^
+HRNLM.c:2748:12: warning: unused variable ‘b’ [-Wunused-variable]
+     int a, b, l, nlayer;
+            ^
+HRNLM.c: In function ‘CUEDRNNLMAcceptWord’:
+HRNLM.c:2838:39: warning: initialization from incompatible pointer type [enabled by default]
+                     float *clsdstac = rnnlm->neuN_ac_class;
+                                       ^
+HRNLM.c:2839:39: warning: initialization from incompatible pointer type [enabled by default]
+                     float *clswgt   = rnnlm->layerN_class;
+                                       ^
+HRNLM.c:2841:21: warning: passing argument 2 of ‘matrixXvector_cuedrnnlm’ from incompatible pointer type [enabled by default]
+                     matrixXvector_cuedrnnlm (srcac, clswgt, clsdstac, nrow, ncol_cls);
+                     ^
+HRNLM.c:726:13: note: expected ‘real *’ but argument is of type ‘float *’
+ static void matrixXvector_cuedrnnlm (real *src, real *wgt, real *dst, int nr, int nc)
+             ^
+HRNLM.c:2841:21: warning: passing argument 3 of ‘matrixXvector_cuedrnnlm’ from incompatible pointer type [enabled by default]
+                     matrixXvector_cuedrnnlm (srcac, clswgt, clsdstac, nrow, ncol_cls);
+                     ^
+HRNLM.c:726:13: note: expected ‘real *’ but argument is of type ‘float *’
+ static void matrixXvector_cuedrnnlm (real *src, real *wgt, real *dst, int nr, int nc)
+             ^
+HRNLM.c:2843:21: warning: passing argument 1 of ‘softmax’ from incompatible pointer type [enabled by default]
+                     softmax (clsdstac, 0, ncol_cls);
+                     ^
+HRNLM.c:2600:6: note: expected ‘real *’ but argument is of type ‘float *’
+ void softmax (real *ac, int start, int end)
+      ^
+HRNLM.c:2788:10: warning: variable ‘prob’ set but not used [-Wunused-but-set-variable]
+     real prob;
+          ^
+HRNLM.c:2785:12: warning: unused variable ‘sum’ [-Wunused-variable]
+     double sum;
+            ^
+HRNLM.c: In function ‘softmaxij_sm’:
+HRNLM.c:4359:12: warning: variable ‘maxi’ set but not used [-Wunused-but-set-variable]
+     int a, maxi;
+            ^
+HRNLM.c: In function ‘softmaxij’:
+HRNLM.c:4391:12: warning: variable ‘maxi’ set but not used [-Wunused-but-set-variable]
+     int a, maxi;
+            ^
+HRNLM.c: In function ‘forward_nosigm’:
+HRNLM.c:4420:11: warning: unused variable ‘v’ [-Wunused-variable]
+     float v;
+           ^
+HRNLM.c:4419:12: warning: unused variable ‘j’ [-Wunused-variable]
+     int i, j;
+            ^
+HRNLM.c:4419:9: warning: unused variable ‘i’ [-Wunused-variable]
+     int i, j;
+         ^
+HRNLM.c: In function ‘forward’:
+HRNLM.c:4437:11: warning: unused variable ‘v’ [-Wunused-variable]
+     float v;
+           ^
+HRNLM.c:4436:12: warning: unused variable ‘j’ [-Wunused-variable]
+     int i, j;
+            ^
+HRNLM.c: In function ‘Read’:
+HRNLM.c:4563:11: warning: unused variable ‘v’ [-Wunused-variable]
+     float v;
+           ^
+HRNLM.c:4562:12: warning: unused variable ‘j’ [-Wunused-variable]
+     int i, j;
+            ^
+HRNLM.c:4562:9: warning: unused variable ‘i’ [-Wunused-variable]
+     int i, j;
+         ^
+HRNLM.c: In function ‘LoadTextRNNLM_v1_1’:
+HRNLM.c:1028:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "cuedrnnlm v%f\n", &v);
+            ^
+HRNLM.c:1034:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "train file: %s\n", word);
+            ^
+HRNLM.c:1035:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "valid file: %s\n", word);
+            ^
+HRNLM.c:1036:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "number of iteration: %d\n", &a);
+            ^
+HRNLM.c:1037:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#train words: %d\n", &a);
+            ^
+HRNLM.c:1038:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#valid words: %d\n", &a);
+            ^
+HRNLM.c:1039:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#layer: %d\n", &nlayer);
+            ^
+HRNLM.c:1045:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "layer %d size: %d type: %s\n", &b, &a, word);
+                ^
+HRNLM.c:1051:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "fullvoc size: %d\n", &rnnlmodel->fulldict_size);
+            ^
+HRNLM.c:1054:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "independent mode: %d\n", &rnnlmodel->independent);
+            ^
+HRNLM.c:1055:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "train crit mode: %d\n",  &rnnlmodel->traincritmode);
+            ^
+HRNLM.c:1056:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "log norm: %f\n", &rnnlmodel->lognormconst);
+            ^
+HRNLM.c:1057:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "dim feature: %d\n", &rnnlmodel->dim_fea);
+            ^
+HRNLM.c:1064:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "num of succeeding words: %d\n", &rnnlmodel->succeedwords);
+            ^
+HRNLM.c:1068:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "num of succlayer: %d\n", &rnnlmodel->nsucclayer);
+                ^
+HRNLM.c:1072:20: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf (fptr, "succlayer %d size: %d\n", &a, &b);
+                    ^
+HRNLM.c:1075:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "merging layer: %d\n", &rnnlmodel->succmergelayer);
+                ^
+HRNLM.c:1083:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "layer %d -> %d type: %s\n", &a, &b, word);
+                ^
+HRNLM.c:1149:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "%d", &a);
+            ^
+HRNLM.c: In function ‘LoadTextRNNLM_v1_0’:
+HRNLM.c:1186:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "cuedrnnlm v%f\n", &v);
+            ^
+HRNLM.c:1192:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "train file: %s\n", word);
+            ^
+HRNLM.c:1193:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "valid file: %s\n", word);
+            ^
+HRNLM.c:1194:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "number of iteration: %d\n", &a);
+            ^
+HRNLM.c:1195:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#train words: %d\n", &a);
+            ^
+HRNLM.c:1196:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#valid words: %d\n", &a);
+            ^
+HRNLM.c:1197:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#layer: %d\n", &nlayer);
+            ^
+HRNLM.c:1203:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "layer %d size: %d type: %s\n", &b, &a, word);
+                ^
+HRNLM.c:1209:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "fullvoc size: %d\n", &rnnlmodel->fulldict_size);
+            ^
+HRNLM.c:1212:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "independent mode: %d\n", &rnnlmodel->independent);
+            ^
+HRNLM.c:1213:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "train crit mode: %d\n",  &rnnlmodel->traincritmode);
+            ^
+HRNLM.c:1214:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "log norm: %f\n", &rnnlmodel->lognormconst);
+            ^
+HRNLM.c:1215:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "dim feature: %d\n", &rnnlmodel->dim_fea);
+            ^
+HRNLM.c:1218:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "layer %d -> %d type: %s\n", &a, &b, word);
+                ^
+HRNLM.c:1234:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "%d", &a);
+            ^
+HRNLM.c: In function ‘LoadTextRNNLM’:
+HRNLM.c:1270:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "cuedrnnlm v%f\n", &v);
+            ^
+HRNLM.c:1276:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "train file: %s\n", rnnlmodel->train_file);
+            ^
+HRNLM.c:1277:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "valid file: %s\n", rnnlmodel->valid_file);
+            ^
+HRNLM.c:1278:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "number of iteration: %d\n", &rnnlmodel->iter);
+            ^
+HRNLM.c:1279:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#train words: %d\n", &n);
+            ^
+HRNLM.c:1280:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#valid words: %d\n", &n);
+            ^
+HRNLM.c:1281:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "#layer: %d\n", &nlayer);
+            ^
+HRNLM.c:1286:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "layer %d size: %d\n", &b, &a);
+                ^
+HRNLM.c:1290:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "feature dimension: %d\n", &rnnlmodel->dim_fea);
+            ^
+HRNLM.c:1291:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "class layer dimension: %d\n", &rnnlmodel->nclass);
+            ^
+HRNLM.c:1292:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "fullvoc size: %d\n", &rnnlmodel->fulldict_size);
+            ^
+HRNLM.c:1296:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "independent mode: %d\n", &rnnlmodel->independent);
+            ^
+HRNLM.c:1297:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "train crit mode: %d\n",  &rnnlmodel->traincritmode);
+            ^
+HRNLM.c:1298:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "log norm: %f\n", &v);
+            ^
+HRNLM.c:1300:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "hidden node type: %d\n", &rnnlmodel->nodetype);
+            ^
+HRNLM.c:1316:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "relu ratio: %f\n", &v);
+                ^
+HRNLM.c:1321:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "layer %d -> %d\n", &a, &b);
+                ^
+HRNLM.c:1329:24: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                 fscanf (fptr, "%f", &v);
+                        ^
+HRNLM.c:1332:20: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf (fptr, "\n");
+                    ^
+HRNLM.c:1335:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "recurrent layer 1 -> 1\n");
+            ^
+HRNLM.c:1341:20: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf (fptr, "%f", &v);
+                    ^
+HRNLM.c:1344:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "\n");
+                ^
+HRNLM.c:1348:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "feature layer weight\n");
+                ^
+HRNLM.c:1354:24: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                 fscanf (fptr, "%f", &v);
+                        ^
+HRNLM.c:1357:20: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf (fptr, "\n");
+                    ^
+HRNLM.c:1362:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "class layer weight\n");
+                ^
+HRNLM.c:1368:24: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                 fscanf (fptr, "%f", &v);
+                        ^
+HRNLM.c:1371:20: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf (fptr, "\n");
+                    ^
+HRNLM.c:1374:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "hidden layer ac\n");
+            ^
+HRNLM.c:1377:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "%f", &v);
+                ^
+HRNLM.c:1380:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "\n");
+            ^
+HRNLM.c:1381:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf (fptr, "%d", &a);
+            ^
+HRNLM.c: In function ‘LoadFRNNLM’:
+HRNLM.c:1442:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &ver);
+           ^
+HRNLM.c:1456:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->filetype);
+           ^
+HRNLM.c:1460:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+      fscanf(fi, "%s", rnnlmodel->train_file);
+            ^
+HRNLM.c:1462:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%s", buf);
+               ^
+HRNLM.c:1465:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%s", rnnlmodel->valid_file);
+           ^
+HRNLM.c:1468:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%lf", &rnnlmodel->llogp);
+           ^
+HRNLM.c:1471:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->iter);
+           ^
+HRNLM.c:1474:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->train_cur_pos);
+           ^
+HRNLM.c:1477:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%lf", &rnnlmodel->logp);
+           ^
+HRNLM.c:1480:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->anti_k);
+           ^
+HRNLM.c:1483:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->train_words);
+           ^
+HRNLM.c:1486:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layer0_size);
+           ^
+HRNLM.c:1489:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layer1_size);
+           ^
+HRNLM.c:1492:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layerc_size);
+           ^
+HRNLM.c:1495:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layer2_size);
+           ^
+HRNLM.c:1500:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+      fscanf(fi, "%lld", &rnnlmodel->direct_size);
+            ^
+HRNLM.c:1506:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &rnnlmodel->direct_order);
+               ^
+HRNLM.c:1510:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->bptt);
+           ^
+HRNLM.c:1514:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &rnnlmodel->bptt_block);
+               ^
+HRNLM.c:1519:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->vocab_size);
+           ^
+HRNLM.c:1522:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->independent);
+           ^
+HRNLM.c:1525:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%lf", &d);
+           ^
+HRNLM.c:1530:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+      fscanf(fi, "%lf", &d);
+            ^
+HRNLM.c:1533:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%lf", &d);
+               ^
+HRNLM.c:1536:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->alpha_divide);
+           ^
+HRNLM.c:1565:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:1573:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:1585:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &rnnlmodel->fulldict_size);
+               ^
+HRNLM.c:1589:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:1597:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:1606:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%s", buf);
+           ^
+HRNLM.c:1610:18: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+           fscanf (fi, "%d", &a);
+                  ^
+HRNLM.c:1669:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%d%d", &b, &rnnlmodel->vocab[a].cn);
+                   ^
+HRNLM.c:1671:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%d", &rnnlmodel->vocab[a].class_index);
+                   ^
+HRNLM.c:1694:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%lf", &d);
+                   ^
+HRNLM.c:1701:18: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+             fread(&fl, 4, 1, fi);
+                  ^
+HRNLM.c:1710:23: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                 fscanf(fi, "%lf", &d);
+                       ^
+HRNLM.c:1718:22: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                 fread(&fl, 4, 1, fi);
+                      ^
+HRNLM.c:1731:29: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                       fscanf(fi, "%lf", &d);
+                             ^
+HRNLM.c:1740:29: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                       fscanf(fi, "%lf", &d);
+                             ^
+HRNLM.c:1752:27: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                     fscanf(fi, "%lf", &d);
+                           ^
+HRNLM.c:1761:27: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                     fscanf(fi, "%lf", &d);
+                           ^
+HRNLM.c:1770:27: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                     fscanf(fi, "%lf", &d);
+                           ^
+HRNLM.c:1780:26: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                     fread(&fl, 4, 1, fi);
+                          ^
+HRNLM.c:1789:26: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                     fread(&fl, 4, 1, fi);
+                          ^
+HRNLM.c:1796:26: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                     fread(&fl, 4, 1, fi);
+                          ^
+HRNLM.c:1806:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%lf", &d);
+                   ^
+HRNLM.c:1813:18: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+             fread(&fl, 4, 1, fi);
+                  ^
+HRNLM.c: In function ‘LoadRNNLM’:
+HRNLM.c:1844:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &ver);
+           ^
+HRNLM.c:1858:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->filetype);
+           ^
+HRNLM.c:1862:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+      fscanf(fi, "%s", rnnlmodel->train_file);
+            ^
+HRNLM.c:1864:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%s", buf);
+               ^
+HRNLM.c:1867:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%s", rnnlmodel->valid_file);
+           ^
+HRNLM.c:1870:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%lf", &rnnlmodel->llogp);
+           ^
+HRNLM.c:1873:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->iter);
+           ^
+HRNLM.c:1876:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->train_cur_pos);
+           ^
+HRNLM.c:1879:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%lf", &rnnlmodel->logp);
+           ^
+HRNLM.c:1882:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->anti_k);
+           ^
+HRNLM.c:1885:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->train_words);
+           ^
+HRNLM.c:1888:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layer0_size);
+           ^
+HRNLM.c:1891:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layer1_size);
+           ^
+HRNLM.c:1894:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layerc_size);
+           ^
+HRNLM.c:1897:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->layer2_size);
+           ^
+HRNLM.c:1902:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+      fscanf(fi, "%lld", &rnnlmodel->direct_size);
+            ^
+HRNLM.c:1908:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &rnnlmodel->direct_order);
+               ^
+HRNLM.c:1912:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->bptt);
+           ^
+HRNLM.c:1916:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &rnnlmodel->bptt_block);
+               ^
+HRNLM.c:1921:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->vocab_size);
+           ^
+HRNLM.c:1924:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->class_size);
+           ^
+HRNLM.c:1927:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->old_classes);
+           ^
+HRNLM.c:1930:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->independent);
+           ^
+HRNLM.c:1933:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%lf", &d);
+           ^
+HRNLM.c:1938:12: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+      fscanf(fi, "%lf", &d);
+            ^
+HRNLM.c:1941:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%lf", &d);
+               ^
+HRNLM.c:1944:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(fi, "%d", &rnnlmodel->alpha_divide);
+           ^
+HRNLM.c:1964:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:1972:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:1984:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &rnnlmodel->fulldict_size);
+               ^
+HRNLM.c:1987:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:1995:15: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf(fi, "%d", &a);
+               ^
+HRNLM.c:2032:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%d%d", &b, &rnnlmodel->vocab[a].cn);
+                   ^
+HRNLM.c:2034:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%d", &rnnlmodel->vocab[a].class_index);
+                   ^
+HRNLM.c:2057:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%lf", &d);
+                   ^
+HRNLM.c:2064:18: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+             fread(&fl, 4, 1, fi);
+                  ^
+HRNLM.c:2073:23: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                 fscanf(fi, "%lf", &d);
+                       ^
+HRNLM.c:2081:22: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                 fread(&fl, 4, 1, fi);
+                      ^
+HRNLM.c:2092:27: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                     fscanf(fi, "%lf", &d);
+                           ^
+HRNLM.c:2101:27: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                     fscanf(fi, "%lf", &d);
+                           ^
+HRNLM.c:2110:27: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                     fscanf(fi, "%lf", &d);
+                           ^
+HRNLM.c:2120:26: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                     fread(&fl, 4, 1, fi);
+                          ^
+HRNLM.c:2129:26: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                     fread(&fl, 4, 1, fi);
+                          ^
+HRNLM.c:2136:26: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+                     fread(&fl, 4, 1, fi);
+                          ^
+HRNLM.c:2146:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fi, "%lf", &d);
+                   ^
+HRNLM.c:2153:18: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+             fread(&fl, 4, 1, fi);
+                  ^
+HRNLM.c: In function ‘ReadTopicMatrixFile’:
+HRNLM.c:3764:11: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+    fscanf (fin_topic, "%d %d", &n_topic, &dim_topic);
+           ^
+HRNLM.c:3776:17: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+          fscanf (fin_topic, "%d", &j);
+                 ^
+HRNLM.c:3780:23: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                fscanf (fin_topic, "%f", &value);
+                       ^
+HRNLM.c: In function ‘ReadFile’:
+HRNLM.c:4279:19: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+             fscanf(fptr, "%f ", &v);
+                   ^
+HRNLM.c:4282:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "\n");
+                ^
+HRNLM.c: In function ‘Read’:
+HRNLM.c:4576:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "nodetype: %d\n", &self->nodetype);
+                ^
+HRNLM.c:4577:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "reluratio: %f\n", &self->reluratio);
+                ^
+HRNLM.c:4586:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "nodetype: %d\n", &self->nodetype);
+                ^
+HRNLM.c:4587:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+         fscanf (fptr, "reluratio: %f\n", &self->reluratio);
+                ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HMap.o HMap.c
+HMap.c: In function ‘TotMixInSet’:
+HMap.c:384:10: warning: variable ‘hmm’ set but not used [-Wunused-but-set-variable]
+    HLink hmm;
+          ^
+HMap.c: In function ‘MAPUpdateModels’:
+HMap.c:432:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     n = (int)hmm->hook;
+         ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HMath.o HMath.c
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HMem.o HMem.c
+HMem.c: In function ‘AllocBlock’:
+HMem.c:109:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘size_t’ [-Wformat=]
+       printf("HMem: AllocBlock of %u bytes\n",num*size);
+       ^
+HMem.c: In function ‘CreateHeap’:
+HMem.c:235:14: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+              elemSize, growf, numElem, maxElem);
+              ^
+HMem.c:235:14: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 6 has type ‘size_t’ [-Wformat=]
+HMem.c:235:14: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 7 has type ‘size_t’ [-Wformat=]
+HMem.c: In function ‘New’:
+HMem.c:342:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[M] %u bytes at %p allocated\n",x->name,size,q);
+          ^
+HMem.c:353:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[C] %u+%u bytes at %p allocated\n",x->name,chdr,size,q);
+          ^
+HMem.c:353:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+HMem.c:377:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[S] %u bytes at %p allocated\n",x->name,size,q);
+          ^
+HMem.c: In function ‘Dispose’:
+HMem.c:440:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[M] %u bytes at %p de-allocated\n",x->name,size,p);
+          ^
+HMem.c:483:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[S] %u bytes at %p de-allocated\n",x->name,size,p);
+          ^
+HMem.c:492:17: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+                 x->name,chdr,*ip,bp);
+                 ^
+HMem.c:492:17: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+HMem.c: In function ‘PrintHeapStats’:
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+           x->totAlloc*x->elemSize,x->name,tc) ;
+           ^
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘size_t’ [-Wformat=]
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 6 has type ‘size_t’ [-Wformat=]
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HModel.o HModel.c
+HModel.c: In function ‘CompressItemList’:
+HModel.c:1149:11: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+   ILink i,p;
+           ^
+HModel.c: In function ‘NewMacro’:
+HModel.c:3386:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       hashval = (unsigned int)m->structure % PTRHASHSIZE;
+                 ^
+HModel.c: In function ‘FindMacroStruct’:
+HModel.c:3450:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             i = (unsigned int)m->structure % PTRHASHSIZE;
+                 ^
+HModel.c:3458:8: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    i = (unsigned int)structure % PTRHASHSIZE;
+        ^
+HModel.c: In function ‘SetIndexes’:
+HModel.c:3967:34: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+          SetHook(hss.hmm->transP,(Ptr)(++nt));
+                                  ^
+HModel.c:3970:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       hss.hmm->tIdx=(int)GetHook(hss.hmm->transP);
+                     ^
+HModel.c: In function ‘CreateHMM’:
+HModel.c:4225:12: warning: variable ‘newMacro’ set but not used [-Wunused-but-set-variable]
+    Boolean newMacro=FALSE; /* for memory clear up*/
+            ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HNet.o HNet.c
+HNet.c: In function ‘GetSubLat’:
+HNet.c:337:8: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    h=(((unsigned) subLatId)%SUBLATHASHSIZE);
+        ^
+HNet.c: In function ‘ReadOneLattice’:
+HNet.c:1203:18: warning: unused variable ‘ii’ [-Wunused-variable]
+              int ii =0 ;
+                  ^
+HNet.c: In function ‘PrintNode’:
+HNet.c:1630:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    printf("Node[%05d] ",(((unsigned) node)/sizeof(NetNode))%100000);
+                           ^
+HNet.c:1630:4: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+    printf("Node[%05d] ",(((unsigned) node)/sizeof(NetNode))%100000);
+    ^
+HNet.c: In function ‘PrintLinks’:
+HNet.c:1659:16: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+              (((unsigned) links[i].node)/sizeof(NetNode)%100000),
+                ^
+HNet.c:1660:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+              links[i].like);
+              ^
+HNet.c: In function ‘FindWordNode’:
+HNet.c:2016:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    un.ptrs[0]=pron;un.ptrs[1]=pInst;un.ptrs[2]=(Ptr)type;
+                                                ^
+HNet.c: In function ‘CreateXEModels’:
+HNet.c:3158:36: warning: variable ‘searchNode’ set but not used [-Wunused-but-set-variable]
+    NetNode *node,*dest,*chainNode,*searchNode;
+                                    ^
+HNet.c: In function ‘GetFltField’:
+HNet.c:843:4: warning: ‘rv’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    return(rv);
+    ^
+HNet.c: In function ‘GetIntField’:
+HNet.c:822:4: warning: ‘rv’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    return((int)rv);
+    ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HParm.o HParm.c
+HParm.c: In function ‘SetWaveSpDetParms’:
+HParm.c:2584:18: warning: variable ‘nBl’ set but not used [-Wunused-but-set-variable]
+    int i,j,n,nFr,nBl,xMin=32767,xMax=-32768;
+                  ^
+HParm.c:2582:11: warning: variable ‘v’ set but not used [-Wunused-but-set-variable]
+    Vector v,eFr;
+           ^
+HParm.c: In function ‘CompressPBlock’:
+HParm.c:4945:16: warning: variable ‘count’ set but not used [-Wunused-but-set-variable]
+    int i,nx,ix,count;
+                ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HRec.o HRec.c
+HRec.c: In function ‘LatFromPaths’:
+HRec.c:1650:24: warning: ‘labid’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+             if (dur<=0 && labid != splabid) HError(8522,"LatFromPaths: Align have dur<=0 ");
+                        ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HShell.o HShell.c
+HShell.c: In function ‘KeyPressed’:
+HShell.c:1489:14: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+          read(0, c, 1);
+              ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HSigP.o HSigP.c
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HTrain.o HTrain.c
+HTrain.c: In function ‘LoadAccsParallel’:
+HTrain.c:1644:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       negs += (int)hmm->hook; hmm->hook = (void *)negs;
+               ^
+HTrain.c:1644:43: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       negs += (int)hmm->hook; hmm->hook = (void *)negs;
+                                           ^
+HTrain.c: In function ‘RestoreAccsParallel’:
+HTrain.c:1716:12: warning: variable ‘size’ set but not used [-Wunused-but-set-variable]
+    int s,m,size;
+            ^
+HTrain.c: In function ‘InitClustering’:
+HTrain.c:755:22: warning: ‘cov.var’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       ccs->cl[i].cov = cov;
+                      ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HUtil.o HUtil.c
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HVQ.o HVQ.c
+HVQ.c: In function ‘LoadVQTab’:
+HVQ.c:129:45: warning: ‘cov.var’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    n->vqidx = vqidx; n->mean = mean; n->cov = cov;
+                                             ^
+HVQ.c:169:15: note: ‘cov.var’ was declared here
+    Covariance cov;
+               ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o HWave.o HWave.c
+HWave.c: In function ‘GetAIFFHeaderInfo’:
+HWave.c:997:22: warning: variable ‘commchunk1’ set but not used [-Wunused-but-set-variable]
+    CommonChunk1 ch1, commchunk1;
+                      ^
+HWave.c: In function ‘GetWAVHeaderInfo’:
+HWave.c:1062:9: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+    fread(magic, 4, 1, f);
+         ^
+HWave.c:1068:9: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+    fread(&lng, 4, 1, f);
+         ^
+HWave.c:1069:9: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+    fread(magic, 4, 1, f);
+         ^
+HWave.c:1081:12: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       fread(magic, 4, 1, f);
+            ^
+HWave.c:1082:12: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       fread(&len, 4, 1, f);
+            ^
+HWave.c:1087:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&type, 2, 1, f);
+               ^
+HWave.c:1097:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&chans, 2, 1, f);                /* Number of Channels */
+               ^
+HWave.c:1105:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&lng, 4, 1, f);                /* Sample Rate */
+               ^
+HWave.c:1108:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&lng, 4, 1, f);                  /* Average bytes/second */
+               ^
+HWave.c:1109:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&sht, 2, 1, f);                  /* Block align */
+               ^
+HWave.c:1110:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&sampSize, 2, 1, f);             /* Data size */
+               ^
+HWave.c:1125:33: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       for (; len>0; len--) fread(&c,1,1,f);
+                                 ^
+HWave.c: In function ‘PutESIGHeaderInfo’:
+HWave.c:1342:14: warning: ‘inList’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    FieldList inList, outList=NULL;
+              ^
+HWave.c: In function ‘OpenWaveInput’:
+HWave.c:1042:18: warning: ‘commchunk2.nSamples’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    w->nSamples   = commchunk2.nSamples;
+                  ^
+HWave.c:998:22: note: ‘commchunk2.nSamples’ was declared here
+    CommonChunk2 ch2, commchunk2;   
+                      ^
+gcc  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG   -c -o strarr.o strarr.c
+if [ -f HTKLib.a ] ; then  /bin/rm HTKLib.a ; fi
+ar rv HTKLib.a HGraf.o esig_asc.o esig_edr.o esignal.o esig_nat.o HAdapt.o HArc.o HAudio.o HDict.o HExactMPE.o HFB.o HFBLat.o HLabel.o HLat.o HLM.o HNLM.o HRNLM.o HMap.o HMath.o HMem.o HModel.o HNet.o HParm.o HRec.o HShell.o HSigP.o HTrain.o HUtil.o HVQ.o HWave.o strarr.o
+ar: creating HTKLib.a
+a - HGraf.o
+a - esig_asc.o
+a - esig_edr.o
+a - esignal.o
+a - esig_nat.o
+a - HAdapt.o
+a - HArc.o
+a - HAudio.o
+a - HDict.o
+a - HExactMPE.o
+a - HFB.o
+a - HFBLat.o
+a - HLabel.o
+a - HLat.o
+a - HLM.o
+a - HNLM.o
+a - HRNLM.o
+a - HMap.o
+a - HMath.o
+a - HMem.o
+a - HModel.o
+a - HNet.o
+a - HParm.o
+a - HRec.o
+a - HShell.o
+a - HSigP.o
+a - HTrain.o
+a - HUtil.o
+a - HVQ.o
+a - HWave.o
+a - strarr.o
+ranlib HTKLib.a
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HGraf.lv.o HGraf.c
+HGraf.c: In function ‘DecodeKeyPress’:
+HGraf.c:179:8: warning: variable ‘n’ set but not used [-Wunused-but-set-variable]
+    int n;
+        ^
+HGraf.c: In function ‘HGetEvent’:
+HGraf.c:221:18: warning: variable ‘dummy’ set but not used [-Wunused-but-set-variable]
+    Boolean found,dummy;
+                  ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o esig_asc.lv.o esig_asc.c
+esig_asc.c: In function ‘ReadAsciiEscape’:
+esig_asc.c:2025:16: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+          fscanf(file, "%3lo", val);
+                ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o esig_edr.lv.o esig_edr.c
+esig_edr.c: In function ‘EdrReadLong’:
+esig_edr.c:1192:60: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+                            if (hi > lmaxhi || hi == lmaxhi && lo > lmaxlo)
+                                                            ^
+esig_edr.c:1204:60: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+                            if (hi < lminhi || hi == lminhi && lo < lminlo)
+                                                            ^
+esig_edr.c: In function ‘EdrReadUlong’:
+esig_edr.c:1341:56: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+                      if (hi > ulmaxhi || hi == ulmaxhi && lo > ulmaxlo)
+                                                        ^
+esig_edr.c: In function ‘ReadEdrRecord’:
+esig_edr.c:338:25: warning: ‘flags’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+                   flags <<= 1;
+                         ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o esignal.lv.o esignal.c
+esignal.c: In function ‘GetLine’:
+esignal.c:1760:9: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+    fgets(buf, len+1, file);
+         ^
+esignal.c: In function ‘GetLong’:
+esignal.c:1808:9: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+    fgets(buf, len+1, file);
+         ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o esig_nat.lv.o esig_nat.c
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HAdapt.lv.o HAdapt.c
+HAdapt.c: In function ‘UpdateAccCache’:
+HAdapt.c:1041:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  nblock = (int)(paac->bTriMat[0]);
+           ^
+HAdapt.c: In function ‘UpdateBaseAccs’:
+HAdapt.c:1079:19: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+          nblock = (int)(ra->bDiagMat[0]);
+                   ^
+HAdapt.c: In function ‘UpdateBaseAccsWithPaac’:
+HAdapt.c:1136:22: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             nblock = (int)(ra->bDiagMat[0]);
+                      ^
+HAdapt.c: In function ‘SetSemiTiedAvCov’:
+HAdapt.c:1381:15: warning: variable ‘si’ set but not used [-Wunused-but-set-variable]
+    StateInfo *si   ;
+               ^
+HAdapt.c: In function ‘ParseNode’:
+HAdapt.c:1550:12: warning: variable ‘size’ set but not used [-Wunused-but-set-variable]
+    int b,c,size;
+            ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HArc.lv.o HArc.c
+HArc.c: In function ‘PrintArc’:
+HArc.c:214:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+            a->id, a->pos, (int)a->parentLarc, (float)a->t_start, (float)a->t_end);
+                           ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HAudio.lv.o HAudio.c
+HAudio.c: In function ‘StartAudioInput’:
+HAudio.c:2174:11: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+       read(0, &c, 1);
+           ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HDict.lv.o HDict.c
+HDict.c: In function ‘VocabHash’:
+HDict.c:61:19: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    return (int) (((unsigned) name)%VHASHSIZE);
+                   ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HExactMPE.lv.o HExactMPE.c
+HExactMPE.c: In function ‘DoCorrectness’:
+HExactMPE.c:271:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  int iword = (int)/*from LabId*/ la->end->word->wordName;
+              ^
+HExactMPE.c:288:58: warning: value computed is not used [-Wunused-value]
+    for(b=a->follTrans->end;b->parentLarc==la;b->follTrans&&(b=b->follTrans->end)){
+                                                          ^
+HExactMPE.c:332:12: warning: variable ‘cb’ set but not used [-Wunused-but-set-variable]
+      HArc *cb;
+            ^
+HExactMPE.c: In function ‘DoExactCorrectness’:
+HExactMPE.c:664:19: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  iwords[w++][0] = (int)node->foll->end->word->wordName; /* word is at the node at the end of the arc. */
+                   ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HFB.lv.o HFB.c
+HFB.c: In function ‘Setotprob’:
+HFB.c:999:15: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+    PruneInfo *p;
+               ^
+HFB.c: In function ‘SetBeta’:
+HFB.c:1161:12: warning: variable ‘hset’ set but not used [-Wunused-but-set-variable]
+    HMMSet *hset;
+            ^
+HFB.c: In function ‘StepForward’:
+HFB.c:1770:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       negs = (int)up_hmm->hook+1;
+              ^
+HFB.c:1771:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       up_hmm->hook = (void *)negs;
+                      ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HFBLat.lv.o HFBLat.c
+HFBLat.c: In function ‘GetNoContextPhone’:
+HFBLat.c:174:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       return (int) phone;
+              ^
+HFBLat.c:213:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    if(len > sizeof(int)) return (int) GetLabId(tmp, TRUE);
+                                 ^
+HFBLat.c: In function ‘SetCorrectness’:
+HFBLat.c:255:34: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                   else i_label = (int)label; /* Use address of LabId. */
+                                  ^
+HFBLat.c:304:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             ca->i_label = (int)numLat->larcs[larcid].end->word->wordName;
+                           ^
+HFBLat.c:334:30: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                else iphone = (int)phone;
+                              ^
+HFBLat.c:403:41: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                         if(otherWord == (int)word)
+                                         ^
+HFBLat.c: In function ‘SetCorrectnessAsError’:
+HFBLat.c:546:34: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                   else i_label = (int)label; /* Use address of LabId. */
+                                  ^
+HFBLat.c:597:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             ca->i_label = (int)numLat->larcs[larcid].end->word->wordName;
+                           ^
+HFBLat.c:626:30: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                else iphone = (int)phone;
+                              ^
+HFBLat.c: In function ‘StepAlpha’:
+HFBLat.c:737:20: warning: variable ‘transP’ set but not used [-Wunused-but-set-variable]
+             double transP;
+                    ^
+HFBLat.c: In function ‘DoAllMixUpdates’:
+HFBLat.c:1070:33: warning: variable ‘al_otvs’ set but not used [-Wunused-but-set-variable]
+    Vector mean,variance,up_otvs,al_otvs,mu_jm;
+                                 ^
+HFBLat.c: In function ‘UpMixParms’:
+HFBLat.c:1198:25: warning: variable ‘vSize’ set but not used [-Wunused-but-set-variable]
+    int mx,s,j,m=0,M=0,N,vSize;
+                         ^
+HFBLat.c: In function ‘StepForward’:
+HFBLat.c:1402:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       negs = (int)up_hmm->hook+1;
+              ^
+HFBLat.c:1403:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       up_hmm->hook = (void *)negs;
+                      ^
+HFBLat.c:1389:25: warning: variable ‘bqt1’ set but not used [-Wunused-but-set-variable]
+    DVector aqt,aqt1,bqt,bqt1,tmp;
+                         ^
+HFBLat.c: In function ‘DoAllMixUpdates’:
+HFBLat.c:1175:30: warning: ‘mammi’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+                   mammi->occ += unscaledLr;
+                              ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HLabel.lv.o HLabel.c
+HLabel.c: In function ‘LoadMasterFile’:
+HLabel.c:1196:51: warning: ‘den’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+             e->def.subdir = NewString(&mlfHeap,den-dst-1);
+                                                   ^
+HLabel.c:1168:10: warning: ‘dst’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    char *dst,*den;   /* start/end of subdirectory (inc quotes) */
+          ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HLat.lv.o HLat.c
+In file included from HLat.c:52:0:
+HLM.h:178:1: warning: no semicolon at end of struct or union [enabled by default]
+ } IntpltLM;
+ ^
+HLat.c: In function ‘LatSetScores’:
+HLat.c:710:14: warning: variable ‘best’ set but not used [-Wunused-but-set-variable]
+    LogDouble best;
+              ^
+HLat.c: In function ‘CalcStats’:
+HLat.c:929:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       ln->word->aux = (Ptr) (((int)ln->word->aux) + 1);
+                               ^
+HLat.c:929:23: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       ln->word->aux = (Ptr) (((int)ln->word->aux) + 1);
+                       ^
+HLat.c: At top level:
+HLat.c:85:16: warning: ‘slaHeap’ defined but not used [-Wunused-variable]
+ static MemHeap slaHeap, slnHeap;/* MHEAPs for use in LatExpand() */
+                ^
+HLat.c:85:25: warning: ‘slnHeap’ defined but not used [-Wunused-variable]
+ static MemHeap slaHeap, slnHeap;/* MHEAPs for use in LatExpand() */
+                         ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HLM.lv.o HLM.c
+In file included from HLM.c:43:0:
+HLM.h:178:1: warning: no semicolon at end of struct or union [enabled by default]
+ } IntpltLM;
+ ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c: In function ‘UpdateRNNLMCache’:
+HLM-RNNLM.c:406:4: warning: passing argument 3 of ‘GetNEntry2_RNNLM’ makes pointer from integer without a cast [enabled by default]
+    ne_prev = GetNEntry2_RNNLM(nglm, ndx+2, -1, FALSE, FALSE, ACTUAL_MLP_NSIZE, v, fv);
+    ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c:48:9: note: expected ‘lmId *’ but argument is of type ‘int’
+ NEntry *GetNEntry2_RNNLM(NGramLM *nglm,lmId ndx[NSIZE], lmId fndx[NSIZE], Boolean use_prob_table, Boolean create, int ngsize, Vector v, Vector fv);
+         ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c:488:17: warning: pointer targets in passing argument 10 of ‘UpdateRNNLMCache’ differ in signedness [-Wpointer-sign]
+                 prob_prev = UpdateRNNLMCache(lm, hist, rnnlm, wdID_prev, hist[hSize2 - 1], N, shift+1, useCache, succword_new, fndx);
+                 ^
+HLM-RNNLM.c:262:7: note: expected ‘int *’ but argument is of type ‘lmId *’
+ float UpdateRNNLMCache(LModel *lm, char **hist, RNNLM *rnnlm, int wdID, char *word, int N, int shift, Boolean useCache, char succword[NSIZE][100], int succwdID[NSIZE])
+       ^
+HLM-RNNLM.c:266:20: warning: variable ‘prob_prev’ set but not used [-Wunused-but-set-variable]
+    float prob = 0, prob_prev = 0;
+                    ^
+HLM-RNNLM.c:265:15: warning: variable ‘hSize’ set but not used [-Wunused-but-set-variable]
+    int i = 0, hSize = 0, hSize2 = 0, prID = 0, wdID_prev = 0;
+               ^
+HLM.c: In function ‘WriteNGrams’:
+HLM.c:574:16: warning: variable ‘N’ set but not used [-Wunused-but-set-variable]
+    int c,i,j,k,N,g=1,hash,neCnt,total;
+                ^
+HLM.c: In function ‘ReadNGrams’:
+HLM.c:764:45: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+          if (wdid->aux == NULL) wdid->aux = (Ptr)g;
+                                             ^
+HLM.c:787:36: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+                idx = (wdid==NULL?0:(int)wdid->aux);
+                                    ^
+HLM.c:735:18: warning: variable ‘size’ set but not used [-Wunused-but-set-variable]
+    unsigned char size, flags=0;
+                  ^
+HLM.c: In function ‘ReadMatBigram’:
+HLM.c:1033:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       if ((int)id->aux != 0)
+           ^
+HLM.c:1035:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       id->aux = (Ptr) p;
+                 ^
+HLM.c: In function ‘GetLMProb’:
+HLM.c:1807:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       word = (int)wdid->aux;
+              ^
+HLM.c:1812:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             ndx[i]=(int)prid[i]->aux, cpid[i]=prid[i], s=i;
+                    ^
+HLM.c:1843:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       p=(int) prid[0]->aux;
+         ^
+HLM.c:1844:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       q=(int) wdid->aux;
+         ^
+HLM.c:1849:7: warning: passing argument 4 of ‘GetRNNLMProb’ from incompatible pointer type [enabled by default]
+       return GetRNNLMProb(lm, prid, wdid, succwdid);
+       ^
+In file included from HLM.c:186:0:
+HLM-RNNLM.c:664:7: note: expected ‘struct NameCell **’ but argument is of type ‘LabId’
+ float GetRNNLMProb(LModel* lm , LabId prid[NSIZE], LabId wdid, LabId *succwordId)
+       ^
+HLM.c: In function ‘GetNEntry.constprop.6’:
+HLM.c:204:28: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+       hash=hash+(ndx[i]*hvs[i]);
+                            ^
+HLM.c:203:4: note: containing loop
+    for (i=0;i<NSIZE-1;i++)
+    ^
+HLM.c: In function ‘GetNEntry’:
+HLM.c:204:28: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+       hash=hash+(ndx[i]*hvs[i]);
+                            ^
+HLM.c:203:4: note: containing loop
+    for (i=0;i<NSIZE-1;i++)
+    ^
+HLM.c: In function ‘GetNEntry2_RNNLM_Lmstate’:
+HLM.c:316:30: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+         hash=hash+(ndx[i]*hvs[i]);
+                              ^
+HLM.c:315:5: note: containing loop
+     for (i=0;i<ngsize-1;i++)
+     ^
+HLM.c: In function ‘GetNEntry2_RNNLM_ProbCache’:
+HLM.c:369:30: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+         hash=hash+(ndx[i]*hvs[i]);
+                              ^
+HLM.c:368:5: note: containing loop
+     for (i=0;i<ngsize-1;i++)
+     ^
+HLM.c: In function ‘GetNEntry2_RNNLM’:
+HLM.c:424:28: warning: iteration 8u invokes undefined behavior [-Waggressive-loop-optimizations]
+       hash=hash+(ndx[i]*hvs[i]);
+                            ^
+HLM.c:423:4: note: containing loop
+    for (i=0;i<ngsize-1;i++)
+    ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HMap.lv.o HMap.c
+HMap.c: In function ‘TotMixInSet’:
+HMap.c:384:10: warning: variable ‘hmm’ set but not used [-Wunused-but-set-variable]
+    HLink hmm;
+          ^
+HMap.c: In function ‘MAPUpdateModels’:
+HMap.c:432:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     n = (int)hmm->hook;
+         ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HMath.lv.o HMath.c
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HMem.lv.o HMem.c
+HMem.c: In function ‘AllocBlock’:
+HMem.c:109:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘size_t’ [-Wformat=]
+       printf("HMem: AllocBlock of %u bytes\n",num*size);
+       ^
+HMem.c: In function ‘CreateHeap’:
+HMem.c:235:14: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+              elemSize, growf, numElem, maxElem);
+              ^
+HMem.c:235:14: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 6 has type ‘size_t’ [-Wformat=]
+HMem.c:235:14: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 7 has type ‘size_t’ [-Wformat=]
+HMem.c: In function ‘New’:
+HMem.c:342:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[M] %u bytes at %p allocated\n",x->name,size,q);
+          ^
+HMem.c:353:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[C] %u+%u bytes at %p allocated\n",x->name,chdr,size,q);
+          ^
+HMem.c:353:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+HMem.c:377:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[S] %u bytes at %p allocated\n",x->name,size,q);
+          ^
+HMem.c: In function ‘Dispose’:
+HMem.c:440:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[M] %u bytes at %p de-allocated\n",x->name,size,p);
+          ^
+HMem.c:483:10: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+          printf("HMem: %s[S] %u bytes at %p de-allocated\n",x->name,size,p);
+          ^
+HMem.c:492:17: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+                 x->name,chdr,*ip,bp);
+                 ^
+HMem.c:492:17: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+HMem.c: In function ‘PrintHeapStats’:
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ [-Wformat=]
+           x->totAlloc*x->elemSize,x->name,tc) ;
+           ^
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ [-Wformat=]
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘size_t’ [-Wformat=]
+HMem.c:513:11: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 6 has type ‘size_t’ [-Wformat=]
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HModel.lv.o HModel.c
+HModel.c: In function ‘CompressItemList’:
+HModel.c:1149:11: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+   ILink i,p;
+           ^
+HModel.c: In function ‘NewMacro’:
+HModel.c:3386:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       hashval = (unsigned int)m->structure % PTRHASHSIZE;
+                 ^
+HModel.c: In function ‘FindMacroStruct’:
+HModel.c:3450:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+             i = (unsigned int)m->structure % PTRHASHSIZE;
+                 ^
+HModel.c:3458:8: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    i = (unsigned int)structure % PTRHASHSIZE;
+        ^
+HModel.c: In function ‘SetIndexes’:
+HModel.c:3967:34: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+          SetHook(hss.hmm->transP,(Ptr)(++nt));
+                                  ^
+HModel.c:3970:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       hss.hmm->tIdx=(int)GetHook(hss.hmm->transP);
+                     ^
+HModel.c: In function ‘CreateHMM’:
+HModel.c:4225:12: warning: variable ‘newMacro’ set but not used [-Wunused-but-set-variable]
+    Boolean newMacro=FALSE; /* for memory clear up*/
+            ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HNet.lv.o HNet.c
+HNet.c: In function ‘GetSubLat’:
+HNet.c:337:8: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    h=(((unsigned) subLatId)%SUBLATHASHSIZE);
+        ^
+HNet.c: In function ‘ReadOneLattice’:
+HNet.c:1203:18: warning: unused variable ‘ii’ [-Wunused-variable]
+              int ii =0 ;
+                  ^
+HNet.c: In function ‘PrintNode’:
+HNet.c:1630:27: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    printf("Node[%05d] ",(((unsigned) node)/sizeof(NetNode))%100000);
+                           ^
+HNet.c:1630:4: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+    printf("Node[%05d] ",(((unsigned) node)/sizeof(NetNode))%100000);
+    ^
+HNet.c: In function ‘PrintLinks’:
+HNet.c:1659:16: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+              (((unsigned) links[i].node)/sizeof(NetNode)%100000),
+                ^
+HNet.c:1660:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+              links[i].like);
+              ^
+HNet.c: In function ‘FindWordNode’:
+HNet.c:2016:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    un.ptrs[0]=pron;un.ptrs[1]=pInst;un.ptrs[2]=(Ptr)type;
+                                                ^
+HNet.c: In function ‘CreateXEModels’:
+HNet.c:3158:36: warning: variable ‘searchNode’ set but not used [-Wunused-but-set-variable]
+    NetNode *node,*dest,*chainNode,*searchNode;
+                                    ^
+HNet.c: In function ‘GetFltField’:
+HNet.c:843:4: warning: ‘rv’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    return(rv);
+    ^
+HNet.c: In function ‘GetIntField’:
+HNet.c:822:4: warning: ‘rv’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    return((int)rv);
+    ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HParm.lv.o HParm.c
+HParm.c: In function ‘SetWaveSpDetParms’:
+HParm.c:2584:18: warning: variable ‘nBl’ set but not used [-Wunused-but-set-variable]
+    int i,j,n,nFr,nBl,xMin=32767,xMax=-32768;
+                  ^
+HParm.c:2582:11: warning: variable ‘v’ set but not used [-Wunused-but-set-variable]
+    Vector v,eFr;
+           ^
+HParm.c: In function ‘CompressPBlock’:
+HParm.c:4945:16: warning: variable ‘count’ set but not used [-Wunused-but-set-variable]
+    int i,nx,ix,count;
+                ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HRec.lv.o HRec.c
+HRec.c: In function ‘LatFromPaths’:
+HRec.c:1650:24: warning: ‘labid’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+             if (dur<=0 && labid != splabid) HError(8522,"LatFromPaths: Align have dur<=0 ");
+                        ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HShell.lv.o HShell.c
+HShell.c: In function ‘KeyPressed’:
+HShell.c:1489:14: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+          read(0, c, 1);
+              ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HSigP.lv.o HSigP.c
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HTrain.lv.o HTrain.c
+HTrain.c: In function ‘LoadAccsParallel’:
+HTrain.c:1644:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       negs += (int)hmm->hook; hmm->hook = (void *)negs;
+               ^
+HTrain.c:1644:43: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       negs += (int)hmm->hook; hmm->hook = (void *)negs;
+                                           ^
+HTrain.c: In function ‘RestoreAccsParallel’:
+HTrain.c:1716:12: warning: variable ‘size’ set but not used [-Wunused-but-set-variable]
+    int s,m,size;
+            ^
+HTrain.c: In function ‘InitClustering’:
+HTrain.c:755:22: warning: ‘cov.var’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       ccs->cl[i].cov = cov;
+                      ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HUtil.lv.o HUtil.c
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HVQ.lv.o HVQ.c
+HVQ.c: In function ‘LoadVQTab’:
+HVQ.c:129:45: warning: ‘cov.var’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    n->vqidx = vqidx; n->mean = mean; n->cov = cov;
+                                             ^
+HVQ.c:169:15: note: ‘cov.var’ was declared here
+    Covariance cov;
+               ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o HWave.lv.o HWave.c
+HWave.c: In function ‘GetAIFFHeaderInfo’:
+HWave.c:997:22: warning: variable ‘commchunk1’ set but not used [-Wunused-but-set-variable]
+    CommonChunk1 ch1, commchunk1;
+                      ^
+HWave.c: In function ‘GetWAVHeaderInfo’:
+HWave.c:1062:9: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+    fread(magic, 4, 1, f);
+         ^
+HWave.c:1068:9: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+    fread(&lng, 4, 1, f);
+         ^
+HWave.c:1069:9: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+    fread(magic, 4, 1, f);
+         ^
+HWave.c:1081:12: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       fread(magic, 4, 1, f);
+            ^
+HWave.c:1082:12: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       fread(&len, 4, 1, f);
+            ^
+HWave.c:1087:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&type, 2, 1, f);
+               ^
+HWave.c:1097:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&chans, 2, 1, f);                /* Number of Channels */
+               ^
+HWave.c:1105:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&lng, 4, 1, f);                /* Sample Rate */
+               ^
+HWave.c:1108:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&lng, 4, 1, f);                  /* Average bytes/second */
+               ^
+HWave.c:1109:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&sht, 2, 1, f);                  /* Block align */
+               ^
+HWave.c:1110:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+          fread(&sampSize, 2, 1, f);             /* Data size */
+               ^
+HWave.c:1125:33: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       for (; len>0; len--) fread(&c,1,1,f);
+                                 ^
+HWave.c: In function ‘PutESIGHeaderInfo’:
+HWave.c:1342:14: warning: ‘inList’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    FieldList inList, outList=NULL;
+              ^
+HWave.c: In function ‘OpenWaveInput’:
+HWave.c:1042:18: warning: ‘commchunk2.nSamples’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    w->nSamples   = commchunk2.nSamples;
+                  ^
+HWave.c:998:22: note: ‘commchunk2.nSamples’ was declared here
+    CommonChunk2 ch2, commchunk2;   
+                      ^
+gcc -DNO_LAT_LM  -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch -g -O3 -I. -DPHNALG -c -o strarr.lv.o strarr.c
+if [ -f HTKLiblv.a ] ; then  /bin/rm HTKLiblv.a ; fi
+ar rv HTKLiblv.a HGraf.lv.o esig_asc.lv.o esig_edr.lv.o esignal.lv.o esig_nat.lv.o HAdapt.lv.o HArc.lv.o HAudio.lv.o HDict.lv.o HExactMPE.lv.o HFB.lv.o HFBLat.lv.o HLabel.lv.o HLat.lv.o HLM.lv.o HNLM.o HRNLM.o HMap.lv.o HMath.lv.o HMem.lv.o HModel.lv.o HNet.lv.o HParm.lv.o HRec.lv.o HShell.lv.o HSigP.lv.o HTrain.lv.o HUtil.lv.o HVQ.lv.o HWave.lv.o strarr.lv.o
+ar: creating HTKLiblv.a
+a - HGraf.lv.o
+a - esig_asc.lv.o
+a - esig_edr.lv.o
+a - esignal.lv.o
+a - esig_nat.lv.o
+a - HAdapt.lv.o
+a - HArc.lv.o
+a - HAudio.lv.o
+a - HDict.lv.o
+a - HExactMPE.lv.o
+a - HFB.lv.o
+a - HFBLat.lv.o
+a - HLabel.lv.o
+a - HLat.lv.o
+a - HLM.lv.o
+a - HNLM.o
+a - HRNLM.o
+a - HMap.lv.o
+a - HMath.lv.o
+a - HMem.lv.o
+a - HModel.lv.o
+a - HNet.lv.o
+a - HParm.lv.o
+a - HRec.lv.o
+a - HShell.lv.o
+a - HSigP.lv.o
+a - HTrain.lv.o
+a - HUtil.lv.o
+a - HVQ.lv.o
+a - HWave.lv.o
+a - strarr.lv.o
+ranlib HTKLiblv.a
+rm -f *.o 
+if [ ! -d /usr/local/bin -a X_ = X_yes ] ; then mkdir -p /usr/local/bin ; fi
+if [ xHLRescore = xHSLab ] ; then \
+		gcc -o HLRescore -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch  -O3 -I../HTKLib -DPHNALG HLRescore.c ../HTKLib/HTKLib.a -L/usr/X11R6/lib  -lm -lX11 ; \
+		else \
+		gcc -o HLRescore -m64 -ansi -D_SVID_SOURCE -DOSS_AUDIO -D'ARCH="x86_64"' -Wall -Wno-switch  -O3 -I../HTKLib -DPHNALG HLRescore.c ../HTKLib/HTKLib.a -L/usr/X11R6/lib  -lm ; fi
+In file included from HLRescore.c:54:0:
+../HTKLib/HLM.h:178:1: warning: no semicolon at end of struct or union [enabled by default]
+ } IntpltLM;
+ ^
+HLRescore.c: In function ‘ProcessLabels’:
+HLRescore.c:845:10: warning: variable ‘l’ set but not used [-Wunused-but-set-variable]
+    LLink l;
+          ^
+HLRescore.c: In function ‘main’:
+HLRescore.c:616:25: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+                  fscanf (tf, "%f", tmfea+i);
+                         ^
+if [ X_ = X_yes ] ; then /usr/bin/install -c -m 755 HLRescore /usr/local/bin  ; fi
