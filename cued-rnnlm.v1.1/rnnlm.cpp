@@ -138,6 +138,7 @@ RNNLM::RNNLM(string inmodelfile_1, string inputwlist_1, string outputwlist_1, in
     succwindowlength = succwindowlength_1;
     deviceid = dev;
     flag_usegpu = true;
+    printf("Hello\n");
     SelectDevice ();
     LoadRNNLM (inmodelfile);
     // this will be useful for sampling
@@ -1105,6 +1106,7 @@ void RNNLM::WriteRNNLM(string modelname)
 void RNNLM::LoadTextRNNLM_new (string modelname)
 {
     int i, a, b, dim_fea;
+    int err;
     float v;
     char word[1024];
     FILE *fptr = NULL;
@@ -1115,53 +1117,53 @@ void RNNLM::LoadTextRNNLM_new (string modelname)
         printf ("ERROR: Failed to read RNNLM model file(%s)\n", modelname.c_str());
         exit (0);
     }
-    fscanf (fptr, "cuedrnnlm v%f\n", &v);
+    err = fscanf (fptr, "cuedrnnlm v%f\n", &v);
     if (v != version)
     {
         printf ("Error: the version of rnnlm model(v%.1f) is not consistent with binary supported(v%.1f)\n", v, version);
         exit (0);
     }
-    fscanf (fptr, "train file: %s\n", word);     trainfile = word;
-    fscanf (fptr, "valid file: %s\n", word);     validfile = word;
-    fscanf (fptr, "number of iteration: %d\n", &iter);
+    err = fscanf (fptr, "train file: %s\n", word);     trainfile = word;
+    err = fscanf (fptr, "valid file: %s\n", word);     validfile = word;
+    err = fscanf (fptr, "number of iteration: %d\n", &iter);
     iter ++;
-    fscanf (fptr, "#train words: %d\n", &trainwordcnt);
-    fscanf (fptr, "#valid words: %d\n", &validwordcnt);
-    fscanf (fptr, "#layer: %d\n", &num_layer);
+    err = fscanf (fptr, "#train words: %d\n", &trainwordcnt);
+    err = fscanf (fptr, "#valid words: %d\n", &validwordcnt);
+    err = fscanf (fptr, "#layer: %d\n", &num_layer);
     layersizes.resize(num_layer+1);
     layertypes.resize(num_layer+1);
     for (i=0; i<layersizes.size(); i++)
     {
-        fscanf (fptr, "layer %d size: %d type: %s\n", &b, &a, word);
+        err = fscanf (fptr, "layer %d size: %d type: %s\n", &b, &a, word);
         assert(b==i);
         layersizes[i] = a;
         layertypes[i] = word;
     }
-    fscanf (fptr, "fullvoc size: %d\n", &fullvocsize);
+    err = fscanf (fptr, "fullvoc size: %d\n", &fullvocsize);
 
-    fscanf (fptr, "independent mode: %d\n", &independent);
-    fscanf (fptr, "train crit mode: %d\n",  &traincritmode);
-    fscanf (fptr, "log norm: %f\n", &lognorm_output);
-    fscanf (fptr, "dim feature: %d\n", &dim_fea);
+    err = fscanf (fptr, "independent mode: %d\n", &independent);
+    err = fscanf (fptr, "train crit mode: %d\n",  &traincritmode);
+    err = fscanf (fptr, "log norm: %f\n", &lognorm_output);
+    err = fscanf (fptr, "dim feature: %d\n", &dim_fea);
 
-    fscanf (fptr, "num of succeeding words: %d\n", &succwindowlength);
+    err = fscanf (fptr, "num of succeeding words: %d\n", &succwindowlength);
     if (succwindowlength > 0)
     {
-        fscanf (fptr, "num of succlayer: %d\n", &num_sulayer);
+        err = fscanf (fptr, "num of succlayer: %d\n", &num_sulayer);
         succlayersizes.resize (num_sulayer+1);
         for (i=0; i<=num_sulayer; i++)
         {
-            fscanf (fptr, "succlayer %d size: %d\n", &i, &a);
+            err = fscanf (fptr, "succlayer %d size: %d\n", &i, &a);
             succlayersizes[i] = a;
         }
-        fscanf (fptr, "merging layer: %d\n", &succmergelayer);
+        err = fscanf (fptr, "merging layer: %d\n", &succmergelayer);
     }
 
     lognormconst = lognorm_output;
     allocRNNMem (false);
     for (i=0; i<num_layer; i++)
     {
-        fscanf (fptr, "layer %d -> %d type: %s\n", &a, &b, word);
+        err = fscanf (fptr, "layer %d -> %d type: %s\n", &a, &b, word);
         string type = layertypes[i];
         assert (word == type);
         int nr = layersizes[i];
@@ -1219,13 +1221,13 @@ void RNNLM::LoadTextRNNLM_new (string modelname)
             int nr = layersizes[1];
             int nc = layersizes[2];
             layer1_succ[i] = new feedforwardlayer (nr, nc, minibatch, chunksize);
-            fscanf (fptr, "layer for succeeding word: %d type: %s\n", &a, word);
+            err = fscanf (fptr, "layer for succeeding word: %d type: %s\n", &a, word);
             layer1_succ[i]->Read (fptr);
         }
         layers_succ.resize (num_sulayer);
         for (int i=2; i<num_sulayer; i++)
         {
-            fscanf (fptr, "sulayer %d -> %d type: %s\n", &a, &b, word);
+            err = fscanf (fptr, "sulayer %d -> %d type: %s\n", &a, &b, word);
             int nr = succlayersizes[i];
             int nc = succlayersizes[i+1];
             if (i == num_sulayer-1)
@@ -1240,7 +1242,7 @@ void RNNLM::LoadTextRNNLM_new (string modelname)
         }
     }
 
-    fscanf (fptr, "%d", &a);
+    err = fscanf (fptr, "%d", &a);
     if (a != CHECKNUM)
     {
         printf ("ERROR: failed to read the check number(%d) when reading model\n", CHECKNUM);
@@ -2183,6 +2185,7 @@ bool RNNLM::sample (string textfile, string unigramfile, int n)
 void RNNLM::ReadUnigramFile (string unigramfile)
 {
     FILE *fin = fopen (unigramfile.c_str(), "r");
+    int err;
     char line[MAX_STRING];
     char line2[MAX_STRING];
     float prob = 0.0, logprob = 0.0;
@@ -2190,9 +2193,9 @@ void RNNLM::ReadUnigramFile (string unigramfile)
     char word[MAX_STRING];
     ooswordsvec.clear();
     ooswordsprob.clear();
-    fscanf (fin, "%s\n", line);  /*  \data\  */
-    fscanf (fin, "%s%s\n", line, line2);
-    fscanf (fin, "%sgram:\n", line);
+    err = fscanf (fin, "%s\n", line);  /*  \data\  */
+    err = fscanf (fin, "%s%s\n", line, line2);
+    err = fscanf (fin, "%sgram:\n", line);
     int i = 0;
     while (! feof(fin))
     {
@@ -2209,7 +2212,7 @@ void RNNLM::ReadUnigramFile (string unigramfile)
         }
         else
         {
-            fscanf (fin, "%s", word);
+            err = fscanf (fin, "%s", word);
         }
     }
     num_oosword = ooswordsprob.size();

@@ -415,6 +415,7 @@ void ReadFileBuf::Indexword(string word, int &Inindex, int &Outindex)
 void ReadFileBuf::FillBuffer()
 {
     int i;
+    int err;
     Matrix &inputbuf = *inputbufptr;
     Matrix &outputbuf = *outputbufptr;
     if (cachesize > 0)
@@ -424,8 +425,8 @@ void ReadFileBuf::FillBuffer()
             mbcnter ++;
             if (mbcnter <= mbcnt)
             {
-                fread (inputbuf[i], sizeof(int), minibatch, fptr_in);
-                fread (outputbuf[i], sizeof(int), minibatch, fptr_out);
+                err = fread (inputbuf[i], sizeof(int), minibatch, fptr_in);
+                err = fread (outputbuf[i], sizeof(int), minibatch, fptr_out);
             }
         }
     }
@@ -433,8 +434,8 @@ void ReadFileBuf::FillBuffer()
     {
         for (i=0; i<mbcnt; i++)
         {
-            fread (inputbuf[i], sizeof(int), minibatch, fptr_in);
-            fread (outputbuf[i], sizeof(int), minibatch, fptr_out);
+            err = fread (inputbuf[i], sizeof(int), minibatch, fptr_in);
+            err = fread (outputbuf[i], sizeof(int), minibatch, fptr_out);
         }
     }
 }
